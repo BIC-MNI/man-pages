@@ -1,32 +1,52 @@
-MINCRESHAPE
-1
-$Date: 2004-05-20 21:52:09 $
-mincreshape
-cuts a hyperslab out of a minc file (with dimension re-ordering)
-mincreshape
-&lt;options&gt;
-&lt;infile&gt;.mnc
-&lt;outfile&gt;.mnc
-DESCRIPTION
-===========
+# MINCRESHAPE
 
-*Mincreshape's* main job is to chop a hyperslab out of a minc file and put it into a new minc file. "What is a hyperslab?", you ask. It is simply a multi-dimensional box specified with a starting index (a vector giving a voxel coordinate) and a count vector (a number of voxels along each axis). A single slice out of a volume is a hyperslab (with a count of 1 in the slice direction), a small block pulled out of a large volume is a hyperslab, a single echo volume out of a multi-echo MRI dataset is a hyperslab, one time point out of a dynamic acquisition is a hyperslab - you get the idea. Check out the `-start`, `-count` and `-dimrange` options for more details on how to do this (and look at the examples!). If you are pulling out only one point along a dimension, you have the option of making the dimension disappear, so `mincreshape` gives you the ability to reduce the dimensionality of a minc file. As well, you aren't constrained to specify a hyperslab that is only within the input file, you can extend beyond the bounds of the dimensions in the input file, and furthermore you can give a count that will flip the data along a dimension.
+**mincreshape** cuts a hyperslab out of a minc file (with dimension re-ordering)
+`mincreshape <options> <infile>.mnc <outfile>.mnc 
 
-As if all that is not enough, `mincreshape` has the ability to re-order dimensions. The most obvious case is converting a transverse image into a coronal image. But you can type a list of dimension names to get an arbitrary order of dimensions.
+## DESCRIPTION
 
-You want more!?! Okay, okay. *Mincreshape* makes all of the minc library ICV operations available on the command line. For those who like things defined, an ICV is an image conversion variable (don't ask me why I called it that) which basically lets you tell the data what it's going to look like. In other words, it does a bunch of conversions for you. These conversions include changing type, range and normalization of the voxel values, expanding or contracting images (by voxel duplication or averaging) to give a specified image size, and converting vector images to scalar.
+**Mincreshape's** main job is to chop a hyperslab out of a minc file and put it 
+into a new minc file. "What is a hyperslab?", you ask. It is simply a 
+multi-dimensional box specified with a starting index (a vector giving a voxel 
+coordinate) and a count vector (a number of voxels along each axis). A single 
+slice out of a volume is a hyperslab (with a count of 1 in the slice direction), 
+a small block pulled out of a large volume is a hyperslab, a single echo volume 
+out of a multi-echo MRI dataset is a hyperslab, one time point out of a dynamic 
+acquisition is a hyperslab - you get the idea. Check out the `-start`, `-count` 
+and `-dimrange` options for more details on how to do this (and look at the 
+examples!). If you are pulling out only one point along a dimension, you have 
+the option of making the dimension disappear, so `mincreshape` gives you the 
+ability to reduce the dimensionality of a minc file. As well, you aren't 
+constrained to specify a hyperslab that is only within the input file, you can 
+extend beyond the bounds of the dimensions in the input file, and furthermore 
+you can give a count that will flip the data along a dimension.
 
-Just so you don't get confused let me tell you clearly here: `mincreshape` does all of the ICV conversions first and then the hyperslab and dimension re-ordering stuff is applied to the result of that. So if you want to mix them together (like `-imgsize`, `-start`, `-count`), get it clear in your head first.
+As if all that is not enough, `mincreshape` has the ability to re-order 
+dimensions. The most obvious case is converting a transverse image into a 
+coronal image. But you can type a list of dimension names to get an arbitrary 
+order of dimensions.
+
+You want more!?! Okay, okay. *Mincreshape* makes all of the minc library ICV 
+operations available on the command line. For those who like things defined, an 
+ICV is an image conversion variable (don't ask me why I called it that) which 
+basically lets you tell the data what it's going to look like. In other words, 
+it does a bunch of conversions for you. These conversions include changing type, 
+range and normalization of the voxel values, expanding or contracting images (by 
+voxel duplication or averaging) to give a specified image size, and converting 
+vector images to scalar.
+
+Just so you don't get confused let me tell you clearly here: `mincreshape` does 
+all of the ICV conversions first and then the hyperslab and dimension 
+re-ordering stuff is applied to the result of that. So if you want to mix them 
+together (like `-imgsize`, `-start`, `-count`), get it clear in your head first.
 
 Okay, hold on to your seat: here's a list of options.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create MINC 2.0 format output files.
@@ -46,8 +66,7 @@ Do not print out progress information.
 `-max_chunk_size_in_kb` size  
 Specify the maximum size of the copy buffer (in kbytes). Default is 4096 kbytes (4meg).
 
-Image conversion options (pixel type and range):
-================================================
+## Image conversion options (pixel type and range):
 
 The default for type, sign and valid range is to use those of the input file. If type is specified, then both sign and valid range are set to the default for that type. If sign is specified, then valid range is set to the default for the type and sign.
 
@@ -99,8 +118,7 @@ Replace out-of-range values in input file by the smallest possible value (defaul
 `-pixfillvalue` value  
 Specify a new pixel value to replace out-of-range values in the input file.
 
-Image conversion options (dimension direction and size):
-========================================================
+## Image conversion options (dimension direction and size):
 
 `-scalar`  
 Convert vector images to scalar images (a vector image is one with *vector\_dimension* as the fastest varying dimension). The vector dimension is removed and values are averaged.
@@ -117,7 +135,7 @@ Flip images to give negative step value for spatial axes.
 `-anydirection`  
 Don't flip images along spatial axes (default).
 
-*+xdirection*  
+`+xdirection`
 Flip images to give positive xspace:step value (left-to-right).
 
 `-xdirection`  
@@ -126,7 +144,7 @@ Flip images to give negative xspace:step value (right-to-left).
 `-xanydirection`  
 Don't flip images along x-axis.
 
-*+ydirection*  
+`+ydirection`
 Flip images to give positive yspace:step value (posterior-to-anterior).
 
 `-ydirection`  
@@ -135,7 +153,7 @@ Flip images to give negative yspace:step value (anterior-to-posterior).
 `-yanydirection`  
 Don't flip images along y-axis.
 
-*+zdirection*  
+`+zdirection`
 Flip images to give positive zspace:step value (inferior-to-superior).
 
 `-zdirection`  
@@ -162,8 +180,7 @@ Specify the desired number of columns in the image.
 `-dimsize` dimension=*size*  
 Specify the size of a named dimension (*dimension*=*size*). Note that the resizing only applies to "image dimensions" - usually the two fastest-varying (non-vector) dimensions. To do dimension resizing, all fastest-varying dimensions up to the named dimension are turned into image dimensions, and these are then affected by the direction options. The dimension name and size must be in one command-line argument, so if you use spaces (which is okay), remember to use quotes to hide them from the shell.
 
-Reshaping options:
-==================
+## Reshaping options:
 
 `-transverse`  
 Write out transverse slices.
@@ -186,8 +203,7 @@ Specifies the starting corner of the hyperslab (coordinates go from slowest vary
 `-count` size0,*size1*,*size2*,...  
 Specifies edge lengths of hyperslab to read (coordinates go from slowest varying dimension to fastest). If fewer sizes are given than dimensions exist in the file, then they are assumed to apply to the slowest varying dimensions and the remaining sizes are set to the full size of the dimension. See `-dimrange` for more details. Both `-start` and `-count` give vectors that correspond to input file dimensions after the image conversion (ICV) options have been applied.
 
-Missing data options:
-=====================
+## Missing data options:
 
 `-nofill`  
 Use value zero for points outside of the input volume (default).
@@ -198,8 +214,7 @@ Use a fill value for points outside of input volume (minimum possible value).
 `-fillvalue` value  
 Specify a fill value for points outside of the input volume (this is a real value, not a pixel value).
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -207,8 +222,7 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES:
-=========
+## EXAMPLES:
 
 Assume that we have a volume with dimensions zspace, yspace, xspace (that's transverse) and sizes 128, 256, 256. If we want to get slice 40 out of it (keeping the coordinate information for the zspace dimension), then we can use
 
@@ -254,17 +268,14 @@ Let's make sure that all dimensions have a negative step attribute (see option +
 
 mincreshape original.mnc new.mnc -direction -dimsize zspace=-1
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1994 by Peter Neelin
 
-SEE ALSO
-========
+## SEE ALSO
 
-mincresample1
+[mincresample]
