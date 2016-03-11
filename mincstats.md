@@ -1,13 +1,10 @@
-MINCSTATS
-1
-$Date: 2004-05-20 21:52:09 $
-mincstats
-calculate simple statistics across voxels of a minc file
-mincstats
-<options>
-<in1>.mnc
-DESCRIPTION
-===========
+# MINCSTATS
+
+mincstats calculate simple statistics across voxels of a minc file
+
+`mincstats <options> <in1>.mnc`
+
+## DESCRIPTION
 
 *Mincstats* will calculate simple statistical measures across all voxels of a minc file. Note that these are global statistical measures and not voxel-by-voxel measures (see *mincaverage* for that). By default all statistics are calculated. If any statistics are requested via a command-line option, then only the requested statistics are printed.
 
@@ -15,13 +12,11 @@ A very useful feature of this program is the ability to restrict the set of voxe
 
 Special mention should be given to histograms and related statistical measures. The default range of the histogram is from the smallest value in the file to the largest. In the not uncommon, but special, case when the number of histogram bins exactly matches the number of possible values in the file (e.g. 256 bins for full-range byte data), the histogram can end up with some odd features when using the default histogram range. This arises from the discretization of the data that are then rebinned into a slightly mismatched histgram. For the example of byte data, the values that should be used are 256 bins and a histogram range that extends half a bin below the smallest value and half a bin above the largest. Use option `-discrete_histogram` to work this out automatically, or use `-integer_histogram` to have bins of unit width if the input data are inherently integer (e.g. label data). In general, one should be careful about the rebinning of discretized data to a histogram with a bin size that is close to the level of discretization.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line. The order in which the statistics are printed will be always the same irrespective or the order in which they are requested on the command line
 
-General options
-===============
+## General options
 
 `-clobber`  
 Overwrite an existing file.
@@ -38,8 +33,7 @@ Print out only the requested numbers
 `-max_buffer_size_in_kb` size  
 Specify the maximum size of the internal buffers (in kbytes). Default is 4 MB.
 
-Invalid value options
-=====================
+## Invalid value options
 
 `-ignore_nan`  
 Exclude invalid values (outside valid range) from statistic calculations. This is the default.
@@ -50,8 +44,7 @@ Treat invalid values as zeros and include them in statistic calculations.
 `-replace_nan` value  
 Replace invalid values with the specified value and include the new value in statistic calculations.
 
-Volume range options
-====================
+## Volume range options
 
 `-floor` min1,*min2*,...  
 Comma-separated list of lower bounds for ranges of data to include in statistic calculation.
@@ -80,8 +73,7 @@ Like `-range`, but applied to the mask file.
 `-mask_binvalue` val1,*val2*,...  
 Like `-binvalue`, but applied to the mask file.
 
-Histogram options
-=================
+## Histogram options
 
 `-histogram` filename  
 Specify the name of a file into which the histogram is written. If multiple ranges or mask ranges are specified, then all histograms are written in this file, separated by blank lines. Information describing each histogram is written before it in lines starting with the hash (pound) character. These files can be loaded into gnuplot.
@@ -110,8 +102,7 @@ Attempt to match the histogram to the discretization of the input data. This is 
 `-int_max_bins` number-of-bins  
 Specify the largest histogram that can be automatically sized with the above options. The limit prevents accidental creation of huge histograms. This option replaced the old `-max_bins` option in MINC 1.1.
 
-Basic statistics
-================
+## Basic statistics
 
 `-all`  
 Compute all statistical measures. This is the default.
@@ -164,8 +155,7 @@ Synonym for `-CoM`.
 `-world_only`  
 Print the centre of mass in world coordinates only.
 
-Histogram statistics
-====================
+## Histogram statistics
 
 Note that histogram statistics are derived solely from the histogram counts and bin centres, so results such as the median will not be exactly the same as the true value for all included voxels. For example, the error on the median can be as large as a half bin width. Furthermore, if the histogram range is less than that of included voxels, then the result applies only to voxels included in the histogram.
 
@@ -206,8 +196,7 @@ H(x) = - Sum(P(i) \* log2(P(i))
 
 where P(i) is the bin probability
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -215,14 +204,11 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Program: Copyright © 2000 by Andrew Janke
-
 Man page: Copyright © 2001 by Peter Neelin

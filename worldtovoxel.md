@@ -1,8 +1,8 @@
 # VOXELTOWORLD
 
-voxeltoworld convert voxel coordinates to world coordinates
+worldtovoxel convert world coordinates to voxel coordinates
 
-`voxeltoworld filename v1 v2 v3`
+`worldtovoxel filename x y z`
 
 ## DESCRIPTION
 
@@ -32,4 +32,4 @@ Copyright © 1993 by Peter Neelin
 
 ## See also
 
-[worldtovoxel](worldtovoxel.md)
+[voxeltoworld](voxeltoworld.md)
