@@ -1,17 +1,11 @@
-MINCCONVERT
-1
-$Date: 2004-05-20 21:52:08 $
-mincconvert
-convert between MINC 1 to MINC 2 format.
-mincconvert
--clobber
--2
-infile
-outfile
-mincconvert
--help
-DESCRIPTION
-===========
+# MINCCONVERT
+
+mincconvert convert between MINC 1 to MINC 2 format.
+
+`mincconvert -clobber -2 infile outfile`
+`mincconvert -help`
+
+## DESCRIPTION
 
 `mincconvert` copies the input file to the output file, possibly converting the file from MINC 1 to MINC 2 format, or vice versa.
 
@@ -19,8 +13,7 @@ With the `-template` flag, `mincconvert` creates a "template" volume from the in
 
 The resulting file is typically much shorter than a normal MINC volume, and may be useful for scripts which want to carry such structural information forward into their output files. As a hint to future programmers and users, this program places a special global attribute in the file, with the name *class* and the value *template*.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-2`  
 Create a MINC 2 format file
@@ -43,12 +36,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Bert Vincent - bert@bic.mni.mcgill.ca
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 2003 by Robert Vincent and the Montreal Neurological Institute.

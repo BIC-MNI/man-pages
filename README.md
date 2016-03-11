@@ -12,12 +12,12 @@ legacy .man files to github-style markup format and then manually corrected.
   * [mincdiff](mincdiff.md) - report differences between minc files
   * [voxeltoworld](voxeltoworld.md)
 * file format conversion
-  * [rawtominc](rawtominc.md)
-  * [mincconvert](mincconvert.md)
-  * [dcm2mnc](dcm2mnc.md)
-  * [ecattominc](ecattominc.md)
-  * [minctoecat](minctoecat.md)
-  * [minctoraw](minctoraw.md)
+  * [rawtominc](rawtominc.md) - converts a stream of binary image data to a minc format file
+  * [mincconvert](mincconvert.md) - convert between MINC 1 to MINC 2 format.
+  * [dcm2mnc](dcm2mnc.md) - convert sets of DICOM files to one or more MINC format files.
+  * [ecattominc](ecattominc.md) - convert an ecat format file (version 6.x or 7.x) to a minc format file
+  * [minctoecat](minctoecat.md) - convert a minc format file to an Ecat7 format file
+  * [minctoraw](minctoraw.md) - copy data from a MINC file
   * [mnc2nii](mnc2nii.md)
   * [nii2mnc](nii2mnc.md)
   * [upet2mnc](upet2mnc.md)
