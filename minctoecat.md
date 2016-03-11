@@ -3,9 +3,9 @@ minctoecat
 minctecat
 convert a minc format file to an Ecat7 format file
 minctoecat
-&lt;options&gt;
-&lt;infile.mnc&gt;
-&lt;outfile.v&gt;
+<options>
+<infile.mnc>
+<outfile.v>
 minctoecat
 -help
 DESCRIPTION

@@ -3,10 +3,10 @@ MRITOSELF
 mritoself
 intra-subject registration of two volumetric data sets
 mritoself
-&lt;options&gt;
-&lt;source.mnc&gt;
-&lt;target.mnc&gt;
-&lt;xform.xfm&gt;
+<options>
+<source.mnc>
+<target.mnc>
+<xform.xfm>
 DESCRIPTION
 ===========
 
@@ -26,7 +26,7 @@ A two step fitting process is then applied to calculate the registration transfo
 
 If an initial transformation is available, it can be used with the '-transform' option. This will overide the '-identity' transform used in the first fit described above.
 
-*option* &lt;val&gt;: description of option
+*option* <val>: description of option
 
 Generic options
 ===============

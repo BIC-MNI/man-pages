@@ -4,9 +4,9 @@ $Date: 2004-05-20 21:52:08 $
 mincmakescalar
 convert vector minc files to scalar
 mincmakescalar
-&lt;options&gt;
-&lt;in&gt;.mnc
-&lt;out&gt;.mnc
+<options>
+<in>.mnc
+<out>.mnc
 DESCRIPTION
 ===========
 

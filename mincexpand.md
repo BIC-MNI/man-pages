@@ -4,9 +4,9 @@ $Date: 2004-05-20 21:52:08 $
 mincexpand
 expands a compressed minc file, if necessary.
 mincexpand
-&lt;options&gt;
-&lt;infile&gt;
-&lt;outfile&gt;
+<options>
+<infile>
+<outfile>
 DESCRIPTION
 ===========
 

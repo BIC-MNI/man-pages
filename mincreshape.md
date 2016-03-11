@@ -279,4 +279,4 @@ Copyright © 1994 by Peter Neelin
 
 ## SEE ALSO
 
-[mincresample](mincresample)
+[mincresample.md](mincresample)

@@ -31,7 +31,7 @@ DESCRIPTION
 
 Z:C\_format = "%.3g"
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 `mincdump` may also be used as a simple browser for netCDF data files, to display the dimension names and sizes; variable names, types, and shapes; attribute names and values; and optionally, the values of data for all variables or selected variables in a netCDF file.
 
 `mincdump` uses \`\_' to represent data values that are equal to the \`\_FillValue' attribute for a variable, intended to represent data that has not yet been written. If a variable has no \`\_FillValue' attribute, the default fill value for the variable type is used if the variable is not of byte type.
@@ -70,22 +70,22 @@ Look at the structure of the data in the netCDF file \`*foo.mnc*':
 
 mincdump -c foo.mnc
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 Produce an annotated CDL version of the structure and data in the netCDF file \`*foo.mnc*', using C-style indexing for the annotations:
 
-mincdump -b c foo.mnc &gt; foo.cdl
+mincdump -b c foo.mnc > foo.cdl
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 Output data for only the variables \`uwind' and \`vwind' from the netCDF file \`*foo.mnc*', and show the floating-point data with only three significant digits of precision:
 
 mincdump -v uwind,vwind -p 3 foo.mnc
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 Produce a fully-annotated (one data value per line) listing of the data for the variable \`omega', using Fortran conventions for indices, and changing the netCDF dataset name in the resulting CDL file to \`omega':
 
-mincdump -v omega -f fortran -n omega foo.mnc &gt; Z.cdl
+mincdump -v omega -f fortran -n omega foo.mnc > Z.cdl
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 AUTHOR
 ======
 

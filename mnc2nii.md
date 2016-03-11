@@ -4,9 +4,9 @@ Apr 22 2005
 $Revision: 1.3 $
 convert a MINC format file to a NIfTI-1 or Analyze format file.
 mnc2nii
-&lt;options&gt;
-&lt;infile.mnc&gt;
-&lt;outfile.mnc&gt;
+<options>
+<infile.mnc>
+<outfile.mnc>
 mnc2nii
 -help
 DESCRIPTION

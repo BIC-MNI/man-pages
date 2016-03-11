@@ -4,8 +4,8 @@ $Date: 2004-05-20 21:52:09 $
 mincblob
 calculate blobs from minc deformation grids
 mincblob
-&lt;options&gt;
-&lt;in1&gt;.mnc
+<options>
+<in1>.mnc
 DESCRIPTION
 ===========
 

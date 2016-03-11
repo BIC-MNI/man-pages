@@ -4,9 +4,9 @@ May 03 2005
 $Revision: 1.3 $
 convert a Concorde microPET format file to a MINC format file.
 upet2mnc
-&lt;options&gt;
-&lt;infile&gt;
-&lt;outfile.mnc&gt;
+<options>
+<infile>
+<outfile.mnc>
 upet2mnc
 -help
 DESCRIPTION

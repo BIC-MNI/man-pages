@@ -4,8 +4,8 @@ $Date: 2004-05-25 21:33:11 $
 minc\_modify\_header
 modify the attributes in the header of a minc file
 minc\_modify\_header
-&lt;options&gt;
-&lt;file&gt;.mnc
+<options>
+<file>.mnc
 DESCRIPTION
 ===========
 

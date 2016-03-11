@@ -1,21 +1,16 @@
-MINCINFO
-1
-$Date: 2004-05-20 21:52:08 $
-mincinfo
-print out specified information about a minc file
-mincinfo
-&lt;options&gt;
-&lt;file&gt;
-&lt;file&gt;
-DESCRIPTION
-===========
+# MINCINFO
+
+mincinfo print out specified information about a minc file
+
+`mincinfo <options> <file> <file>`
+
+## DESCRIPTION
 
 `mincinfo` will print out either a general description of a minc file (type, sign and range of data, plus a brief description of dimensions and their order), or specific information about dimensions, variables or attributes in the file. This program can be very useful for building shell scripts that access minc files.
 
 All information given by `mincinfo` is presented as read from the file with no transformation. This means that start and step values, for example, are not in the world coordinate system. To display the start values for a file in world coordinates, use *voxeltoworld*.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line. Dimensions, variables and attributes are all specified by name. Attributes are specified by *variable:attribute* where *variable* can be omitted to specify global attributes. More than one option can be specified, in which case the return value from each option is printed on a separate line (`-image_info` prints on many lines) in the order of the options on the command line.
 
@@ -58,8 +53,7 @@ Print summary of command-line options and abort.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES
-========
+## EXAMPLES
 
 Print out standard information about a minc file.
 
@@ -81,17 +75,14 @@ Print out the names of the dimensions subscripting the image variable.
 
 mincinfo file.mnc -vardims image
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1993 by Peter Neelin
 
-SEE ALSO
-========
+## SEE ALSO
 
-voxeltoworld1
+[voxeltoworld](voxeltoworld) [minc_modify_header](minc_modify_header) [mincheader](mincheader)

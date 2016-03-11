@@ -4,10 +4,10 @@ MINC User's Guide
 mincsample
 generate samplings from minc files.
 mincsample
-&lt;options&gt;
-&lt;in1.mnc&gt;
-&lt;in2.mnc&gt;
-&lt;..&gt;
+<options>
+<in1.mnc>
+<in2.mnc>
+<..>
 DESCRIPTION
 ===========
 

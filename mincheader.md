@@ -5,7 +5,7 @@ mincheader
 prints out header information for a minc file
 mincheader
 -data
-&lt;infile&gt;
+<infile>
 DESCRIPTION
 ===========
 

@@ -5,8 +5,8 @@ mritotal
 performs multi-scale fitting of a normal human brain to a standard model
 mritotal
 options
-&lt;source&gt;
-&lt;output&gt;
+<source>
+<output>
 mritotal
 -help
 Options can come in any order, be intermixed with the required arguments, and be abbreviated as long as they are not ambiguous.
@@ -28,13 +28,13 @@ Options may be abbreviated as long as they are not ambiguous; the full list of o
 
 These options can also be set in the configuration file (/usr/local/etc/mni\_autoreg/mritotal.cfg). In fact, system-wide defaults should be set there by the installer of the MNI Auto Registration Package. That way, most users will never have to worry about the -model or -protocol options. See the CONFIGURATION AND PROTOCOL FILES section below for full information.
 
--modeldir &lt;dir&gt;  
+-modeldir <dir>  
 Tells mritotal the default directory to search for model files. That way, you can just put all model files in one directory, and refer to them by supplying just the basename to the "-model" option.
 
--model &lt;basename&gt;  
+-model <basename>  
 Tells mritotal the base filename of the model files to use for fitting. For instance, the default model files (available as mni-models\_average305-lin-1.1.tar.gz) are average305\_t1\_tal\_lin.mnc, average305\_t1\_tal\_lin\_16\_blur.mnc, average305\_t1\_tal\_lin\_\_8\_blur.mnc, and others... It makes sense to install these all in the same directory (specified with -modeldir), and just use "-model average305\_t1\_tal\_li" to pick these model files. (Of course, this particular example is not necessary -- mritotal's built-in default is to look for the average305\_t1\_tal\_lin model files. -model is only needed if you wish to use an alternate set of model files.) Note that if the base filename specified by -model starts with a "/" (i.e., it's an absolute path), then the directory specified by -modeldir is ignored.
 
--protocol &lt;protocol&gt;  
+-protocol <protocol>  
 Tells mritotal what "protocol" to use for preprocessing. This is done by loading a specially named file, e.g. "mritotal.foo.cfg" for protocol "foo". Protocol files are explained in the CONFIGURATION AND PROTOCOL FILES section below.
 
 *User Preferences*
@@ -53,7 +53,7 @@ Overwrite the output file (and tell mincblur and minctracc to clobber their outp
 -debug (default is -nodebug)  
 Print lots of debugging output. (This doesn't actually change what mritotal prints out, only what minctracc and mincblur print out.)
 
--tmpdir &lt;dir&gt;  
+-tmpdir <dir>  
 Change the directory used by mritotal for temporary files. Note that this directory (and everything in it) will be deleted when mritotal finishes, unless you also use the -keeptmp option.
 
 -keeptmp (default is -nokeeptmp)  
@@ -69,27 +69,27 @@ Choose linear mode of operation. This is the default.
 -nonlinear  
 Choose the nonlinear mode of operation.
 
--objective &lt;obj&gt; (default: xcorr)  
+-objective <obj> (default: xcorr)  
 Specify the objective function to use for fitting in linear steps. You can use any of the objective functions supported by minctracc (do "minctracc -help" for an up-to-date list); currently, these are:
 
 xcorr cross-correlation mi mutual information \[Collignon\] vr variance of ratios \[Woods\] zscore normalized difference ssc stochasic sign change
 
 Only cross-correlation has been thoroughly tested and routinely used for fitting MRI data to Talairach space with mritotal.
 
--firstobj &lt;obj&gt; (default: none)  
+-firstobj <obj> (default: none)  
 Specify the objective function to use for the first fit only. The default is just to use the main objective, as specified by -objective.
 
--startlevel &lt;level&gt;  
+-startlevel <level>  
 In nonlinear mode, specify the level of detail to begin at. The default is to begin at level 16 (i.e. 16mm blur).
 
--stoplevel &lt;level&gt;  
+-stoplevel <level>  
 In nonlinear mode, specify the level of detail to stop at. The default is level 8 (i.e. 8mm blur).
 
 *Other Options*
 
 These options can only be specified on the command line.
 
--transformation &lt;xfmfile&gt;  
+-transformation <xfmfile>  
 Use the specified transformation file to initialize the fit. If this option is used, mritotal will skip the first several fitting steps (except using principal axes to determine the "centre of gravity" of the input volume; this is still needed for the centre of rotations and scales.) In particular, fitting will start with the first full nine-parameter fit. This is particularly useful when dealing with slightly abnormal anatomy; in these cases, the fully automated method may fail, whereas a rough manual registration can be performed to "seed" the last few steps of the automated registration.
 
 PREPROCESSING
@@ -103,10 +103,10 @@ Disable subsampling.
 -guess\_subsample (default)  
 Use a simple heuristic to determine the new sampling frequency for the data. In particular, mritotal subsamples any dimension with a step size of less than 1.5 mm by halving the sampling frequency (or doubling the step) in that dimension.
 
--isosubsample &lt;step&gt;  
+-isosubsample <step>  
 Subsample all three spatial dimensions using the same step size.
 
--subsample &lt;xstep&gt; &lt;ystep&gt; &lt;zstep&gt;  
+-subsample <xstep> <ystep> <zstep>  
 Subsample the three spatial dimensions independantly, using the specified step size.
 
 The options that control cropping are quite similar:
@@ -117,10 +117,10 @@ Disable cropping.
 -guess\_crop (default)  
 Use a simple heuristic to determine the cropping of the volume. In particular, mritotal removes any data more than 190mm below the top of the volume. This works reasonably well as long as the top of the subject's head is close to the top of the scanning volume, and the subject is a normal adult human.
 
--isocrop &lt;crop&gt;  
+-isocrop <crop>  
 Crop all three spatial dimensions using the same crop specification (explained below).
 
--crop &lt;xcrop&gt; &lt;ycrop&gt; &lt;zcrop&gt;  
+-crop <xcrop> <ycrop> <zcrop>  
 Crop the three spatial dimensions independantly, using the three crop specifications (explained below).
 
 A crop specification is a pair of numbers that specify the amount to chop off each end of an axis. (Actually, these numbers specify how much to *extend* the axis by, so you must give negative numbers to chop data off. That's because crop specifications are simply passed to *autocrop,* which likes to extend dimensions by default.) The first number specifies how much to chop off the low end of the axis, and the second specifies how much to chop off the high end. Note that these are "low" and "high" in the sense implied by the MINC standard, i.e. the low end of the x axis is the patient's left, low y is patient posterior, and low z is patient inferior -- independent of the order or orientation of your data. Finally, the numbers can be specified in voxels, millimetres, or as a percentage of the original dimension extent.
@@ -147,7 +147,7 @@ CONFIGURATION AND PROTOCOL FILES
 
 Through the configuration and protocol files, mritotal provides a flexible mechanism to specify site- and data-specific options. These are simply files with command-line options in them; comments (from any \# character to end-of-line) and blank lines are ignored. Also, only certain subsets of the command line options are allowed in each file.
 
-Typically, there will be one global configuration file, and at least one global protocol file (these both live in /usr/local/etc/mnireg); users may also have their own files that live in their home directories. The configuration file (regardless of the directory it's in) is called mritotal.cfg, and the protocol files are named like mritotal.&lt;protocol&gt;.cfg, where &lt;protocol&gt; is the name of the protocol. This is specified by the -protocol option, which can appear either on the command line or in the configuration file. Usually, the configuration file will include "-protocol default", which means that the protocol file mritotal.default.cfg will be loaded from either the user's home directory or /usr/local/etc/mnireg (but not both).
+Typically, there will be one global configuration file, and at least one global protocol file (these both live in /usr/local/etc/mnireg); users may also have their own files that live in their home directories. The configuration file (regardless of the directory it's in) is called mritotal.cfg, and the protocol files are named like mritotal.<protocol>.cfg, where <protocol> is the name of the protocol. This is specified by the -protocol option, which can appear either on the command line or in the configuration file. Usually, the configuration file will include "-protocol default", which means that the protocol file mritotal.default.cfg will be loaded from either the user's home directory or /usr/local/etc/mnireg (but not both).
 
 The exact rules dealing with configuration and protocol files are:
 
@@ -167,7 +167,7 @@ minctracc1, mincblur1, autocrop1
 AUTHORS
 =======
 
-mritotal was originally written as a C shell script by Louis Collins &lt;louis@nil.mni.mcgill.ca&gt;, who also devised the algorithm under the direction of Dr. Alan Evans &lt;alan@pet.mni.mcgill.ca&gt; and Dr. Terry Peters &lt;terry@nil.mni.mcgill.ca&gt; at the McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. It was originally translated to Perl by Graeme O'Keefe, and completely rewritten using Perl 5 by Greg Ward &lt;greg@pet.mni.mcgill.ca&gt; (who also made some improvements to the preprocessing stage). minctracc, mincblur, volume\_cog, and check\_scale are all by Louis Collins and are distributed along with mritotal; autocrop is by Greg Ward and is distributed with mritotal; mincresample and mincreshape are by Peter Neelin &lt;neelin@pet.mni.mcgill.ca&gt; and are distributed as part of the MINC package. Copyright (c) 1993-95 by Louis Collins and Greg Ward.
+mritotal was originally written as a C shell script by Louis Collins <louis@nil.mni.mcgill.ca>, who also devised the algorithm under the direction of Dr. Alan Evans <alan@pet.mni.mcgill.ca> and Dr. Terry Peters <terry@nil.mni.mcgill.ca> at the McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. It was originally translated to Perl by Graeme O'Keefe, and completely rewritten using Perl 5 by Greg Ward <greg@pet.mni.mcgill.ca> (who also made some improvements to the preprocessing stage). minctracc, mincblur, volume\_cog, and check\_scale are all by Louis Collins and are distributed along with mritotal; autocrop is by Greg Ward and is distributed with mritotal; mincresample and mincreshape are by Peter Neelin &lt;neelin@pet.mni.mcgill.ca> and are distributed as part of the MINC package. Copyright (c) 1993-95 by Louis Collins and Greg Ward.
 
 AVAILABILITY
 ============

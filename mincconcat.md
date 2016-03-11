@@ -4,10 +4,10 @@ $Date: 2005-07-15 17:38:08 $
 mincconcat
 concatenate minc files along a specific dimension
 mincconcat
-&lt;options&gt;
-&lt;infile1&gt;.mnc
-&lt;infile2&gt;.mnc
-&lt;outfile&gt;.mnc
+<options>
+<infile1>.mnc
+<infile2>.mnc
+<outfile>.mnc
 DESCRIPTION
 ===========
 

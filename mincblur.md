@@ -3,9 +3,9 @@ MINCBLUR
 mincblur
 convolve an input volume with a Gaussian blurring kernel.
 mincblur
-&lt;options&gt;
-&lt;source&gt;
-&lt;output\_basename&gt;
+<options>
+<source>
+<output\_basename>
 DESCRIPTION
 ===========
 
@@ -20,16 +20,16 @@ Specification of blurring kernel.
 
 One of the following options must be used to specify the size of the blurring kernel: -fwhm, -standarddev, -3Dfwhm, where
 
-`-fwhm` &lt;val&gt;: Specifies the full-width-half-maximum of the iso-tropic 3D Gaussian blurring kernel.
+`-fwhm` <val>: Specifies the full-width-half-maximum of the iso-tropic 3D Gaussian blurring kernel.
 
-`-standarddev` &lt;val&gt;: Specifies the sigma iso-tropic 3D Gaussian blurring kernel.
+`-standarddev` <val>: Specifies the sigma iso-tropic 3D Gaussian blurring kernel.
 
-`-3Dfwhm` &lt;valx&gt; &lt;valy&gt; &lt;valz&gt;: Specifies the full-width-half-maximum in the x, y and z directions of the non-isotropic 3D Gaussian blurring kernel.
+`-3Dfwhm` <valx> <valy> <valz>: Specifies the full-width-half-maximum in the x, y and z directions of the non-isotropic 3D Gaussian blurring kernel.
 
 Other options
 =============
 
-`-dimensions` &lt;1|2|3&gt;: Number of dimensions to blur. -dim 1 blurs only in the z direction, useful for simulating thick slices. -dim 2 blurs only in the xy plane. -dim 3 blur all 3 dimensions and is the default.
+`-dimensions` <1|2|3>: Number of dimensions to blur. -dim 1 blurs only in the z direction, useful for simulating thick slices. -dim 2 blurs only in the xy plane. -dim 3 blur all 3 dimensions and is the default.
 
 `-gaussian:` Use a gaussian smoothing kernel (default).
 
@@ -50,7 +50,7 @@ In order to create any gradient data, it is necessary to temporarily store the b
 Options for logging progress.
 =============================
 
-`-verbose` &lt;val&gt;: Write verbose messages indicating progress (default = 1).
+`-verbose` <val>: Write verbose messages indicating progress (default = 1).
 
 `-quiet:` Do not write log messages
 

@@ -32,12 +32,12 @@ Check the syntax of the CDL file \`*foo.cdl*':
 
 mincgen foo.cdl
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 From the CDL file \`*foo.cdl*', generate an equivalent binary MINC file named \`*x.mnc*':
 
 mincgen -o x.mnc foo.cdl
 
-&lt;/blockquote&gt;RE
+</blockquote>RE
 USAGE
 =====
 

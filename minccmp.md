@@ -4,10 +4,10 @@ $Date: 2010-03-02 12:12:20 $
 minccmp
 compare one or more minc file using comparator operators
 minccmp
-&lt;options&gt;
-&lt;in1.mnc&gt;
-&lt;in2.mnc&gt;
-&lt;inn.mnc&gt;
+<options>
+<in1.mnc>
+<in2.mnc>
+<inn.mnc>
 DESCRIPTION
 ===========
 

@@ -42,7 +42,7 @@ The up and down arrow keys navigate between the tag point fields.
 
 The left and right arrow keys increase or decrease the displayed slice coordinate for the volume under the mouse pointer.
 
-The '&gt;' and '&lt;' keys will step forward and backward in the time dimension of the volume under the mouse pointer, if possible.
+The '>' and '<' keys will step forward and backward in the time dimension of the volume under the mouse pointer, if possible.
 
 The 'S' key will save the slice image under the mouse in a file named "register\_image\_NNN.tiff".
 

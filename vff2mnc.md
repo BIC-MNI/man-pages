@@ -4,9 +4,9 @@ Jul 10 2006
 $Revision: 1.2 $
 convert set of vff file(s) to one 3D MINC2.0 format file.
 vff2mnc
-&lt;options&gt;
-&lt;output-file&gt;
-&lt;input-list&gt;
+<options>
+<output-file>
+<input-list>
 vff2mnc
 -help
 DESCRIPTION

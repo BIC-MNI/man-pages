@@ -4,9 +4,9 @@ $Date: 2004-05-20 21:52:08 $
 minclookup
 perform lookup table conversions on minc files
 minclookup
-&lt;options&gt;
-&lt;in1&gt;.mnc
-&lt;out&gt;.mnc
+<options>
+<in1>.mnc
+<out>.mnc
 DESCRIPTION
 ===========
 
@@ -154,7 +154,7 @@ minclookup -discrete -lut\_string '2 4;3 5' BSOL in\_labels.mnc out\_labels.mnc
 
 To get a grey RGB file, with red for values less than the minimum and green for values greater than the minimum, you can give two zero entries and two one entries. The first zero is used for negative values, the second zero is used for interpolation to the next entry. There is no ambiguity about how to handle a value of exactly zero because the first and last values of the table are handled in a special way to make sure that they are treated as within range if this sort of two-entry situation occurs.
 
-minclookup -lookup\_table - input.mnc output.mnc &lt;&lt;EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF
+minclookup -lookup\_table - input.mnc output.mnc <<EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF
 
 To invert a scalar image, you could use minclookup:
 

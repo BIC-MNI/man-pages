@@ -3,10 +3,10 @@ MINCTRACC
 minctracc
 estimates the spatial transformation required to register two volumes together.
 minctracc
-&lt;options&gt;
-&lt;source&gt;
-&lt;target&gt;
-&lt;output&gt;
+<options>
+<source>
+<target>
+<output>
 minctracc
 -help
 DESCRIPTION
@@ -36,7 +36,7 @@ The third option is used when the two volumes are already fairly closely aligned
 
 Once the matrix is specified, the program extracts the transformation parameters (translations, rotations, scales and shears) and optimizes these parameters when trying to find the best transformation.
 
-When the user specifies a transformation matrix (other than PAT), the default center is 0,0,0. The user can can change this in two ways: 1) the '-center &lt;cx&gt; &lt;cy&gt; &lt;cz&gt;' option permits direct input of the center to be used, 2) the '-est\_center' option tells the program to estimate and use the center of gravity of the source volume. Note that it is a good idea to have a reasonable guess for the center of rotation and scaling since it makes the parameters more orthogonal to each other (e.g. a small change in rotation will not grossly affect the translations).
+When the user specifies a transformation matrix (other than PAT), the default center is 0,0,0. The user can can change this in two ways: 1) the '-center <cx> <cy> <cz>' option permits direct input of the center to be used, 2) the '-est\_center' option tells the program to estimate and use the center of gravity of the source volume. Note that it is a good idea to have a reasonable guess for the center of rotation and scaling since it makes the parameters more orthogonal to each other (e.g. a small change in rotation will not grossly affect the translations).
 
 Note that when estimating a non-linear registration, if no transformation is given as input, the program will estimate a linear transformation first. If you are interested in only the non-linear transformation, then use -identity.
 
@@ -50,7 +50,7 @@ Initial transformation information.
 
 These are the options used to specify the initial starting conditions for the optimization of the transformation parameters.
 
-`-transformation` &lt;filename.xfm&gt;: Specify a file giving the world coordinate transformation mapping points from the source into the target space.
+`-transformation` <filename.xfm>: Specify a file giving the world coordinate transformation mapping points from the source into the target space.
 
 `-identity:` Use identity transformation for starting point.
 
@@ -62,7 +62,7 @@ These are the options used to specify the initial starting conditions for the op
 
 Note that the four previous options (-est\_\*) are not mutually exclusive. You can, for example, use '-est\_center -est\_translations' to estimate the center of rotation and scaling, as well as the initial translation componant required to register the centers of gravity of the two volumes.
 
-`-center` &lt;xcent&gt; &lt;ycent&gt; &lt;zcent&gt;: Force the center of rotation and scale.
+`-center` <xcent> <ycent> <zcent>: Force the center of rotation and scale.
 
 `-no_clobber:` Do not overwrite output file (default).
 
@@ -91,16 +91,16 @@ The type of output file can be constrained depending on the type of registration
 
 `-procrustes:` Return a procrustes transformation (3 trans, 3 rots, 1 scale), same as -lsq7. This is the default.
 
-`-forward:` Recover forward transformation (source -&gt; model, default).
+`-forward:` Recover forward transformation (source -> model, default).
 
-`-invert:` Recover inverted transformation (model -&gt; source).
+`-invert:` Recover inverted transformation (model -> source).
 
 Options for mask volumes.
 =========================
 
-`-model_mask` &lt;filename&gt;: Specifies a binary mask file for the target. Any data voxel whose world coordinate falls in a zero-valued voxel in the mask is ignored in the calculation of the objective function.
+`-model_mask` <filename>: Specifies a binary mask file for the target. Any data voxel whose world coordinate falls in a zero-valued voxel in the mask is ignored in the calculation of the objective function.
 
-`-source_mask` &lt;filename&gt;: Specifies a binary mask file for the source.
+`-source_mask` <filename>: Specifies a binary mask file for the source.
 
 Interpolation options.
 ======================
@@ -124,28 +124,28 @@ Optimization objective functions.
 
 `-mi:` Use mutual information similarity measure \[1\].
 
-`-groups` &lt;num&gt;: Number of groups for -vr and -mi (default = 16).
+`-groups` <num>: Number of groups for -vr and -mi (default = 16).
 
-`-threshold` &lt;thresh1&gt; &lt;thresh2&gt;: Lower limit for voxel threshold (default = 0.0 0.0). Lattice nodes with voxel values below this limit are ignored in the objective function. The threshold applies when -xcorr, -vr, -mi or -zscore are used as the objective function.
+`-threshold` <thresh1> <thresh2>: Lower limit for voxel threshold (default = 0.0 0.0). Lattice nodes with voxel values below this limit are ignored in the objective function. The threshold applies when -xcorr, -vr, -mi or -zscore are used as the objective function.
 
-`-speckle` &lt;val&gt;: Percent speckle noise to add to source (default = 5). This option applies only when -ssc is used as the objective function.
+`-speckle` <val>: Percent speckle noise to add to source (default = 5). This option applies only when -ssc is used as the objective function.
 
 Options for linear optimization.
 ================================
 
 Simplex optimization is used to maximize/minimize the objective function to find the best transformation parameters.
 
-`-tol` &lt;val&gt;: Stopping criteria tolerance (default = 0.005). The optimization will stop when tol&gt; (f\_max-f\_min)/(f\_max+f\_min), where f\_max and f\_min are the maximum and minimum values of the objective function in the Simplex.
+`-tol` <val>: Stopping criteria tolerance (default = 0.005). The optimization will stop when tol> (f\_max-f\_min)/(f\_max+f\_min), where f\_max and f\_min are the maximum and minimum values of the objective function in the Simplex.
 
-`-simplex` &lt;val&gt;: Radius of simplex volume (default = 20). This is measured in units of millimeters on the spatial axis, degrees of rotation or percentage scale on the scaling dimensions. When the initial estimate is know to be relatively good, the simplex radius should be reduced to the level of certainty of the input parameters.
+`-simplex` <val>: Radius of simplex volume (default = 20). This is measured in units of millimeters on the spatial axis, degrees of rotation or percentage scale on the scaling dimensions. When the initial estimate is know to be relatively good, the simplex radius should be reduced to the level of certainty of the input parameters.
 
-`-w_translations` &lt;w\_tx&gt; &lt;w\_ty&gt; &lt;w\_tz&gt;: Optimization weight of translation in x, y, z (default = 1.0 1.0 1.0).
+`-w_translations` <w\_tx> <w\_ty> <w\_tz>: Optimization weight of translation in x, y, z (default = 1.0 1.0 1.0).
 
-`-w_rotations` &lt;w\_rx&gt; &lt;w\_ry&gt; &lt;w\_rz&gt;: Optimization weight of rotations around x, y, z (default = 0.0174533 0.0174533 0.0174533). Internally, the rotations are stored as radians, although all user input is in degrees. The value 0.0174533 makes one degree equivalent to 1 mm in the optimization.
+`-w_rotations` <w\_rx> <w\_ry> <w\_rz>: Optimization weight of rotations around x, y, z (default = 0.0174533 0.0174533 0.0174533). Internally, the rotations are stored as radians, although all user input is in degrees. The value 0.0174533 makes one degree equivalent to 1 mm in the optimization.
 
-`-w_scales` &lt;w\_sx&gt; &lt;w\_sy&gt; &lt;w\_sz&gt;: Optimization weight of scaling along x, y, z (default = 0.02 0.02 0.02). This makes a 2% change in scale equivalent to 1mm of translation.
+`-w_scales` <w\_sx> <w\_sy> <w\_sz>: Optimization weight of scaling along x, y, z (default = 0.02 0.02 0.02). This makes a 2% change in scale equivalent to 1mm of translation.
 
-`-w_shear` &lt;w\_sa&gt; &lt;w\_sb&gt; &lt;w\_sc&gt;: Optimization weight of shears a,b and c (default = 0.02 0.02 0.02)
+`-w_shear` <w\_sa> <w\_sb> <w\_sc>: Optimization weight of shears a,b and c (default = 0.02 0.02 0.02)
 
 `-use_bfgs` Use BFGS optimizer instead of amoeba simplex
 
@@ -154,13 +154,13 @@ Options for 3D lattice definition.
 
 The objective function is estimated only on the nodes of a 3D lattice defined on the smallest of the two volumes. In this way, the coordinates of the lattice are used to specify positions in one volume, and when mapped through the transformation matrix, specify homologous positions in the other volume. The spacing between lattice samples is directly related to the resolution of the data used in the fit. For example, data blurred with a 12mm fwhm gaussian kernel does not need to be sampled with spacing less than 6mm.
 
-`-step` &lt;sx&gt; &lt;sy&gt; &lt;sz&gt;: Step size (in mm) along each dimension (x, y, z). Default value is 4.0 4.0 4.0.
+`-step` <sx> <sy> <sz>: Step size (in mm) along each dimension (x, y, z). Default value is 4.0 4.0 4.0.
 
-`-xstep` &lt;sx&gt;: Step size along the X dimension (default = 4.0).
+`-xstep` <sx>: Step size along the X dimension (default = 4.0).
 
-`-ystep` &lt;sy&gt;: Step size along the Y dimension (default = 4.0).
+`-ystep` <sy>: Step size along the Y dimension (default = 4.0).
 
-`-zstep` &lt;sz&gt;: Step size along the Z dimension (default = 4.0)
+`-zstep` <sz>: Step size along the Z dimension (default = 4.0)
 
 Options for optimization of non-linear transformations
 ======================================================
@@ -169,9 +169,9 @@ The non-linear transformation is represented by a deformation field, (normally) 
 
 `-nonlinear` specifies that a non-linear deformation field should be estimated. the -nonlinear can take on one of the following optional arguments: xcorr, diff, sqdiff, label, chamfer, corrcoeff, or opticalflow to define the objective function to be used to compare the source and target volumes.
 
-`-sub_lattice` &lt;val&gt;: Defines the number of nodes along the diameter of the sublattice that defined the local neighbourhood used to estimate the deformation vector.
+`-sub_lattice` <val>: Defines the number of nodes along the diameter of the sublattice that defined the local neighbourhood used to estimate the deformation vector.
 
-`-lattice_diameter` &lt;valx&gt; &lt;valy&gt; &lt;valz&gt;: determines the size (in mm) of the sublattice used to define the local neighbouhood.
+`-lattice_diameter` <valx> <valy> <valz>: determines the size (in mm) of the sublattice used to define the local neighbouhood.
 
 `-use_magnitude` use magnitude data local deformation (default). this flag tells minctracc that a local sublattice will be needed. You normally don't have to specify this flag.
 
@@ -185,22 +185,22 @@ The non-linear transformation is represented by a deformation field, (normally) 
 
 `-use_nonisotropic` a flag to turn on directionally sensitive smoothing (def=isotropic smoothing) when usinglocal smoothing.
 
-`-super` &lt;val&gt;: super sample deformation field during optimization (default=2) to speed up the evaluation of local deformation vectors.
+`-super` <val>: super sample deformation field during optimization (default=2) to speed up the evaluation of local deformation vectors.
 
 `-no_super` turn off the super sample deformation field during optimization.
 
-`-iterations` &lt;val&gt; this is the number of iterations for non-linear optimization (default value: 4).
+`-iterations` <val> this is the number of iterations for non-linear optimization (default value: 4).
 
-`-weight` &lt;val&gt;: Weighting factor for each iteration in nl optimization. This defines how much of the currently estimated vector should be added to the deformation field (default value: 0.6).
+`-weight` <val>: Weighting factor for each iteration in nl optimization. This defines how much of the currently estimated vector should be added to the deformation field (default value: 0.6).
 
-`-stiffness` &lt;val&gt;: Weighting factor to define smoothness for regularization at each iteration (default value: 0.5).
+`-stiffness` <val>: Weighting factor to define smoothness for regularization at each iteration (default value: 0.5).
 
-`-similarity_cost_ratio` &lt;val&gt; Weighting factor to reduce the effect of large deformations \[ r=similarity\*w + cost(1\*w) \] (default value: 0.5)
+`-similarity_cost_ratio` <val> Weighting factor to reduce the effect of large deformations \[ r=similarity\*w + cost(1\*w) \] (default value: 0.5)
 
 Options for logging progress.
 =============================
 
-`-verbose` &lt;val&gt;: Write verbose messages indicating progress (default = 1).
+`-verbose` <val>: Write verbose messages indicating progress (default = 1).
 
 `-quiet:` Do not write log messages
 

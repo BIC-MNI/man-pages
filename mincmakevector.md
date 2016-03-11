@@ -4,10 +4,10 @@ $Date: 2004-05-20 21:52:08 $
 mincmakevector
 convert a list of scalar minc files into one vector file
 mincmakevector
-&lt;options&gt;
-&lt;in&gt;.mnc
+<options>
+<in>.mnc
 .\[..\]
-&lt;out&gt;.mnc
+<out>.mnc
 DESCRIPTION
 ===========
 

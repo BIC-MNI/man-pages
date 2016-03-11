@@ -3,9 +3,9 @@ ecattominc
 ecattominc
 convert an ecat format file (version 6.x or 7.x) to a minc format file
 ecattominc
-&lt;options&gt;
-&lt;infile&gt;
-&lt;outfile.mnc&gt;
+<options>
+<infile>
+<outfile.mnc>
 ecattominc
 -help
 DESCRIPTION
