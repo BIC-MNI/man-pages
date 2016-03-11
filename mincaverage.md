@@ -1,25 +1,18 @@
-MINCAVERAGE
-1
-$Date: 2004-05-20 21:52:07 $
-mincaverage
-average minc files
-mincaverage
-&lt;options&gt;
-&lt;in1&gt;.mnc
-&lt;in2&gt;.mnc
-&lt;out&gt;.mnc
-DESCRIPTION
-===========
+# MINCAVERAGE
 
-*Mincaverage* averages minc files together. A range of optional behaviour is permitted as well: pre-normalizing volumes, creating a standard deviation volume, averaging over a specified dimension of the input files.
+mincaverage average minc files
 
-OPTIONS
-=======
+`mincaverage <options> <in1>.mnc <in2>.mnc <out>.mnc`
+
+## DESCRIPTION
+
+**Mincaverage** averages minc files together. A range of optional behaviour is permitted as well: pre-normalizing volumes, creating a standard deviation volume, averaging over a specified dimension of the input files.
+
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create a MINC 2.0 format output file.
@@ -45,8 +38,7 @@ Specify a file containing a list of input file names. If "-" is given, then file
 `-max_buffer_size_in_kb` buffer-size  
 Specify the maximum size of the internal buffers (in kbytes). Default is 4096 kbytes.
 
-Output type options
-===================
+## Output type options
 
 These options control the storage precision and size of individual voxel values in the output file.
 
@@ -79,8 +71,7 @@ Write out values as unsigned integers (default for byte). Ignored for floating p
 `-range` min max  
 specifies the valid range of output voxel values in their integer representation. Default is the full range for the type and sign. This option is ignored for floating point values. For it to have any effect, you must specify a type.
 
-Averaging options
-=================
+## Averaging options
 
 `-normalize`  
 Normalize volumes to their global average before averaging them (based on the mean of voxels with value greater than 2 percent of full range above the minimum).
@@ -124,7 +115,7 @@ Synonym for `-ignore_below`
 `-ignore_above` value  
 Synonym for `-ignore_above`
 
-`-weights` &lt;w1,w2,...&gt;  
+`-weights` `<w1,w2,...>  `
 Specify a series of weights for averaging. The number of weighting values must match the number of input files and the values must be provided as a single argument with commas or spaces as separators. The sum of the weights must be non-zero. If weights are used with an averaging dimension, then only one input file can be specified.
 
 `-width_weighted`  
@@ -136,8 +127,7 @@ This specifies the minimum weight (number of volumes if no weights are specified
 `-min_weight_fraction` value  
 Same as `-min_weight`, but specified as a fraction of the sum of the input weights (or the number of input volumes, if no weight is specified).
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -145,12 +135,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin

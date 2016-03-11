@@ -1,20 +1,14 @@
-MINCCALC
-1
-$Date: 2008-01-11 04:24:16 $
-minccalc
-perform complex math operations on minc files
-mincalc
-&lt;options&gt;
-&lt;in1&gt;.mnc
-&lt;in2&gt;.mnc
-&lt;out&gt;.mnc
-DESCRIPTION
-===========
+# MINCCALC
+
+minccalc perform complex math operations on minc files
+
+`mincalc <options> <in1>.mnc <in2>.mnc <out>.mnc`
+
+## DESCRIPTION
 
 *Minccalc* will perform complex, voxel-by-voxel math operations, on one or more minc files of the same shape and having the same coordinate sampling, producing a single output file. The operations to be performed are input using the `-expression` argument (see *EXPRESSIONS*). By default, the output file is the last non-option argument. However, if the `-outfile` option is used, then all non-option arguments are considered input files and the output file names come from the `-outfile` options, of which there can be more than one.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
@@ -122,8 +116,7 @@ Specify that output should be written to the specified file, taking values from 
 `-eval_width` value  
 Specify the number of voxels to process in parallel. Default is 200.
 
-EXPRESSIONS
-===========
+## EXPRESSIONS
 
 The `-expression` argument is a single string that describes the function to evaluate. The function expression is typically written in terms of the vector A.
 
@@ -137,7 +130,7 @@ An expression list in curly brackets is a valid expression and returns the value
 
 There are two types of values in the language: vectors and scalars. Scalars literals are floating point numbers or may appear as symbols whose name starts with a lowercase letter.
 
-Besides normal scalar operators such as +, -, \* and /, the expression language also supports the infix exponentiation operator ^ , the usual relational operators &lt;, &lt;=, &gt;, &gt;=, ==, != as well as the boolean operators && (and), || (or) and ! (not). Note that the && and || boolean operators always evaluate both operands, unlike C. Scalar mathematical functions include *abs*, *sqrt*, *exp*, *log*, *sin*, *cos*, *tan*, *asin*, *acos* and *atan*. There are also some specialized functions:
+Besides normal scalar operators such as +, -, \* and /, the expression language also supports the infix exponentiation operator ^ , the usual relational operators <, <=, >, >=, ==, != as well as the boolean operators && (and), || (or) and ! (not). Note that the && and || boolean operators always evaluate both operands, unlike C. Scalar mathematical functions include *abs*, *sqrt*, *exp*, *log*, *sin*, *cos*, *tan*, *asin*, *acos* and *atan*. There are also some specialized functions:
 
 isnan(v) - 1 if v is invalid and 0 otherwise clamp(v1,v2,v3) - v1 bounded by \[v2, v3\] segment(v1,v2,v3) - tests if v1 is in \[v2, v3\]
 
@@ -185,15 +178,15 @@ total=total2 = 0; for {i in \[0:len(A))} { total = total + A\[i\]; total2 = tota
 
 There are also a few forms of the *if-then-else* construct:
 
-A\[0\]&lt;0 ? 0 : A\[0\]
+A\[0\]<0 ? 0 : A\[0\]
 
-if (A\[0\]&lt;0) result=0 else result=A\[0\]
+if (A\[0\]<0) result=0 else result=A\[0\]
 
 The *else* is optional. Again, the if construct is an operator, and the *then* or *else* expressions can be expression lists in curlies, in which case the value of the last expression is returned. If the *else* expression is missing, then the value 0 is returned when the test expression is 0 (false).
 
 The principal oddity with the *for* and *if* constructs is that unlike C statements, they must be separated from the next expression by a semicolon even when an expression list in curlies is used:
 
-for i in \[0:len(A)) {total=total+A\[i\]} ; total/len(A) if (A\[i\]&gt;0) {result=2;} else {result=1} ; result\*5
+for i in \[0:len(A)) {total=total+A\[i\]} ; total/len(A) if (A\[i\]>0) {result=2;} else {result=1} ; result\*5
 
 An alternative way to introduce symbol names is through *let*-expressions. For example, the following expression will always evaluate to 3:
 
@@ -201,16 +194,15 @@ let a = 1, b = 2 in a + b
 
 These were originally designed to create variables only within the evaluated expression, but modifications have been made so that the global symbol table is changed.
 
-EXAMPLES
-========
+## EXAMPLES
 
 Here is an expression for calculating standard deviation, taking into account the possibility of invalid input data, which is ignored:
 
-s0 = s1 = s2 = 0; for { i in \[0:len(A)) } { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; if (s0 &gt; 1) { sqrt((s2 - s1\*s1/s0) / (s0-1)); } else { NaN; };
+s0 = s1 = s2 = 0; for { i in \[0:len(A)) } { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; if (s0 > 1) { sqrt((s2 - s1\*s1/s0) / (s0-1)); } else { NaN; };
 
-The last if could be changed to return 0 if s0 is &gt; 0 but &lt;= 1. We also drop the curly brackets, but then there must not be a ";" between the if and the else
+The last if could be changed to return 0 if s0 is > 0 but <= 1. We also drop the curly brackets, but then there must not be a ";" between the if and the else
 
-if (s0 &gt; 1) sqrt((s2 - s1\*s1/s0) / (s0-1)) else if (s0 &gt; 0) 0 else NaN
+if (s0 > 1) sqrt((s2 - s1\*s1/s0) / (s0-1)) else if (s0 > 0) 0 else NaN
 
 If we want both the mean and the standard deviation, we can use the `-outfile` option, invoking the command with
 
@@ -218,10 +210,9 @@ minccalc -expfile stdev BSOL -outfile mean mean.mnc BSOL -outfile stdev stdev.mn
 
 And using the expression file (with yet another form of if expression):
 
-s0 = s1 = s2 = 0; for {i in \[0:len(A))} { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; stdev = (s0 &gt; 1) ? sqrt((s2 - s1\*s1/s0) / (s0-1)) : (s0 &gt; 0) ? 0 : NaN ; mean = (s0 &gt; 0) ? s1 / s0 : NaN ;
+s0 = s1 = s2 = 0; for {i in \[0:len(A))} { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; stdev = (s0 > 1) ? sqrt((s2 - s1\*s1/s0) / (s0-1)) : (s0 > 0) ? 0 : NaN ; mean = (s0 > 0) ? s1 / s0 : NaN ;
 
-CAVEATS
-=======
+## CAVEATS
 
 A few things you should remember...
 
@@ -237,17 +228,15 @@ Boolean operators && and || always evaluate both operands.
 
 A note on parallelism: For efficiency reasons, evaluations are done on many voxels at once (the number of voxels is referred to as the width of the evaluation and is changed with the `-eval_width` option). An odd consequence of this is that both sides of an if-else statement are always evaluated (unless all voxels give the same test result), but statements within each consequent are only evaluated on the appropriate voxels. In particular, entries in the symbol table are only modified according to a voxel mask. A side-effect of this is that any vector symbol set in an if-else consequent must not change the length of the symbol (although it can create it) and both sides of the consequent must agree on the length of any vector symbols that they both modify. If this is not clear, just try it - the program will complain if it is not happy.
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke - a.janke@gmail.com
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 2000 by Andrew Janke
 
-SEE ALSO
-========
+## SEE ALSO
 
-mincmath1
+[mincmath](mincmath)
+

@@ -335,4 +335,4 @@ Copyright © 1993 by Peter Neelin
 
 ## SEE ALSO
 
-[mincreshape]
+[mincreshape](mincreshape)

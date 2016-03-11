@@ -1,25 +1,18 @@
-MINCMATH
-1
-$Date: 2004-05-20 21:52:08 $
-mincmath
-perform simple math operations on minc files
-mincmath
-&lt;options&gt;
-&lt;in1&gt;.mnc
-&lt;in2&gt;.mnc
-&lt;out&gt;.mnc
-DESCRIPTION
-===========
+# MINCMATH
+
+mincmath perform simple math operations on minc files
+
+`mincmath <options> <in1>.mnc <in2>.mnc <out>.mnc`
+
+## DESCRIPTION
 
 *Mincmath* will perform simple, voxel-by-voxel math operations, on one or more minc files of the same shape and having the same coordinate sampling, producing a single output file. Operations can be unary (operate on one file), binary (two input files) or cumulative (operate on two or more input files). Cumulative operations can also be performed across a specified dimension of the input files.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create a MINC 2.0 format output file.
@@ -108,8 +101,7 @@ When an illegal operation is attempted at a voxel (such as divide by zero), valu
 `-illegal_value` value  
 When an illegal operation is attempted at a voxel (such as divide by zero), the specified value is stored in the output file.
 
-Options for specifying constants
-================================
+## Options for specifying constants
 
 `-constant` value  
 Specify a single constant.
@@ -120,8 +112,7 @@ Synonym for `-constant`.
 `-const2` value1 value2  
 Specify two constants.
 
-Operations
-==========
+## Operations
 
 `-add`  
 Cumulatively add two or more volumes, or add a volume and a constant.
@@ -184,16 +175,16 @@ Test for equality of two volumes or a volume and a constant. Values are rounded 
 Test for inequality of two volumes or a volume and a constant. Values are rounded to the nearest integer before performing the test. Output 1 for true and 0 for false at each voxel.
 
 `-gt`  
-Test for volume 1 &gt; volume 2 or a volume &gt; a constant. Output 1 for true and 0 for false at each voxel.
+Test for volume 1 > volume 2 or a volume > a constant. Output 1 for true and 0 for false at each voxel.
 
 `-ge`  
-Test for volume 1 &gt;= volume 2 or a volume &gt;= a constant. Output 1 for true and 0 for false at each voxel.
+Test for volume 1 >= volume 2 or a volume >= a constant. Output 1 for true and 0 for false at each voxel.
 
 `-lt`  
-Test for volume 1 &lt; volume 2 or a volume &lt; a constant. Output 1 for true and 0 for false at each voxel.
+Test for volume 1 < volume 2 or a volume < a constant. Output 1 for true and 0 for false at each voxel.
 
 `-le`  
-Test for volume 1 &lt;= volume 2 or a volume &lt;= a constant. Output 1 for true and 0 for false at each voxel.
+Test for volume 1 <= volume 2 or a volume <= a constant. Output 1 for true and 0 for false at each voxel.
 
 `-and`  
 Test for volume 1 && volume 2 or a volume && a constant. Values are rounded to the nearest integer before performing the test. Output 1 for true and 0 for false at each voxel.
@@ -213,8 +204,7 @@ Opposite of -isnan. Output 0 for invalid values and 1 for valid values.
 `-count_valid`  
 Count the number of valid voxels across a series of volumes. If none of the volumes has valid data, then zero is written out (ie. `-zero` and `-ignore_nan` are always assumed, unlike other cumulative operations).
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -222,17 +212,14 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin
 
-SEE ALSO
-========
+## SEE ALSO
 
-minccalc1
+[minccalc](minccalc)
