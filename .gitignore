@@ -1,0 +1,9 @@
+_gh_pages
+_site
+.ruby-version
+
+
+*~
+.DS_Store
+._*
+
