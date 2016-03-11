@@ -1,6 +1,6 @@
 # MINCRESAMPLE
 
-**mincresample** resamples a minc file along new spatial dimensions
+mincresample resamples a minc file along new spatial dimensions
 
 `mincresample <options> <infile> <outfile>`
 

@@ -45,16 +45,16 @@ legacy .man files to github-style markup format and then manually corrected.
   * [mincblur](mincblur.md)
   * [autocrop](autocrop.md)
 * registration and resampling
-  * [mincresample](mincresample.md)
-  * [mincreshape](mincreshape.md)
-  * [minctracc](minctracc.md)
-  * [mritoself](mritoself.md)
-  * [mritotal](mritotal.md)
-  * [xfm2def](xfm2def.md)
-  * [xfmconcat](xfmconcat.md)
-  * [xfmflip](xfmflip.md)
-  * [xfminvert](xfminvert.md)
-  * [transformtags](transformtags.md)
+  * [mincresample](mincresample.md) - resamples a minc file along new spatial dimensions
+  * [mincreshape](mincreshape.md) - cuts a hyperslab out of a minc file (with dimension re-ordering)
+  * [minctracc](minctracc.md) - estimates the spatial transformation required to register two volumes together
+  * [mritoself](mritoself.md) - intra-subject registration of two volumetric data sets
+  * [mritotal](mritotal.md) - performs multi-scale fitting of a normal human brain to a standard model
+  * [xfm2def](xfm2def.md) - convert a MNI transform file to a deformation volume
+  * [xfmconcat](xfmconcat.md) - concatenate MNI transform files
+  * [xfminvert](xfminvert.md) - invert an MNI transform file
+  * [xfmflip](xfmflip.md) - flip an MNI transform file
+  * [transformtags](transformtags.md) - apply MNI transform to a tag file
 * minc file viewing  
   * [mincview](mincview.md)
   * [register](register.md)

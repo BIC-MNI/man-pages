@@ -1,8 +1,5 @@
-XFM2DEF
-1
-$Date: 2010-08-11 04:06:42 $
-xfm2def
-convert a MNI transform file to a deformation volume
+# XFM2DEF
+xfm2def convert a MNI transform file to a deformation volume
 xfm2def
 options
 input.xfm

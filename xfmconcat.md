@@ -1,8 +1,6 @@
 XFMCONCAT
-1
-$Date: 2008-09-04 03:20:16 $
-xfmconcat
-concatenate MNI transform files
+
+xfmconcat concatenate MNI transform files
 xfmconcat
 input1.xfm
 input2.xfm

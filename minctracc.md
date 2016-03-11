@@ -1,21 +1,14 @@
-MINCTRACC
-1
-minctracc
-estimates the spatial transformation required to register two volumes together.
-minctracc
-<options>
-<source>
-<target>
-<output>
-minctracc
--help
-DESCRIPTION
-===========
+# MINCTRACC
+
+minctracc estimates the spatial transformation required to register two volumes together.
+`minctracc <options> <source> <target> <output>`
+`minctracc -help`
+
+## DESCRIPTION
 
 *Minctracc* will estimate the best linear spatial transformation required to register two 3D volumes. The program uses optimization over a user selectable number of parameters to identify the best (according to a user identified objective function) transformation that maps voxel values of the first data set into the second. The objective function is evaluated on a 3D lattice with user-specified spacing.
 
-OVERVIEW
-========
+## OVERVIEW
 
 You need to specify two MINC data files on the command line, the first is the source volume and the second is the target volume. The third item on the command line is the name of the output transformation file, specifying where the program will store the results (in .xfm format). Note that the output is *not* a new MINC volume; you must use mincresample to resample the data according to the transform output by minctracc if you wish to see the transformed image data.
 
@@ -25,8 +18,7 @@ Using flags on the command line, the user can specify:
 
 Internally, the program optimizes the transformation parameters of translations, rotations, scaling(s) and possibly shear(s). These parameters are used to create a homogeneous transformation matrix that maps the data in the world space of the first volume to the world space of the second volume. It is this matrix that is saved in the output transformation file. The program 'xfm2param' can be used to extract the transformation parameters from the .xfm file.
 
-Specifying the initial starting position:
-=========================================
+## Specifying the initial starting position:
 
 There are a number of methods available to get an initial transformation to start the optimization process. The first is the default if there is no input transformation information on the command line. In this case, a principal axes transformation (PAT) is used as the starting transformation. When the PAT is used, the center of rotation and scaling is automatically estimated from the center of gravity (COG) of the source data set. The initial translation parameters are those needed to align the COGs of the two data sets. The rotations are those need to align the principal axes of the two volumes. This method is not always robust when the two data sets do not represent the same volume (ie source is 10cm thick slice of brain, and the target is a whole head), so other initialization methods are available.
 
@@ -40,13 +32,11 @@ When the user specifies a transformation matrix (other than PAT), the default ce
 
 Note that when estimating a non-linear registration, if no transformation is given as input, the program will estimate a linear transformation first. If you are interested in only the non-linear transformation, then use -identity.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-Initial transformation information.
-===================================
+## Initial transformation information.
 
 These are the options used to specify the initial starting conditions for the optimization of the transformation parameters.
 
@@ -68,8 +58,7 @@ Note that the four previous options (-est\_\*) are not mutually exclusive. You c
 
 `-clobber:` Overwrite output file.
 
-Output transformation type.
-===========================
+## Output transformation type.
 
 The type of output file can be constrained depending on the type of registration required. For example, intra-subject registration can be completed with only 6 parameters if rigid body assumptions hold.
 
@@ -95,15 +84,13 @@ The type of output file can be constrained depending on the type of registration
 
 `-invert:` Recover inverted transformation (model -> source).
 
-Options for mask volumes.
-=========================
+## Options for mask volumes.
 
 `-model_mask` <filename>: Specifies a binary mask file for the target. Any data voxel whose world coordinate falls in a zero-valued voxel in the mask is ignored in the calculation of the objective function.
 
 `-source_mask` <filename>: Specifies a binary mask file for the source.
 
-Interpolation options.
-======================
+## Interpolation options.
 
 `-trilinear:` Do a tri-linear interpolation between voxels when estimating the value for a node in the 3D lattice. This is the default.
 
@@ -111,8 +98,7 @@ Interpolation options.
 
 `-nearest_neighbour:` Do nearest neighbour interpolation between voxels (ie. find the voxel closest to the point and use its value).
 
-Optimization objective functions.
-=================================
+## Optimization objective functions.
 
 `-xcorr:` Use cross correlation (this is the default) \[2\].
 
@@ -130,8 +116,7 @@ Optimization objective functions.
 
 `-speckle` <val>: Percent speckle noise to add to source (default = 5). This option applies only when -ssc is used as the objective function.
 
-Options for linear optimization.
-================================
+## Options for linear optimization.
 
 Simplex optimization is used to maximize/minimize the objective function to find the best transformation parameters.
 
@@ -149,8 +134,7 @@ Simplex optimization is used to maximize/minimize the objective function to find
 
 `-use_bfgs` Use BFGS optimizer instead of amoeba simplex
 
-Options for 3D lattice definition.
-==================================
+## Options for 3D lattice definition.
 
 The objective function is estimated only on the nodes of a 3D lattice defined on the smallest of the two volumes. In this way, the coordinates of the lattice are used to specify positions in one volume, and when mapped through the transformation matrix, specify homologous positions in the other volume. The spacing between lattice samples is directly related to the resolution of the data used in the fit. For example, data blurred with a 12mm fwhm gaussian kernel does not need to be sampled with spacing less than 6mm.
 
@@ -162,8 +146,7 @@ The objective function is estimated only on the nodes of a 3D lattice defined on
 
 `-zstep` <sz>: Step size along the Z dimension (default = 4.0)
 
-Options for optimization of non-linear transformations
-======================================================
+## Options for optimization of non-linear transformations
 
 The non-linear transformation is represented by a deformation field, (normally) defined in the space of the target volume. The full transformation is equal to the linear transformation plus the deformation stored in the deformation field. The deformation field is represented by a vector-valued 3D volume with -step distance between nodes.
 
@@ -197,8 +180,7 @@ The non-linear transformation is represented by a deformation field, (normally) 
 
 `-similarity_cost_ratio` <val> Weighting factor to reduce the effect of large deformations \[ r=similarity\*w + cost(1\*w) \] (default value: 0.5)
 
-Options for logging progress.
-=============================
+## Options for logging progress.
 
 `-verbose` <val>: Write verbose messages indicating progress (default = 1).
 
@@ -206,13 +188,11 @@ Options for logging progress.
 
 `-debug:` Print out debug info.
 
-Generic options
-===============
+## Generic options
 
 `-help:` Print summary of command-line options and abort.
 
-EXAMPLES
-========
+## EXAMPLES
 
 Estimate the transformation required to map structures from an individual subject to match those in a target volume:
 
@@ -222,8 +202,7 @@ Match the same subject, scanned on two occasions with similar protocol:
 
 minctracc subj\_time1.mnc subj\_time2.mnc result.xfm BSOL -lsq6 -identity -est\_center
 
-REFERENCES
-==========
+## REFERENCES
 
 \[1\] A. Collingnon, F. Maes, D. Delaere, D. Vandermeulen, P. Suetens, G. Marchal, "Automated multi-modality image registration based on information theory", IPMI, 1995:263-274.
 
@@ -233,12 +212,10 @@ REFERENCES
 
 \[4\] R.P. Woods, J.C. Mazziotta, S.R. Cherry, "MRI-PET Registration with Automated Algorithm", J. Comput. Assis. Tomogr, 1993;17:536-546.
 
-AUTHOR
-======
+## AUTHOR
 
 Louis Collins
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright 1993-95 by Louis Collins

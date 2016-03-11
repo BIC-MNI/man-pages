@@ -1,6 +1,6 @@
 # MINCRESHAPE
 
-**mincreshape** cuts a hyperslab out of a minc file (with dimension re-ordering)
+mincreshape cuts a hyperslab out of a minc file (with dimension re-ordering)
 
 `mincreshape <options> <infile>.mnc <outfile>.mnc`
 

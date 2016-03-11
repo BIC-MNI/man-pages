@@ -1,8 +1,6 @@
-XFMINVERT
-1
-$Date: 2008-09-04 03:20:16 $
-xfminvert
-invert an MNI transform file
+# XFMINVERT
+
+xfminvert invert an MNI transform file
 xfminvert
 input.xfm
 result.xfm

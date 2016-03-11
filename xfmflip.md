@@ -1,8 +1,6 @@
-XFMFLIP
-1
-$Date: 2007-08-24 04:05:44 $
-xfmflip
-flip an MNI transform file
+# XFMFLIP
+
+xfmflip  flip an MNI transform file
 xfmflip
 in.xfm
 out.xfm

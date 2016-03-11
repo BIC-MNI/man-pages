@@ -1,20 +1,15 @@
-MINCTORAW
-1
-$Date: 2004-05-20 21:52:09 $
-minctoraw
-copy data from a MINC file.
-minctoraw
-options
-mincfile
-DESCRIPTION
-===========
+# MINCTORAW
+
+minctoraw copy data from a MINC file
+`minctoraw options mincfile`
+
+## DESCRIPTION
 
 `minctoraw` dumps a chunk of MINC file data to standard output in the format of your choice.
 
 This program is largely superceded by *mincextract*.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-byte`  
 Write out data as 8-bit integers
@@ -61,7 +56,6 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-SEE ALSO
-========
+## SEE ALSO
 
-mincextract1
+[mincextract](mincextract.md)

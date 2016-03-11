@@ -1,8 +1,6 @@
-TRANSFORMTAGS
-1
-$Date: 2004-05-20 21:52:09 $
-transformtags
-apply MNI transform to a tag file
+# TRANSFORMTAGS
+
+transformtags apply MNI transform to a tag file
 transformtags
 -vol1
 -vol2
