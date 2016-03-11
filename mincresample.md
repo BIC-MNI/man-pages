@@ -6,7 +6,7 @@
 
 ## DESCRIPTION
 
-**mincresample** will resample a minc file along new spatial dimensions with new 
+**Mincresample** will resample a minc file along new spatial dimensions with new 
 voxel positions. Each volume in the input file (given by the spatial dimensions 
 xspace, yspace and zspace) is resampled according to the command-line options. 
 Non-spatial dimensions are preserved in their original order, but spatial 
@@ -305,28 +305,25 @@ Print the program's version number and exit.
 Resample an individual's brain in a standardized space on a standard sampling 
 grid:
 
-mincresample individual.mnc in\_std\_space.mnc BSOL -transform 
-transform\_to\_standard\_space.xfm BSOL -like standard\_sampling.mnc
+`mincresample individual.mnc in_std_space.mnc BSOL -transform transform_to_standard_space.xfm BSOL -like standard_sampling.mnc`
 
 Resample an MRI volume to be matched with a PET volume, but with finer 
 resolution:
 
-mincresample mri.mnc mri\_resampled.mnc BSOL -transform mri\_to\_pet.xfm -like 
-pet.mnc BSOL -step 1 1 2 -xstart -0.5 -ystart -0.5 BSOL -nelements 256 256 64
+`mincresample mri.mnc mri\_resampled.mnc BSOL -transform mri\_to\_pet.xfm -like pet.mnc BSOL -step 1 1 2 -xstart -0.5 -ystart -0.5 BSOL -nelements 256 256 64`
 
 Turn a transverse volume into a sagittal volume:
 
-mincresample transverse.mnc sagittal.mnc BSOL -sagittal -nearest
+`mincresample transverse.mnc sagittal.mnc BSOL -sagittal -nearest`
 
 Turn a 256x256x64 (1x1x2mm) transverse volume into 256x128x256 (1x1x1mm) 
 sagittal volume:
 
-mincresample transverse.mnc sagittal.mnc -sagittal BSOL -zstep 1 -znelem 128
+`mincresample transverse.mnc sagittal.mnc -sagittal BSOL -zstep 1 -znelem 128`
 
 Get a finer axial sampling on a PET volume:
 
-mincresample pet\_15\_slices.mnc pet\_46\_slices.mnc BSOL -zstep 2 -znelements 
-46
+`mincresample pet_15_slices.mnc pet_46_slices.mnc BSOL -zstep 2 -znelements 46`
 
 ## AUTHOR
 

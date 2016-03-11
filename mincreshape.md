@@ -1,7 +1,8 @@
 # MINCRESHAPE
 
 **mincreshape** cuts a hyperslab out of a minc file (with dimension re-ordering)
-`mincreshape <options> <infile>.mnc <outfile>.mnc 
+
+`mincreshape <options> <infile>.mnc <outfile>.mnc`
 
 ## DESCRIPTION
 
@@ -226,47 +227,47 @@ Print the program's version number and exit.
 
 Assume that we have a volume with dimensions zspace, yspace, xspace (that's transverse) and sizes 128, 256, 256. If we want to get slice 40 out of it (keeping the coordinate information for the zspace dimension), then we can use
 
-mincreshape original.mnc new.mnc -dimrange zspace=40,1
+`mincreshape original.mnc new.mnc -dimrange zspace=40,1`
 
 Alternatively, we could use
 
-mincreshape original.mnc new.mnc -start 40,0,0 -count 1,256,256
+`mincreshape original.mnc new.mnc -start 40,0,0 -count 1,256,256`
 
 Or simply
 
-mincreshape original.mnc new.mnc -start 40 -count 1
+`mincreshape original.mnc new.mnc -start 40 -count 1`
 
 If we wanted to get rid of the zspace dimension, we could use
 
-mincreshape original.mnc new.mnc -dimrange zspace=40,0
+`mincreshape original.mnc new.mnc -dimrange zspace=40,0`
 
 Let's get a block out of the middle and flip it along xspace:
 
-mincreshape original.mnc new.mnc BSOL -start 40,10,240 -count 1,200,-200
+`mincreshape original.mnc new.mnc BSOL -start 40,10,240 -count 1,200,-200`
 
 But why restrain outselves? Let's go out of bounds:
 
-mincreshape original.mnc new.mnc BSOL -start 40,-100,340 -count 1,200,-200
+`mincreshape original.mnc new.mnc BSOL -start 40,-100,340 -count 1,200,-200`
 
 If you want a sagittal volume, use this:
 
-mincreshape original.mnc new.mnc -sagittal
+`mincreshape original.mnc new.mnc -sagittal`
 
 How about some sideways heads - flip x and y. And convert to byte to save space while we're at it:
 
-mincreshape original.mnc new.mnc -dimorder xspace,yspace -byte
+`mincreshape original.mnc new.mnc -dimorder xspace,yspace -byte`
 
 You like to store volumes in x,y,z order (that's z varying fastest! I know some people who do it!)? Okay.
 
-mincreshape original.mnc new.mnc -dimorder xspace,yspace,zspace
+`mincreshape original.mnc new.mnc -dimorder xspace,yspace,zspace`
 
 But you're a minimalist (and don't mind taking a chance). Here's the same thing (but it might break for another file):
 
-mincreshape original.mnc new.mnc -dimorder zspace
+`mincreshape original.mnc new.mnc -dimorder zspace`
 
-Let's make sure that all dimensions have a negative step attribute (see option +direction for some details):
+Let's make sure that all dimensions have a negative step attribute (see option `+direction` for some details):
 
-mincreshape original.mnc new.mnc -direction -dimsize zspace=-1
+`mincreshape original.mnc new.mnc -direction -dimsize zspace=-1`
 
 ## AUTHOR
 
