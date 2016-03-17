@@ -1,8 +1,6 @@
-MINCWINDOW
-1
-$Date: 2004-05-20 21:52:09 $
-mincwindow
-limit voxel values to a given range
+# MINCWINDOW
+
+mincwindow - limit voxel values to a given range
 mincwindow
 options
 in.mnc

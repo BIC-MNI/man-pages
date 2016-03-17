@@ -1,25 +1,17 @@
-MINCMAKEVECTOR
-1
-$Date: 2004-05-20 21:52:08 $
-mincmakevector
-convert a list of scalar minc files into one vector file
-mincmakevector
-<options>
-<in>.mnc
-.\[..\]
-<out>.mnc
-DESCRIPTION
-===========
+# MINCMAKEVECTOR
+
+mincmakevector - convert a list of scalar minc files into one vector file
+` mincmakevector <options> <in>.mnc .\[..\] <out>.mnc`
+
+## DESCRIPTION
 
 *Mincmakevector* converts a list of scalar minc files into one vector minc file. A vector minc file is one that contains the dimension *vector\_dimension* as the fastest varying dimension of the image data and represents vector data at each voxel such as RGB images or gradient volumes. A scalar minc file does not contain the vector dimension and represents grayscale or intensity data.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create a MINC 2.0 format output file.
@@ -72,8 +64,7 @@ Create an output file with data stored in an unsigned type. This only has an eff
 `-valid_range` min max  
 Create an output file with integer data stored in the specified restricted range. This only has an effect if the one of the `-byte`, `-short` or `-int` options is specified.
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -81,19 +72,16 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES
-========
+## EXAMPLES
 
 To convert files containing red, green and blue colour components into an RGB file:
 
 mincmakevector red.mnc green.mnc blue.mnc rgb.mnc
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright 1997 by Peter Neelin

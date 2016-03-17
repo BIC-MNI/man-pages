@@ -1,15 +1,9 @@
-MINCSAMPLE
-1
-MINC User's Guide
-mincsample
-generate samplings from minc files.
-mincsample
-<options>
-<in1.mnc>
-<in2.mnc>
-<..>
-DESCRIPTION
-===========
+# MINCSAMPLE
+
+mincsample - generate samplings from minc files.
+`mincsample <options> <in1.mnc> <in2.mnc> <..>`
+
+## DESCRIPTION
 
 *Mincsample* produces a data sampling on STDOUT from an input series of minc files. The output can be either ascii (-ascii) or as a raw binary stream of doubles (-double). The output data is ordered first by file then voxel. When -ascii is used the data values from each file are separated by a tab and the sampling points with a newline. When using -double, no separators are used.
 
@@ -17,8 +11,7 @@ If -coords is also specified, the world co-ordinate at each sampling point will 
 
 By default all data points are written out (-all) the output of points can also be constrained to be points within a mask (-mask and -mask\_val) and further by a random sampling of a sub-set of points via the -random\_samples and -random\_seed arguments
 
-OPTIONS
-=======
+## OPTIONS
 
 `-verbose`  
 Print extra information during processing.
@@ -71,12 +64,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke and Mark Griffin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 2004 by Andrew Janke and Mark Griffin

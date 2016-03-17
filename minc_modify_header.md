@@ -1,13 +1,9 @@
-MINC\_MODIFY\_HEADER
-1
-$Date: 2004-05-25 21:33:11 $
-minc\_modify\_header
-modify the attributes in the header of a minc file
-minc\_modify\_header
-<options>
-<file>.mnc
-DESCRIPTION
-===========
+# MINC_MODIFY_HEADER
+
+minc_modify_header modify the attributes in the header of a minc file
+`minc_modify_header <options> <file>.mnc`
+
+## DESCRIPTION
 
 *Minc\_modify\_header* allows the modification, insertion or deletion of attributes in a minc file. If possible, the file is modified in place, without copying the data. This will happen when inserting (modifying) an attribute that already exists and that ends up being the same length or shorter in the new file. If an attribute is deleted or lengthened, then a complete copy of the data is made, resulting in a completely new file that replaces the original.
 
@@ -15,8 +11,7 @@ If the file is compressed, then it is first decompressed into a file whose name 
 
 Care is taken to completely overwrite any existing attribute when inserting a new attribute so that information is guaranteed to be removed from the file.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
@@ -41,8 +36,7 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES:
-=========
+## EXAMPLES:
 
 To replace the patient name with an identifier string:
 
@@ -56,12 +50,10 @@ To hide the patient name without copying data, assuming that we know that the at
 
 minc\_modify\_header file.mnc -sinsert 'patient:full\_name='
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin

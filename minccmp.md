@@ -1,15 +1,9 @@
-MINCCMP
-1
-$Date: 2010-03-02 12:12:20 $
-minccmp
-compare one or more minc file using comparator operators
-minccmp
-<options>
-<in1.mnc>
-<in2.mnc>
-<inn.mnc>
-DESCRIPTION
-===========
+# MINCCMP
+
+minccmp compare one or more minc file using comparator operators
+`minccmp <options> <in1.mnc> <in2.mnc> <inn.mnc>`
+
+## DESCRIPTION
 
 `minccmp` will calculate simple statistical measures between two minc files or more by comparing all subsequent files to the first. The results for each subseqent file are then returned in order. By default all statistics are calculated. If specifitc statistics are requested via a command-line option, then only the requested statistics are printed.
 
@@ -17,13 +11,11 @@ A very useful feature of this program is the ability to restrict the set of voxe
 
 The comparison statistics available in minccmp are given below. Note that two of these (-xcorr and -zscore) are a very close approximation to what is used in minctracc.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-clobber`  
 Overwrite an existing file.
@@ -49,8 +41,7 @@ Check that all input files have matching sampling in world dimensions (default).
 `-nocheck_dimensions`  
 Ignore any differences in world dimensions sampling for input files .
 
-Volume range options
-====================
+## Volume range options
 
 `-floor` min  
 A lower bound for ranges of data to include in statistic calculations.
@@ -64,8 +55,7 @@ A lower and upper bound for the ranges of data to include in statistics.
 `-mask` filename.mnc  
 Name of file to be used for masking data included in statistic calculations.
 
-Basic statistics
-================
+## Basic statistics
 
 `-all`  
 Compute all statistical measures. This is the default.
@@ -85,8 +75,7 @@ Print the z-score difference between two input files ZSCORE = Sum( |((A - mean(A
 `-similarity`  
 Calculate the confusion matrix, assuming that the volume values represent a discrete class of possible values. The maximum label value is currently limited to ten (10). Prints the Dice similarity statistic as well as specificity, sensitivity, accuracy, and kappa for each class and for the overall volumes.
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -94,12 +83,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 2010 by Andrew Janke

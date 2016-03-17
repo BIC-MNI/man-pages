@@ -1,25 +1,19 @@
-MINCBLOB
-1
-$Date: 2004-05-20 21:52:09 $
-mincblob
-calculate blobs from minc deformation grids
-mincblob
-<options>
-<in1>.mnc
-DESCRIPTION
-===========
+# MINCBLOB
+
+mincblob - calculate blobs from minc deformation grids
+`mincblob <options> <in1>.mnc`
+
+## DESCRIPTION
 
 `mincblob` will calculate simple statistical metrics of a minc deformation grid file related to local volume change. The input deformation grid files are typically produced by minctracc.
 
 There are currently 4 deformation grid metrics to choose from: trace, determinant, translation and magnitude. The first two relate to different estimates of local volume change the third is a measure of how consistent movement is in a direction but without a local change in volume. The last calcuates the magnitude of the local deformation vector. These metrics are all calculated with respect to a vectors immediate neighbours. No smoothing of the field is performed as part of this calculation so if a smooth results is desired input grid files should be first smoothed or blurred.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-clobber`  
 Overwrite an existing file.
@@ -41,8 +35,7 @@ Compute the areas within the deformation field that equate to translation Transl
 `-magnitude`  
 Compute the magnitude of the local deformation vector.
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -50,13 +43,11 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Program: Copyright © 2000 by Andrew Janke
 

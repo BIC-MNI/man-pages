@@ -1,14 +1,9 @@
-MINCLOOKUP
-1
-$Date: 2004-05-20 21:52:08 $
-minclookup
-perform lookup table conversions on minc files
-minclookup
-<options>
-<in1>.mnc
-<out>.mnc
-DESCRIPTION
-===========
+# MINCLOOKUP
+
+minclookup - perform lookup table conversions on minc files
+`minclookup <options> <in1>.mnc <out>.mnc`
+
+## DESCRIPTION
 
 *Minclookup* will perform a lookup table operation on each voxel of a minc file. A lookup table consists of a list of input values with matching output values. Each voxel of the input file is found in the lookup table and the corresponding output value is written out. These output values can be either scalar or vector values so, for example, a colour lookup table would have four columns: one column for input values and one column for each of red, green and blue output values.
 
@@ -20,13 +15,11 @@ The most common use of continuous lookup tables is for converting intensity valu
 
 Discrete lookup tables are usually used for remapping label values. Each input value is treated as an integer (it is not rescaled) and if it is found in the lookup table, then the corresponding value (or values) is written to the output file. If it is not found, then a null value is written out (zero by default). No interpolation is done with discrete lookup tables - to get a non-null output value, there must be an entry in the table.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create a MINC 2.0 format output file.
@@ -79,8 +72,7 @@ Create an output file with data stored in an unsigned type. This option is meani
 `-valid_range` min max  
 Scale integer voxel values to fall between the values *min* and *max*. By default integer voxel values will be scaled to use the entire range of the base type. This option is meaningless when used with floating point data formats.
 
-Lookup table options
-====================
+## Lookup table options
 
 `-gray`  
 Use a gray lookup table to write out RGB values (default).
@@ -124,8 +116,7 @@ The lookup table is discrete (see description above): Input values are treated a
 `-null_value` null-value-string  
 Specify a null value to be used with discrete lookup tables when a value is not found in the lookup table. This value must be specified as a comma-separated list of values, with the same number of values as output columns in the lookup table.
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -133,8 +124,7 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES
-========
+## EXAMPLES
 
 To get hot-metal RGB images from an MRI file:
 
@@ -160,12 +150,10 @@ To invert a scalar image, you could use minclookup:
 
 minclookup -lut\_string '0 1;1 0' in.mnc out.mnc
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin

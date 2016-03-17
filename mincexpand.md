@@ -1,19 +1,13 @@
-MINCEXPAND
-1
-$Date: 2004-05-20 21:52:08 $
-mincexpand
-expands a compressed minc file, if necessary.
-mincexpand
-<options>
-<infile>
-<outfile>
-DESCRIPTION
-===========
+# MINCEXPAND
+
+mincexpand expands a compressed minc file, if necessary.
+`mincexpand <options> <infile> <outfile>`
+
+## DESCRIPTION
 
 *Mincexpand* expands a compressed, packed, gzipped or zipped minc file into a temporary file using gunzip (or zcat or pcat) and prints out the name of the new file. If the input file is not compressed, then nothing is done and the original file name is printed. A second line is printed, indicating whether the name is that of a new temporary file ("Temporary") or that of the original file ("Original"). If no output file name is given, then the program generates its own.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-header_only`  
 Expand only enough of the file to be able to read the header.
@@ -30,12 +24,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin

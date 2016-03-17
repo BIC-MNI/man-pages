@@ -1,13 +1,9 @@
-MINCBLUR
-1
-mincblur
-convolve an input volume with a Gaussian blurring kernel.
-mincblur
-<options>
-<source>
-<output\_basename>
-DESCRIPTION
-===========
+# MINCBLUR
+
+mincblur - convolve an input volume with a Gaussian blurring kernel.
+`mincblur <options> <source> <output\_basename>`
+
+## DESCRIPTION
 
 *Mincblur* convolves an input volume with a Gaussian blurring kernel of user-defined width. Convolution is accomplished by multiplication in the Fourier domain where the blurring kernel is calculated explicitly over the whole field. Mincblur can also calculate the first partial derivatives and the gradient magnitude volume.
 
@@ -15,8 +11,7 @@ The first command line argument is the name of the 3D input MINC file. The secon
 
 Before blurring, the edges of the data volume are apodized (intensity reduced) to minimize edge effects. This process can be skipped with the '-no\_apodize' flag.
 
-Specification of blurring kernel.
-=================================
+## Specification of blurring kernel.
 
 One of the following options must be used to specify the size of the blurring kernel: -fwhm, -standarddev, -3Dfwhm, where
 
@@ -26,8 +21,7 @@ One of the following options must be used to specify the size of the blurring ke
 
 `-3Dfwhm` <valx> <valy> <valz>: Specifies the full-width-half-maximum in the x, y and z directions of the non-isotropic 3D Gaussian blurring kernel.
 
-Other options
-=============
+## Other options
 
 `-dimensions` <1|2|3>: Number of dimensions to blur. -dim 1 blurs only in the z direction, useful for simulating thick slices. -dim 2 blurs only in the xy plane. -dim 3 blur all 3 dimensions and is the default.
 
@@ -47,8 +41,7 @@ Other options
 
 In order to create any gradient data, it is necessary to temporarily store the blurred data in floating point representation. By default, the temporary files are written in the current directory. If that directory is not available, /tmp is used. Both of these possiblities can be overridden by providing an environment variable TMPDIR in the user's environment, whose value is the name of the desired temporary-file directory. Of course, the temporary files are removed by mincblur after processing.
 
-Options for logging progress.
-=============================
+## Options for logging progress.
 
 `-verbose` <val>: Write verbose messages indicating progress (default = 1).
 
@@ -56,13 +49,11 @@ Options for logging progress.
 
 `-debug:` Print out debug info.
 
-Generic options
-===============
+## Generic options
 
 `-help:` Print summary of command-line options and abort.
 
-EXAMPLES
-========
+## EXAMPLES
 
 1) Blur an input volume with a 6mm fwhm isotropic Gaussian blurring kernel:
 
@@ -82,17 +73,14 @@ mincblur -fwhm 6 -partial input.mnc out\_6
 
 mincblur will create out\_6\_blur.mnc, out\_6\_dx.mnc, out\_6\_dy.mnc, out\_6\_dz.mnc and out\_6\_dxyz.mnc
 
-KNOWN BUGS
-==========
+## KNOWN BUGS
 
 The temporary files may not be removed properly if mincblur fails during processing.
 
-AUTHOR
-======
+## AUTHOR
 
 Louis Collins
 
-COPYRIGHT
-=========
+## COPYRIGHT
 
 Copyright (c) 1993-95 by Louis Collins

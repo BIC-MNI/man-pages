@@ -1,8 +1,6 @@
-MINCGEN
-1
-$Date: 2008-10-12 05:07:12 $
-mincgen
-Generate a MINC file from a CDL file.
+# MINCGEN
+
+mincgen - generate a MINC file from a CDL file.
 mincgen
 -b
 -n

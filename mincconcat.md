@@ -1,25 +1,17 @@
-MINCCONCAT
-1
-$Date: 2005-07-15 17:38:08 $
-mincconcat
-concatenate minc files along a specific dimension
-mincconcat
-<options>
-<infile1>.mnc
-<infile2>.mnc
-<outfile>.mnc
-DESCRIPTION
-===========
+# MINCCONCAT
+
+mincconcat concatenate minc files along a specific dimension
+`mincconcat <options> <infile1>.mnc <infile2>.mnc <outfile>.mnc`
+
+## DESCRIPTION
 
 *Mincconcat* will concatenate a number of minc files together, producing a single output file. The concatenation is done along a specified dimension, with the slices being sorted into ascending order. The concatenation dimension can either be a dimension in the file, in which case coordinates for sorting are taken directly from the input files, or it can be a new dimension and the coordinates are specified with a command-line option.
 
-OPTIONS
-=======
+## OPTIONS
 
 Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
 
-General options
-===============
+## General options
 
 `-2`  
 Create a MINC 2.0 format output file.
@@ -42,8 +34,7 @@ Specify the maximum size of the copy buffer (in kbytes). Default is 4096 kbytes.
 `-filelist` filename  
 Specify a file containing a list of input file names. If "-" is given, then file names are read from stdin. If this option is given, then there should be no input file names specified on the command line. Empty lines in the input file are ignored.
 
-Output type options
-===================
+## Output type options
 
 `-filetype`  
 Don't do any type conversion (default).
@@ -75,8 +66,7 @@ Write out values as unsigned integers (default for byte). Ignored for floating p
 `-valid_range` min max  
 Specifies the valid range of output voxel values in their integer representation. Default is the full range for the type and sign. This option is ignored for floating point values.
 
-Concatenation options
-=====================
+## Concatenation options
 
 `-concat_dimension` name  
 Specifies the name of concatenation dimension. If the dimension exists in the input files, then coordinates are taken from those files. If not, then a new dimension is created and the coordinate for each input file is taken from command-line options. The default is to use the slowest varying dimension of the first file.
@@ -117,8 +107,7 @@ Sort slabs by their dimension coordinate, interleaving if necessary (default).
 `-sequential`  
 Don't sort slabs, just concatenate them together. WARNING - this will destroy the dimension information along the concatenating dimension, replacing the start and step with zero and one.
 
-Generic options for all commands:
-=================================
+## Generic options for all commands:
 
 `-help`  
 Print summary of command-line options and exit.
@@ -126,8 +115,7 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-EXAMPLES
-========
+## EXAMPLES
 
 To concatenate two volumes with dimensions zspace, yspace, xspace, having interleaved slices along zspace, we can simply use
 
@@ -137,12 +125,10 @@ If we have a bunch of compressed (yspace, xspace) images that we wish to concate
 
 mincconcat input1.mnc.gz input2.mnc.gz input3.mnc.gz BSOL input4.mnc.gz output.mnc BSOL -concat\_dimension zspace -start -23 -step 2
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1995 by Peter Neelin

@@ -1,23 +1,15 @@
-REGISTER
-1
-MNI Register
-Montreal Neurological Institute
-MNI-register
+# REGISTER
+
 interactive volume display and point tagging program
-register
-OPTION
-volume1\_file
-volume2\_file
-tag\_file
-DESCRIPTION
-===========
+`register OPTION volume1\_file volume2\_file tag\_file`
+
+## DESCRIPTION
 
 *Register* is an interactive graphics application that can display two volumes (typically MR or PET), and the merged image of the two. There are three viewports for each volume, showing transverse, sagittal, and coronal slices. The user can move throughout the volumes, and create tag points within the volumes. If two volumes are loaded and enough tag points are created, then a transformation is computed for registering the two volumes. This transform is used to display the merged image and to allow the user to start a process which resamples one of the volumes into the same space as the other.
 
 A byte vector volume will normally be treated as an RGB volume, in that the first three byte values will be interpreted as red, blue, and green intensities. Alternatively, the vector can be converted to a scalar whose value is the mean of the vector components, by setting the global variable *Convert\_vectors\_to\_rgb* to FALSE.
 
-OPTIONS
-=======
+## OPTIONS
 
 The following command line options are recognized:
 
@@ -33,8 +25,7 @@ Force the initial colour mapping range of *VOLUME* (either 0 or 1) to the values
 `-version`  
 Print the program version number and exit.
 
-USER INTERFACE
-==============
+## USER INTERFACE
 
 The user interface is a mouse-based interface composed of buttons, sliders, and text entry. Buttons can be pressed with the left mouse button. Text entries can be changed by pressing the left mouse button on them, then typing text. Typing return signals the text entry is done. Typing escape ends text editing without modifying the text. The delete, cursor left, and cursor right keys may be used. Ctrl-a and ctrl-e move the cursor to the beginning and end of text, respectively. Ctrl-u deletes all text in the text entry.
 
@@ -50,8 +41,7 @@ The 'T' key will display a window containing the graph of the timecourse of the 
 
 The 'R' and 'E' keys will move the blend slider to the right or left, respectively. This allows for changing the relative visibility of the merged volumes from the keyboard. However, it is active only with the 'Blend' merge method.
 
-MAIN MENU
-=========
+## MAIN MENU
 
 *Quit:* Quits the program, after confirmation.
 
@@ -91,8 +81,7 @@ MAIN MENU
 
 *RMS:* Displays the average RMS error of the tag points, if a transform exists.
 
-VOLUME MENUS
-============
+## VOLUME MENUS
 
 *Voxel and World Position Readouts* Displays the position of the volume cursor in voxel and world coordinates. The positions can be changed directly by clicking on the field and typing in the desired position.
 
@@ -112,8 +101,7 @@ VOLUME MENUS
 
 *Colour Coding Buttons:* Sets the colour coding method to one of gray scale, hot metal, spectral, red, green, or blue.
 
-MERGED MENU
-===========
+## MERGED MENU
 
 *Voxel and World Position Readouts:* Displays the position of the volume cursor in voxel and world coordinates. The positions can be changed directly by clicking on the field and typing in the desired position.
 
@@ -123,8 +111,7 @@ MERGED MENU
 
 *Opacity Sliders* Sets the weights of the two volumes. Only used if the merge method is blend or weighted.
 
-TAGS MENU
-=========
+## TAGS MENU
 
 *Position:* Displays tag positions. Positions can be directly edited.
 
@@ -134,8 +121,7 @@ TAGS MENU
 
 *Dst:* Displays the distance of the tag point in the first volume from the position of the transformed
 
-TIMECOURSE MENU
-===============
+## TIMECOURSE MENU
 
 *Full range/Scaled:* Toggle the Y-axis range between the either the full range of the volume or scaled to the specific time course.
 
@@ -149,8 +135,7 @@ TIMECOURSE MENU
 
 *Close* Closes the timecourse window.
 
-MOUSE AND KEYBOARD
-==================
+## MOUSE AND KEYBOARD
 
 In the slice viewports, the following actions are valid:
 
@@ -164,20 +149,17 @@ In the slice viewports, the following actions are valid:
 
 *Shift/Ctrl/Alt Middle Mouse:* Zooms the slice display according to the y position of the mouse.
 
-FILES
-=====
+## FILES
 
 /usr/local/lib/register.globals
 
 /usr/local/lib/register\_UI.globals
 
-AUTHOR
-======
+## AUTHOR
 
 David MacDonald
 
-BUGS
-====
+## BUGS
 
 Sometimes turning the tags visibilities off does not turn them off.
 
@@ -185,12 +167,10 @@ Switching between colour map and rgb mode or double/single buffer on the OpenGL 
 
 In smooth interpolation mode, filtering has not been implemented.
 
-BUG REPORTS TO
-==============
+## BUG REPORTS TO
 
 Robert D. Vincent robert.d.vincent@mcgill.ca
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 *©*Copyright 1993-2015 by David MacDonald

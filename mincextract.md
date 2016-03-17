@@ -1,18 +1,13 @@
-MINCEXTRACT
-1
-$Date: 2004-05-20 21:52:08 $
-mincextract
-dump a hyperslab of MINC file data
-mincextract
-options
-mincfile
-DESCRIPTION
-===========
+# MINCEXTRACT
+
+mincextract - dump a hyperslab of MINC file data
+`mincextract options mincfile`
+
+## DESCRIPTION
 
 `mincextract` dumps a chunk of MINC file data to standard output in the format of your choice.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-ascii`  
 Write out data as ascii strings (default)
@@ -116,17 +111,14 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1993 by Peter Neelin
 
-SEE ALSO
-========
+## SEE ALSO
 
-minctoraw1
+[minctoraw](minctoraw.md)
