@@ -10,8 +10,8 @@ title: MINC Man pages
 email: vladimir.fonov@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Collection of man pages for MINC Tools.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+baseurl: "/man-pages" # the subpath of your site, e.g. /blog
+url: "http://bic-mni.github.io/" # the base hostname & protocol for your site
 twitter_username: vfonov
 github_username:  vfonov
 
