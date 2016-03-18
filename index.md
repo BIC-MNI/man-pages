@@ -64,7 +64,3 @@ legacy .man files to github-style markup format and then manually corrected.
   * [mincsample](man/mincsample) - generate samplings from minc files
   * [mincwindow](man/mincwindow) - limit voxel values to a given range
 
-## Installation
-
-To convert back into .man pages pandoc with troff support is needed
-Command line: `pandoc -S -s -f markdown_github -t man <input>.md -o <output>.man`
