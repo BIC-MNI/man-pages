@@ -3,6 +3,7 @@
 # MINCEXTRACT
 
 mincextract - dump a hyperslab of MINC file data
+
 `mincextract options mincfile`
 
 ## DESCRIPTION
@@ -80,7 +81,7 @@ Flip images to always have negative direction.
 `-any_direction`  
 Do not flip images (Default).
 
-*+xdirection*  
+`+xdirection`
 Flip images to give positive xspace:step value (left-to-right).
 
 `-xdirection`  
@@ -89,7 +90,7 @@ Flip images to give negative xspace:step value (right-to-left).
 `-xanydirection`  
 Don't flip images along x-axis (default).
 
-*+ydirection*  
+`+ydirection`  
 Flip images to give positive yspace:step value (post-to-ant).
 
 `-ydirection`  
@@ -98,7 +99,7 @@ Flip images to give negative yspace:step value (ant-to-post).
 `-yanydirection`  
 Don't flip images along y-axis (default).
 
-*+zdirection*  
+`+zdirection`  
 Flip images to give positive zspace:step value (inf-to-sup).
 
 `-zdirection`  

@@ -3,17 +3,18 @@
 # MINCTORAW
 
 minctoraw copy data from a MINC file
+
 `minctoraw options mincfile`
 
 ## DESCRIPTION
 
 `minctoraw` dumps a chunk of MINC file data to standard output in the format of your choice.
 
-This program is largely superceded by *mincextract*.
+This program is largely superceded by [mincextract](mincextract)
 
 ## OPTIONS
 
-`-byte`  
+`-byte`
 Write out data as 8-bit integers
 
 `-short`  
