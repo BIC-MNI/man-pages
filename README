@@ -2,4 +2,8 @@ This is collection of documentation files for various minc tools. It was
 auto-converted from the legacy .man files to github-style markup format and
 then manually corrected.
 
-See http://bic-mni.github.io/man-pages/
+The pages are now stored in markup format and auto-magically appear online at http://bic-mni.github.io/man-pages/
+
+Also, static man pages are generated using pandoc and uploaded to https://github.com/BIC-MNI/man-pages/releases
+for use in minc-toolkit installation.
+
