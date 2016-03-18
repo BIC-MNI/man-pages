@@ -1,4 +1,7 @@
 ---
+layout: home
+title: MINC Man pages
+home: true
 ---
 # minc-toolkit documentation project
 
