@@ -1,3 +1,5 @@
+---
+---
 # MINCAVERAGE
 
 mincaverage average minc files

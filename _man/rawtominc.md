@@ -1,3 +1,5 @@
+---
+---
 # RAWTOMINC
 
 rawtominc converts a stream of binary image data to a minc format file
@@ -306,4 +308,4 @@ Peter Neelin
 Copyright © 1993 by Peter Neelin
 
 ## SEE ALSO
-[minctoraw](minctoraw.md) [mincextract](mincextract.md)
+[minctoraw](minctoraw) [mincextract](mincextract)

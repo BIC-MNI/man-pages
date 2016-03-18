@@ -1,3 +1,5 @@
+---
+---
 # MINCVIEW
 
 mincview - view a MINC file

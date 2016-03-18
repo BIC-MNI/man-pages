@@ -1,3 +1,5 @@
+---
+---
 # MINCEXTRACT
 
 mincextract - dump a hyperslab of MINC file data
@@ -121,4 +123,4 @@ Copyright © 1993 by Peter Neelin
 
 ## SEE ALSO
 
-[minctoraw](minctoraw.md)
+[minctoraw](minctoraw)

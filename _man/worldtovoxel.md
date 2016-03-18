@@ -1,3 +1,5 @@
+---
+---
 # VOXELTOWORLD
 
 worldtovoxel convert world coordinates to voxel coordinates
@@ -20,7 +22,7 @@ Print the program's version number and exit.
 
 To get the start positions of all three spatial coordinate axes in world coordinates:
 
-voxeltoworld file.mnc 0 0 0
+`voxeltoworld file.mnc 0 0 0`
 
 ## AUTHOR
 
@@ -32,4 +34,4 @@ Copyright © 1993 by Peter Neelin
 
 ## See also
 
-[voxeltoworld](voxeltoworld.md)
+[voxeltoworld](voxeltoworld)

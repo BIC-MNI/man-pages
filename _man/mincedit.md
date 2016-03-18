@@ -1,3 +1,5 @@
+---
+---
 # MINCEDIT
 
 mincedit - edit a MINC file header
@@ -20,4 +22,4 @@ Copyright © 1993 by Peter Neelin rewrite 2008 Andrew Janke - a.janke@gmail.com
 
 ## SEE ALSO
 
-[mincdump](mincdump.md), [mincgen](mincgen.md)
+[mincdump](mincdump), [mincgen](mincgen)

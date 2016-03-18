@@ -1,3 +1,5 @@
+---
+---
 # MINC_MODIFY_HEADER
 
 minc_modify_header modify the attributes in the header of a minc file

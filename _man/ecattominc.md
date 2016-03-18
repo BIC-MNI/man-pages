@@ -1,3 +1,5 @@
+---
+---
 # ecattominc
 
 ecattominc convert an ecat format file (version 6.x or 7.x) to a minc format file
@@ -54,7 +56,7 @@ No bug listed so far :=)
 
 ## SEE ALSO
 
-[minctoecat](minctoecat.md), [rawtominc](rawtominc.md),[minctoraw](minctoraw.md), [dicomtominc](dicomtominc.md)
+[minctoecat](minctoecat), [rawtominc](rawtominc),[minctoraw](minctoraw), [dicomtominc](dicomtominc)
 
 ## AUTHOR
 

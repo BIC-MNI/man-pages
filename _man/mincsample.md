@@ -1,3 +1,5 @@
+---
+---
 # MINCSAMPLE
 
 mincsample - generate samplings from minc files.

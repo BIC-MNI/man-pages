@@ -1,3 +1,5 @@
+---
+---
 # MINCEXPAND
 
 mincexpand expands a compressed minc file, if necessary.

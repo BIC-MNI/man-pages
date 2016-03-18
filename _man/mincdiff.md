@@ -1,3 +1,5 @@
+---
+---
 # MINCDIFF
 
 mincdiff report differences between minc files

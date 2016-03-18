@@ -1,3 +1,5 @@
+---
+---
 # MINCCMP
 
 minccmp compare one or more minc file using comparator operators

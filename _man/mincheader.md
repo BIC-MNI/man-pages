@@ -1,3 +1,5 @@
+---
+---
 # MINCHEADER
 
 mincheader prints out complete header information for a minc file
@@ -19,4 +21,4 @@ Copyright © 1993 by Peter Neelin
 
 ## See also
 
-[mincinfo](mincinfo.md)
+[mincinfo](mincinfo)

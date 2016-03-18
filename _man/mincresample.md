@@ -1,3 +1,5 @@
+---
+---
 # MINCRESAMPLE
 
 mincresample resamples a minc file along new spatial dimensions
@@ -335,4 +337,4 @@ Copyright © 1993 by Peter Neelin
 
 ## SEE ALSO
 
-[mincreshape](mincreshape.md)
+[mincreshape](mincreshape)

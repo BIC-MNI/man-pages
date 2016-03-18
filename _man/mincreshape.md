@@ -1,3 +1,5 @@
+---
+---
 # MINCRESHAPE
 
 mincreshape cuts a hyperslab out of a minc file (with dimension re-ordering)
@@ -279,4 +281,4 @@ Copyright © 1994 by Peter Neelin
 
 ## SEE ALSO
 
-[mincresample](mincresample.md)
+[mincresample](mincresample)

@@ -1,3 +1,5 @@
+---
+---
 # MINCWINDOW
 
 mincwindow - limit voxel values to a given range

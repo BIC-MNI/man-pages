@@ -1,3 +1,5 @@
+---
+---
 # MINCMAKESCALAR
 
 mincmakescalar - convert vector minc files to scalar

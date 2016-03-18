@@ -1,3 +1,5 @@
+---
+---
 # MINCSTATS
 
 mincstats calculate simple statistics across voxels of a minc file
@@ -10,7 +12,8 @@ mincstats calculate simple statistics across voxels of a minc file
 
 A very useful feature of this program is the ability to restrict the set of voxels included in the statistic calculation, either by restricting the range of included values, or by using a mask file with a restricted range. Multiple ranges for the input file or mask file can be specified. For each range of included volume values, and for each range of mask values, the relevant statistics are printed out (n\*m values, where n is the number of volume ranges and m the number of mask ranges). These calculations are done in a single pass through the data, so specifying multiple ranges is much faster than running the program repeatedly. This is quite helpful when calculating many regional averages with a VOI mask volume.
 
-Special mention should be given to histograms and related statistical measures. The default range of the histogram is from the smallest value in the file to the largest. In the not uncommon, but special, case when the number of histogram bins exactly matches the number of possible values in the file (e.g. 256 bins for full-range byte data), the histogram can end up with some odd features when using the default histogram range. This arises from the discretization of the data that are then rebinned into a slightly mismatched histgram. For the example of byte data, the values that should be used are 256 bins and a histogram range that extends half a bin below the smallest value and half a bin above the largest. Use option `-discrete_histogram` to work this out automatically, or use `-integer_histogram` to have bins of unit width if the input data are inherently integer (e.g. label data). In general, one should be careful about the rebinning of discretized data to a histogram with a bin size that is close to the level of discretization.
+Special mention should be given to histograms and related statistical measures. The default range of the histogram is from the smallest value in the file to the largest. In the not uncommon, but special, case when the number of histogram bins exactly matches the number of possible values in the file (e.g. 256 bins for full-range byte data), the histogram can end up with some odd features when using the default histogram range. This arises from the discretization of the data that are then rebinned into a slightly mismatched histgram. For the example of byte data, the values that should be used are 256 bins and a histogram range that extends half a bin below the smallest value and half a bin above the largest. Use option `-discrete_histogram` to work this out automatically, or use `-integer_histogram` to have bins of unit width if the input data are inherently integer (e.g. label data). 
+In general, one should be careful about the rebinning of discretized data to a histogram with a bin size that is close to the level of discretization.
 
 ## OPTIONS
 

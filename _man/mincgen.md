@@ -1,3 +1,5 @@
+---
+---
 # MINCGEN
 
 mincgen - generate a MINC file from a CDL file.

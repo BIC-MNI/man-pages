@@ -1,3 +1,5 @@
+---
+---
 # nii2mnc
 
 convert a NIfTI-1 or Analyze 7.5 format file to a MINC format file.
@@ -82,7 +84,7 @@ Current handling of NIfTI-1 qform and sform coordinate transforms should probabl
 
 ## SEE ALSO
 
-[mnc2nii](mnc2nii.md)
+[mnc2nii](mnc2nii)
 
 ## AUTHOR
 

@@ -1,3 +1,5 @@
+---
+---
 # MINCDUMP
 
 mincdump - Convert minc files to ASCII form (CDL)
@@ -163,7 +165,7 @@ Goldberg, *ACM Computing Surveys, Vol. 23, No. 1*, March 1991, pp. 5-48.
 
 ## SEE ALSO
 
-[ncdump](ncdump.md), [ncgen](ncgen.md), netcdf
+[ncdump](ncdump), [ncgen](ncgen), netcdf
 
 ## BUGS
 

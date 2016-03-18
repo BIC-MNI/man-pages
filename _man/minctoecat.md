@@ -1,3 +1,5 @@
+---
+---
 # minctoecat
 
 minctecat convert a minc format file to an Ecat7 format file
@@ -7,7 +9,8 @@ minctecat convert a minc format file to an Ecat7 format file
 
 ## DESCRIPTION
 
-`minctoecat` will convert a 2D image, a 3D volumes or a 4D dynamic volumes written in minc file format to a 2D, 3D or 4D Ecat7 file. Whereas the Ecat7 format has been designed for PET volume issued by Ecat scanners (CTI/SIEMENS - Knoxville, TN, USA) it reads any minc volume type (static PET, dynamic PET, aMRI, fMRI, labels) natively delivered by any tomograph brand and transform it to a viable Ecat7 file in term of number of dimensions, dimension size, dimension step, orientation, spatial position, voxel values and voxel unit. Furthermore, it tries the best as it can to fill optional Ecat7 header fields from the available minc variables and attributes. By default, it extracts these additional information from common minc variables, namely: patient\_variable, study\_variable, acquisition\_variable. In the case of volumes originally delivered by an Ecat PET scanners, then, other variable are generally available within the minc header: ecat\_acquisition\_variable, ecat\_main and ecat\_sub-header\_variable. There, for a such minc volume, the conversion yields a Ecat7 volume almost identical to the original native volume in terms of header fields. The user can alter this behaviour using the ignore-list options (see the option section).
+`minctoecat` will convert a 2D image, a 3D volumes or a 4D dynamic volumes written in minc file format to a 2D, 3D or 4D Ecat7 file. Whereas the Ecat7 format has been designed for PET volume issued by Ecat scanners (CTI/SIEMENS - Knoxville, TN, USA) it reads any minc volume type (static PET, dynamic PET, aMRI, fMRI, labels) natively delivered by any tomograph brand and transform it to a viable Ecat7 file in term of number of dimensions, dimension size, dimension step, orientation, spatial position, voxel values and voxel unit. Furthermore, it tries the best as it can to fill optional Ecat7 header fields from the available minc variables and attributes. By default, it extracts these additional information from common minc variables, namely: patient\_variable, study\_variable, acquisition\_variable. In the case of volumes originally delivered by an Ecat PET scanners, then, other variable are generally available within the minc header: ecat\_acquisition\_variable, ecat\_main and ecat\_sub-header\_variable. 
+There, for a such minc volume, the conversion yields a Ecat7 volume almost identical to the original native volume in terms of header fields. The user can alter this behaviour using the ignore-list options (see the option section).
 
 ## OPTIONS
 

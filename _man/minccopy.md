@@ -1,3 +1,5 @@
+---
+---
 # MINCCOPY
 
 minccopy - copy minc image values from one minc file to another

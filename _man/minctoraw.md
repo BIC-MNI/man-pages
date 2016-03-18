@@ -1,3 +1,5 @@
+---
+---
 # MINCTORAW
 
 minctoraw copy data from a MINC file
@@ -58,4 +60,4 @@ Print the program's version number and exit.
 
 ## SEE ALSO
 
-[mincextract](mincextract.md)
+[mincextract](mincextract)

@@ -1,17 +1,15 @@
-XFMCONCAT
+---
+---
+# XFMCONCAT
 
 xfmconcat concatenate MNI transform files
-xfmconcat
-input1.xfm
-input2.xfm
-result.xfm
-DESCRIPTION
-===========
+`xfmconcat input1.xfm input2.xfm result.xfm`
+
+## DESCRIPTION
 
 `xfmconcat` concatenates a number of transforms together. The resulting transformation will have the effect of applying transformation *input1.xfm* then *input2.xfm*, etc., in that order.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-help`  
 Print summary of command-line options and exit.
@@ -25,12 +23,10 @@ Print out progress information.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1993 Peter Neelin

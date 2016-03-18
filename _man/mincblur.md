@@ -1,3 +1,5 @@
+---
+---
 # MINCBLUR
 
 mincblur - convolve an input volume with a Gaussian blurring kernel.

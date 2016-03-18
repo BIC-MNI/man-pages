@@ -1,3 +1,5 @@
+---
+---
 # AUTOCROP
 
 autocrop tool for extracting and manipulating bounds of a MINC file
@@ -142,7 +144,7 @@ Note that we have supplied separate extension pairs for each dimension, but that
 
 ## SEE ALSO
 
-[mincresample](mincresample.md), [mincreshape](mincreshape.md)
+[mincresample](mincresample), [mincreshape](mincreshape)
 
 ## AUTHOR
 

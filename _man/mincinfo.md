@@ -1,3 +1,5 @@
+---
+---
 # MINCINFO
 
 mincinfo print out specified information about a minc file
