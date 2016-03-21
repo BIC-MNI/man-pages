@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 # minc-toolkit documentation project
 

@@ -21,7 +21,31 @@ markdown: kramdown
 source: .
 destination: _deploy
 
+compress_html:
+    clippings:      all
+    ingore:
+        envs:       [ "test" ]
+
+defaults:
+  -
+    scope:
+      path:         ""
+    values:
+      layout:       "default"
+  -
+    scope:
+      type:         "pages"
+    values:
+      layout:       "default"
+  -
+    scope:
+      type:         "posts"
+    values:
+      layout:       "default"
+
+
 collections:
   man:
     output: true
-    
+    layout:       "default"
+
