@@ -30,6 +30,7 @@ compress_html:
     ingore:
         envs:       [ "test" ]
 
+        
 defaults:
   -
     scope:
@@ -52,4 +53,3 @@ collections:
   man:
     output: true
     layout:       "default"
-
