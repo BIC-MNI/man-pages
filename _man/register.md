@@ -18,13 +18,13 @@ A byte vector volume will normally be treated as an RGB volume, in that the firs
 
 The following command line options are recognized:
 
-`-global` *NAME* *VALUE*  
+`-global NAME VALUE`
 Sets the global variable *NAME* to *VALUE*.
 
 `-sync`  
 Start the program with the two volume positions synchronized.
 
-`-range` *VOLUME* *MIN* *MAX*  
+`-range VOLUME MIN MAX`
 Force the initial colour mapping range of *VOLUME* (either 0 or 1) to the values *MIN* and *MAX*.
 
 `-version`  
