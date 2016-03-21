@@ -12,7 +12,8 @@ legacy .man files to github-style markup format and then manually corrected.
   * [mincheader](man/mincheader) -  print out complete header information for a minc file
   * [mincstats](man/mincstats) - calculate simple statistics across voxels of a minc file
   * [mincdiff](man/mincdiff) - report differences between minc files
-  * [voxeltoworld](man/voxeltoworld)
+  * [voxeltoworld](man/voxeltoworld) - convert voxel coordinates to world coordinates
+  * [worldtovoxel](man/worldtovoxel) - convert world coordinates to voxel coordinates
 * file format conversion
   * [rawtominc](man/rawtominc) - converts a stream of binary image data to a minc format file
   * [mincconvert](man/mincconvert) - convert between MINC 1 to MINC 2 format
