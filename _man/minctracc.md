@@ -325,7 +325,7 @@ subject to match those in a target volume:
 
 Match the same subject, scanned on two occasions with similar protocol:
 
-`minctracc subj_time1.mnc subj_time2.mnc result.xfm BSOL -lsq6 -identity  -est_center`
+`minctracc subj_time1.mnc subj_time2.mnc result.xfm   -lsq6 -identity  -est_center`
 
 ## REFERENCES
 

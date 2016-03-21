@@ -12,7 +12,10 @@ mincedit - edit a MINC file header
 
 ## DESCRIPTION
 
-`mincedit` converts the MINC file header to a text version which you can edit in your favourite editor. If any changes are made, the MINC file is regenerated and the image data is copied. The header is presented in netCDF's common data form language (CDL).
+`mincedit` converts the MINC file header to a text version which you can edit in 
+your favourite editor. If any changes are made, the MINC file is regenerated and 
+the image data is copied. The header is presented in netCDF's common data form 
+language (CDL).
 
 `-help`  
 Print summary of command-line options and exit.

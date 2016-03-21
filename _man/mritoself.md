@@ -26,7 +26,7 @@ of options to force specific fitting strategies for certain types of data.
 
 By default, *Mritoself* uses a mutual information objective function evaluated 
 on the original (unblurred) data volumes. Optionally, the data can be blurred 
-before fitting with the '-blur' option. If the '-gradient' option is specified, 
+before fitting with the `-blur` option. If the `-gradient` option is specified, 
 then the gradient magnitude of the blurred images is used in the fitting 
 process.
 
@@ -38,8 +38,8 @@ and a medium-small (3mm) simplex to find an reasonable initial transformation.
 The second (and last) fit is estimated with 4.3mm steps and a small simplex 
 (1.5mm).
 
-If an initial transformation is available, it can be used with the '-transform' 
-option. This will overide the '-identity' transform used in the first fit 
+If an initial transformation is available, it can be used with the `-transform` 
+option. This will overide the `-identity` transform used in the first fit 
 described above.
 
 *option* <val>: description of option

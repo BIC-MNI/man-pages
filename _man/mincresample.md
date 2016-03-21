@@ -310,25 +310,25 @@ Print the program's version number and exit.
 Resample an individual's brain in a standardized space on a standard sampling 
 grid:
 
-`mincresample individual.mnc in_std_space.mnc BSOL -transform transform_to_standard_space.xfm BSOL -like standard_sampling.mnc`
+`mincresample individual.mnc in_std_space.mnc   -transform transform_to_standard_space.xfm   -like standard_sampling.mnc`
 
 Resample an MRI volume to be matched with a PET volume, but with finer 
 resolution:
 
-`mincresample mri.mnc mri\_resampled.mnc BSOL -transform mri\_to\_pet.xfm -like pet.mnc BSOL -step 1 1 2 -xstart -0.5 -ystart -0.5 BSOL -nelements 256 256 64`
+`mincresample mri.mnc mri\_resampled.mnc   -transform mri\_to\_pet.xfm -like pet.mnc   -step 1 1 2 -xstart -0.5 -ystart -0.5   -nelements 256 256 64`
 
 Turn a transverse volume into a sagittal volume:
 
-`mincresample transverse.mnc sagittal.mnc BSOL -sagittal -nearest`
+`mincresample transverse.mnc sagittal.mnc   -sagittal -nearest`
 
 Turn a 256x256x64 (1x1x2mm) transverse volume into 256x128x256 (1x1x1mm) 
 sagittal volume:
 
-`mincresample transverse.mnc sagittal.mnc -sagittal BSOL -zstep 1 -znelem 128`
+`mincresample transverse.mnc sagittal.mnc -sagittal   -zstep 1 -znelem 128`
 
 Get a finer axial sampling on a PET volume:
 
-`mincresample pet_15_slices.mnc pet_46_slices.mnc BSOL -zstep 2 -znelements 46`
+`mincresample pet_15_slices.mnc pet_46_slices.mnc   -zstep 2 -znelements 46`
 
 ## AUTHOR
 

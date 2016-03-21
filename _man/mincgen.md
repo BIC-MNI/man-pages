@@ -121,17 +121,17 @@ Constants assigned to attributes or variables may be of any of the basic MINC ty
 A *byte* constant is represented by a single character or multiple character escape sequence enclosed in single quotes. For example,
 
      'a'        // ASCII `a'
-     'BSOL0'      // a zero byte
-     'BSOLn'      // ASCII newline character
-     'BSOL33'     // ASCII escape character (33 octal)
-     'BSOLx2b'    // ASCII plus (2b hex)
-     'BSOL377'    // 377 octal = 255 decimal, non-ASCII
+     ' 0'      // a zero byte
+     ' n'      // ASCII newline character
+     ' 33'     // ASCII escape character (33 octal)
+     ' x2b'    // ASCII plus (2b hex)
+     ' 377'    // 377 octal = 255 decimal, non-ASCII
 
 Character constants are enclosed in double quotes. A character array may be represented as a string enclosed in double quotes. The usual C string escape conventions are honored. For example
 
     "a"     // ASCII `a'
-    "TwoBSOLnlinesBSOLn"    // a 10-character string with two embedded newlines
-    "a bell:BSOL007"  // a string containing an ASCII bell
+    "Two nlines n"    // a 10-character string with two embedded newlines
+    "a bell: 007"  // a string containing an ASCII bell
 
 Note that the character array "a" would fit in a one-element variable, since no terminating NULL character is assumed. However, a zero byte in a character array is interpreted as the end of the significant characters by the *mincdump* program, following the C convention. Therefore, a NULL byte should not be embedded in a character string unless at the end: use the *byte* data type instead for byte arrays that contain the zero byte. MINC and CDL have no string type, but only fixed-length character arrays, which may be multi-dimensional.
 

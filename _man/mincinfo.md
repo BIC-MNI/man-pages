@@ -74,7 +74,7 @@ mincinfo file.mnc -attvalue xspace:step -error 1
 
 Print out the step values for x, y and z, setting the default value to 1.
 
-mincinfo file.mnc -error 1 BSOL -attvalue xspace:step BSOL -attvalue yspace:step BSOL -attvalue zspace:step
+mincinfo file.mnc -error 1   -attvalue xspace:step   -attvalue yspace:step   -attvalue zspace:step
 
 Print out the names of the dimensions subscripting the image variable.
 

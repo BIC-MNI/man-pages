@@ -128,7 +128,7 @@ mincconcat input1.mnc input2.mnc output.mnc
 
 If we have a bunch of compressed (yspace, xspace) images that we wish to concatenate into an evenly spaced volume, then we can type
 
-mincconcat input1.mnc.gz input2.mnc.gz input3.mnc.gz BSOL input4.mnc.gz output.mnc BSOL -concat\_dimension zspace -start -23 -step 2
+mincconcat input1.mnc.gz input2.mnc.gz input3.mnc.gz   input4.mnc.gz output.mnc   -concat\_dimension zspace -start -23 -step 2
 
 ## AUTHOR
 

@@ -248,11 +248,11 @@ If we wanted to get rid of the zspace dimension, we could use
 
 Let's get a block out of the middle and flip it along xspace:
 
-`mincreshape original.mnc new.mnc BSOL -start 40,10,240 -count 1,200,-200`
+`mincreshape original.mnc new.mnc   -start 40,10,240 -count 1,200,-200`
 
 But why restrain outselves? Let's go out of bounds:
 
-`mincreshape original.mnc new.mnc BSOL -start 40,-100,340 -count 1,200,-200`
+`mincreshape original.mnc new.mnc   -start 40,-100,340 -count 1,200,-200`
 
 If you want a sagittal volume, use this:
 

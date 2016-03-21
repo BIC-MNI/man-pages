@@ -44,7 +44,7 @@ Print out progress information for each chunk of data copied (default).
 `-quiet`  
 Do not print out progress information.
 
-`-buffer_size` size  
+`-buffer_size size`
 Specify the maximum size of the internal buffers (in kbytes). Default is 10 MB.
 
 `-filetype`  
@@ -97,19 +97,19 @@ Invert the lookup table so that the maximum value maps to zero and the minimum v
 `-noinvert`  
 Do not invert the lookup table - the minimum maps to zero and the maximum maps to one (default).
 
-`-range` min max  
+`-range min max`  
 Specify the range of values that should map to the range of the lookup table (default is the full range of the input file).
 
-`-minimum` min  
+`-minimum min`  
 Specify the input value that maps to the minimum value in the lookup table.
 
-`-maximum` max  
+`-maximum max`  
 Specify the input value that maps to the maximum value in the lookup table.
 
-`-lookup_table` \[*file* | *-*\]  
-Specify the name of a file containing the lookup table. If *-* is given, the lookup table is read from the standard input. The file must have at least two columns: The first column gives the input values; the other columns give the corresponding output values. For a continuous lookup table, the first column should contain a value between zero and one inclusive Explicit entries for both zero and one should usually be given. For a discrete lookup table, the first column should contain integer values. If more than one output column is given, then the output file will have the dimension *vector_dimension* with a length equal to the number of output columns. The lines of the table will be sorted if necessary so that the first column is in ascending order.
+`-lookup_table [file|-]`
+Specify the name of a file containing the lookup table. If `-` is given, the lookup table is read from the standard input. The file must have at least two columns: The first column gives the input values; the other columns give the corresponding output values. For a continuous lookup table, the first column should contain a value between zero and one inclusive Explicit entries for both zero and one should usually be given. For a discrete lookup table, the first column should contain integer values. If more than one output column is given, then the output file will have the dimension *vector_dimension* with a length equal to the number of output columns. The lines of the table will be sorted if necessary so that the first column is in ascending order.
 
-`-lut_string` lookup-table-string  
+`-lut_string lookup-table-string`  
 Specify the complete lookup table as a single string. The semicolon character ";" is used to separate lines.
 
 `-continuous`  
@@ -118,7 +118,7 @@ The lookup table is continuous (see description above): Input values are treated
 `-discrete`  
 The lookup table is discrete (see description above): Input values are treated as integers and no interpolation is done between input values.
 
-`-null_value` null-value-string  
+`-null_value null-value-string`
 Specify a null value to be used with discrete lookup tables when a value is not found in the lookup table. This value must be specified as a comma-separated list of values, with the same number of values as output columns in the lookup table.
 
 ## Generic options for all commands:
@@ -133,27 +133,30 @@ Print the program's version number and exit.
 
 To get hot-metal RGB images from an MRI file:
 
-minclookup -hotmetal input.mnc output.mnc
+`minclookup -hotmetal input.mnc output.mnc`
 
-To convert the labels in a minc label file, use -discrete:
+To convert the labels in a minc label file, use `-discrete`:
 
-minclookup -discrete -lookup_table lookupfile BSOL in_labels.mnc out_labels.mnc
+`minclookup -discrete -lookup_table lookupfile in_labels.mnc out_labels.mnc`
 
 where lookupfile is a file containing entries to map label 2 to 4 and label 3 to 5:
 
-2 4 3 5
+```
+2 4 
+3 5
+```
 
 You could also specify this lookup table on the command line:
 
-minclookup -discrete -lut_string '2 4;3 5' BSOL in_labels.mnc out_labels.mnc
+`minclookup -discrete -lut_string '2 4;3 5' in_labels.mnc out_labels.mnc`
 
 To get a grey RGB file, with red for values less than the minimum and green for values greater than the minimum, you can give two zero entries and two one entries. The first zero is used for negative values, the second zero is used for interpolation to the next entry. There is no ambiguity about how to handle a value of exactly zero because the first and last values of the table are handled in a special way to make sure that they are treated as within range if this sort of two-entry situation occurs.
 
-minclookup -lookup_table - input.mnc output.mnc <<EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF
+`minclookup -lookup_table - input.mnc output.mnc <<EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF`
 
 To invert a scalar image, you could use minclookup:
 
-minclookup -lut_string '0 1;1 0' in.mnc out.mnc
+`minclookup -lut_string '0 1;1 0' in.mnc out.mnc`
 
 ## AUTHOR
 

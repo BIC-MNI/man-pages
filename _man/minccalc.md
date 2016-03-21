@@ -284,7 +284,7 @@ curly brackets, but then there must not be a ";" between the if and the else
 If we want both the mean and the standard deviation, we can use the `-outfile` 
 option, invoking the command with
 
-- `minccalc -expfile stdev BSOL -outfile mean mean.mnc BSOL -outfile stdev stdev.mnc infile1.mnc infile2.mnc ...`
+- `minccalc -expfile stdev   -outfile mean mean.mnc   -outfile stdev stdev.mnc infile1.mnc infile2.mnc ...`
 
 And using the expression file (with yet another form of if expression):
 
