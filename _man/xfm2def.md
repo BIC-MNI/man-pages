@@ -10,6 +10,7 @@ xfm2def convert a MNI transform file to a deformation volume
 ## DESCRIPTION
 
 `xfm2def` takes an input transform *input.xfm* that can consist of a series of concatenated transforms in a single xfm file and converts this into a single deformation volume that is output as *def_vol.mnc*. Note that the output is not a tranform file itself, you can then make use of this volume in a MINC tranform by creating an .xfm file as such:
+
 ```
 MNI Transform File Transform_Type = Grid_Transform; 
 Displacement_Volume = def_vol.mnc;
