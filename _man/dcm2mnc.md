@@ -1,5 +1,9 @@
 ---
 section: 1
+title: dcm2mnc
+author: 
+- Peter Neelin 
+- Richard D. Hoge
 ---
 # dcm2mnc
 

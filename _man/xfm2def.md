@@ -1,6 +1,9 @@
 ---
+section: 1
+title: xfm2def
+author: Andrew Janke
 ---
-# XFM2DEF
+# xfm2def
 xfm2def convert a MNI transform file to a deformation volume
 `xfm2def options input.xfm def\_vol.mnc `
 
@@ -26,40 +29,40 @@ Print out extra progress information while running.
 `-clobber`  
 Overwrite any existing output file
 
-`-xnelements` nx  
+`-xnelements nx`  
 Number of elements along the xspace dimension.
 
-`-ynelements` ny  
+`-ynelements ny`  
 Number of elements along the yspace dimension.
 
-`-znelements` nz  
+`-znelements nz`  
 Number of elements along the zspace dimension.
 
-`-xstep` xstep  
+`-xstep xstep`  
 Step between voxels along the xspace dimension.
 
-`-ystep` ystep  
+`-ystep ystep`  
 Step between voxels along the yspace dimension.
 
-`-zstep` zstep  
+`-zstep zstep`  
 Step between voxels along the zspace dimension.
 
-`-xstart` xstart  
+`-xstart xstart`  
 Position of centre of first voxel along the xspace dimension.
 
-`-ystart` ystart  
+`-ystart ystart`  
 Position of centre of first voxel along the yspace dimension.
 
-`-zstart` zstart  
+`-zstart zstart`  
 Position of centre of first voxel along the zspace dimension.
 
-`-xdircos` x1 x2 x3  
+`-xdircos x1 x2 x3`  
 Direction cosines for the xspace dimension.
 
-`-ydircos` y1 y2 y3  
+`-ydircos y1 y2 y3`  
 Direction cosines for the yspace dimension.
 
-`-zdircos` z1 z2 z3  
+`-zdircos z1 z2 z3`  
 Direction cosines for the zspace dimension.
 
 ## AUTHOR
