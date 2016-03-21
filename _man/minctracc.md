@@ -98,16 +98,16 @@ unique) and can be given anywhere on the command line.
 These are the options used to specify the initial starting conditions for the 
 optimization of the transformation parameters.
 
-`-transformation <filename.xfm>`: Specify a file giving the world coordinate 
+`-transformation <filename.xfm>` : Specify a file giving the world coordinate 
 transformation mapping points from the source into the target space.
 
-`-identity` Use identity transformation for starting point.
+`-identity` : Use identity transformation for starting point.
 
-`-est_center` Use only the center estimated from Principal axis trans.
+`-est_center` : Use only the center estimated from Principal axis trans.
 
-`-est_scales` Use only the scales estimated from Principal axis trans.
+`-est_scales` : Use only the scales estimated from Principal axis trans.
 
-`-est_translations` Use only the translations estimated from Principal axis 
+`-est_translations` : Use only the translations estimated from Principal axis 
 trans.
 
 Note that the four previous options (-est_*) are not mutually exclusive. You 
@@ -115,11 +115,11 @@ can, for example, use '-est_center -est_translations' to estimate the center of
 rotation and scaling, as well as the initial translation componant required to 
 register the centers of gravity of the two volumes.
 
-`-center <xcent> <ycent> <zcent>`: Force the center of rotation and scale.
+`-center <xcent> <ycent> <zcent>` : Force the center of rotation and scale.
 
-`-no_clobber` Do not overwrite output file (default).
+`-no_clobber` : Do not overwrite output file (default).
 
-`-clobber` Overwrite output file.
+`-clobber` : Overwrite output file.
 
 ## Output transformation type.
 
@@ -127,55 +127,55 @@ The type of output file can be constrained depending on the type of registration
 required. For example, intra-subject registration can be completed with only 6 
 parameters if rigid body assumptions hold.
 
-`-pat` Return the principal axis transformation matrix (input matrix ignored), 
+`-pat` : Return the principal axis transformation matrix (input matrix ignored), 
 no optimization done.
 
-`-lsq3` Return a 3 parameter transformation (3 translations only).
+`-lsq3` : Return a 3 parameter transformation (3 translations only).
 
-`-lsq6` Return a 6 parameter rigid-body transformation (3 translation, 3 
+`-lsq6` : Return a 6 parameter rigid-body transformation (3 translation, 3 
 rotation, scale=1.0).
 
-`-lsq7` Return a 7 parameter transformation (lsq6 + 1 global scale; this is the 
+`-lsq7` : Return a 7 parameter transformation (lsq6 + 1 global scale; this is the 
 same as -procrustes, and is the default).
 
-`-lsq9` Return a 9 parameter transformation (lsq6 + 3 scales).
+`-lsq9` : Return a 9 parameter transformation (lsq6 + 3 scales).
 
-`-lsq10` Return a 10 parameter transformation (lsq9 + 1 shear).
+`-lsq10` : Return a 10 parameter transformation (lsq9 + 1 shear).
 
-`-lsq12` Return a full 12 parameter transformation (lsq9 + 3 shears).
+`-lsq12` : Return a full 12 parameter transformation (lsq9 + 3 shears).
 
-`-lsq` Return a full 12 parameter transformation (same as -lsq12).
+`-lsq` : Return a full 12 parameter transformation (same as -lsq12).
 
-`-procrustes` Return a procrustes transformation (3 trans, 3 rots, 1 scale), 
-same as -lsq7. This is the default.
+`-procrustes` : Return a procrustes transformation (3 trans, 3 rots, 1 scale), 
+same as `-lsq7`. This is the default.
 
-`-forward` Recover forward transformation (source -> model, default).
+`-forward` : Recover forward transformation (source -> model, default).
 
-`-invert` Recover inverted transformation (model -> source).
+`-invert` : Recover inverted transformation (model -> source).
 
 ## Options for mask volumes.
 
-`-model_mask` <filename>: Specifies a binary mask file for the target. Any data 
+`-model_mask <filename>` : Specifies a binary mask file for the target. Any data 
 voxel whose world coordinate falls in a zero-valued voxel in the mask is ignored 
 in the calculation of the objective function.
 
-`-source_mask` <filename>: Specifies a binary mask file for the source.
+`-source_mask <filename>` : Specifies a binary mask file for the source.
 
 ## Interpolation options.
 
-`-trilinear` Do a tri-linear interpolation between voxels when estimating the 
+`-trilinear` : Do a tri-linear interpolation between voxels when estimating the 
 value for a node in the 3D lattice. This is the default.
 
-`-tricubic` Do a tri-cubic interpolation between voxels.
+`-tricubic` : Do a tri-cubic interpolation between voxels.
 
-`-nearest_neighbour` Do nearest neighbour interpolation between voxels (ie. 
+`-nearest_neighbour` : Do nearest neighbour interpolation between voxels (ie. 
 find the voxel closest to the point and use its value).
 
 ## Optimization objective functions.
 
-`-xcorr` Use cross correlation (this is the default) [2].
+`-xcorr` : Use cross correlation (this is the default) [2].
 
-`-zscore` Use normalized difference. Before optimization, each volume is 
+`-zscore` : Use normalized difference. Before optimization, each volume is 
 normalized to have the same mean, with a range of +/- 5 standard deviations. The 
 objective function is simply the difference in normalized values between the two 
 volumes.
@@ -202,32 +202,32 @@ option applies only when -ssc is used as the objective function.
 Simplex optimization is used to maximize/minimize the objective function to find 
 the best transformation parameters.
 
-`-tol <val>`: Stopping criteria tolerance (default = 0.005). The optimization 
+`-tol <val>` : Stopping criteria tolerance (default = 0.005). The optimization 
 will stop when tol> (f_max-f_min)/(f_max+f_min), where f_max and f_min are the 
 maximum and minimum values of the objective function in the Simplex.
 
-`-simplex <val>`: Radius of simplex volume (default = 20). This is measured in 
+`-simplex <val>` : Radius of simplex volume (default = 20). This is measured in 
 units of millimeters on the spatial axis, degrees of rotation or percentage 
 scale on the scaling dimensions. When the initial estimate is know to be 
 relatively good, the simplex radius should be reduced to the level of certainty 
 of the input parameters.
 
-`-w_translations <w_tx> <w_ty> <w_tz>`: Optimization weight of translation in x, 
+`-w_translations <w_tx> <w_ty> <w_tz>` : Optimization weight of translation in x, 
 y, z (default = 1.0 1.0 1.0).
 
-`-w_rotations <w_rx> <w_ry> <w_rz>`: Optimization weight of rotations around x, 
+`-w_rotations <w_rx> <w_ry> <w_rz>` : Optimization weight of rotations around x, 
 y, z (default = 0.0174533 0.0174533 0.0174533). Internally, the rotations are 
 stored as radians, although all user input is in degrees. The value 0.0174533 
 makes one degree equivalent to 1 mm in the optimization.
 
-`-w_scales <w_sx> <w_sy> <w_sz>`: Optimization weight of scaling along x, y, z 
+`-w_scales <w_sx> <w_sy> <w_sz>` : Optimization weight of scaling along x, y, z 
 (default = 0.02 0.02 0.02). This makes a 2% change in scale equivalent to 1mm of 
 translation.
 
-`-w_shear <w_sa> <w_sb> <w_sc>`: Optimization weight of shears a,b and c 
+`-w_shear <w_sa> <w_sb> <w_sc>` : Optimization weight of shears a,b and c 
 (default = 0.02 0.02 0.02)
 
-`-use_bfgs`: Use BFGS optimizer instead of amoeba simplex
+`-use_bfgs` : Use BFGS optimizer instead of amoeba simplex
 
 ## Options for 3D lattice definition.
 
@@ -239,14 +239,14 @@ spacing between lattice samples is directly related to the resolution of the
 data used in the fit. For example, data blurred with a 12mm fwhm gaussian kernel 
 does not need to be sampled with spacing less than 6mm.
 
-`-step <sx> <sy> <sz>`: Step size (in mm) along each dimension (x, y, z). 
+`-step <sx> <sy> <sz>` : Step size (in mm) along each dimension (x, y, z). 
 Default value is 4.0 4.0 4.0.
 
-`-xstep <sx>`: Step size along the X dimension (default = 4.0).
+`-xstep <sx>` : Step size along the X dimension (default = 4.0).
 
-`-ystep <sy>`: Step size along the Y dimension (default = 4.0).
+`-ystep <sy>` : Step size along the Y dimension (default = 4.0).
 
-`-zstep <sz>`: Step size along the Z dimension (default = 4.0)
+`-zstep <sz>` : Step size along the Z dimension (default = 4.0)
 
 ## Options for optimization of non-linear transformations
 
@@ -256,49 +256,49 @@ the linear transformation plus the deformation stored in the deformation field.
 The deformation field is represented by a vector-valued 3D volume with -step 
 distance between nodes.
 
-`-nonlinear`: specifies that a non-linear deformation field should be estimated. 
+`-nonlinear` : specifies that a non-linear deformation field should be estimated. 
 the -nonlinear can take on one of the following optional arguments: xcorr, diff, 
 sqdiff, label, chamfer, corrcoeff, or opticalflow to define the objective 
 function to be used to compare the source and target volumes.
 
-`-sub_lattice <val>`: Defines the number of nodes along the diameter of the 
+`-sub_lattice <val>` : Defines the number of nodes along the diameter of the 
 sublattice that defined the local neighbourhood used to estimate the deformation 
 vector.
 
-`-lattice_diameter <valx> <valy> <valz>`: determines the size (in mm) of the 
+`-lattice_diameter <valx> <valy> <valz>` : determines the size (in mm) of the 
 sublattice used to define the local neighbouhood.
 
-`-use_magnitude` use magnitude data local deformation (default). this flag tells 
+`-use_magnitude` : use magnitude data local deformation (default). this flag tells 
 minctracc that a local sublattice will be needed. You normally don't have to 
 specify this flag.
 
-`-optical_flow` a flag to use optical flow to compute deformation on the two 
+`-optical_flow` : a flag to use optical flow to compute deformation on the two 
 firstmain source/model volumes.
 
-`-use_simplex` a flag to use 3D simplex optimization for local deformation 
+`-use_simplex` : a flag to use 3D simplex optimization for local deformation 
 (default).
 
-`-quadratic` a flag to turn on local quadratic fitting for local deformation.
+`-quadratic` : a flag to turn on local quadratic fitting for local deformation.
 
-`-use_local` a flag to turn on local smoothing. by default, minctracc uses 
+`-use_local` : a flag to turn on local smoothing. by default, minctracc uses 
 global smoothing for regularization.
 
-`-use_nonisotropic` a flag to turn on directionally sensitive smoothing 
+`-use_nonisotropic` : a flag to turn on directionally sensitive smoothing 
 (def=isotropic smoothing) when usinglocal smoothing.
 
-`-super` <val>: super sample deformation field during optimization (default=2) 
+`-super <val>` : super sample deformation field during optimization (default=2) 
 to speed up the evaluation of local deformation vectors.
 
-`-no_super` turn off the super sample deformation field during optimization.
+`-no_super` : turn off the super sample deformation field during optimization.
 
-`-iterations <val>` this is the number of iterations for non-linear optimization 
+`-iterations <val>` : this is the number of iterations for non-linear optimization 
 (default value: 4).
 
-`-weight <val>`: Weighting factor for each iteration in nl optimization. This 
+`-weight <val>` : Weighting factor for each iteration in nl optimization. This 
 defines how much of the currently estimated vector should be added to the 
 deformation field (default value: 0.6).
 
-`-stiffness <val>`: Weighting factor to define smoothness for regularization at 
+`-stiffness <val>` : Weighting factor to define smoothness for regularization at 
 each iteration (default value: 0.5).
 
 `-similarity_cost_ratio <val>` Weighting factor to reduce the effect of large 
@@ -306,15 +306,15 @@ deformations `r=similarity*w + cost(1*w)` (default value: 0.5)
 
 ## Options for logging progress.
 
-`-verbose <val>`: Write verbose messages indicating progress (default = 1).
+`-verbose <val>` : Write verbose messages indicating progress (default = 1).
 
-`-quiet` Do not write log messages
+`-quiet` : Do not write log messages
 
-`-debug` Print out debug info.
+`-debug` : Print out debug info.
 
 ## Generic options
 
-`-help` Print summary of command-line options and abort.
+`-help` : Print summary of command-line options and abort.
 
 ## EXAMPLES
 
