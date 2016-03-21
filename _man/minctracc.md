@@ -28,13 +28,13 @@ will store the results (in .xfm format). Note that the output is *not* a new
 MINC volume; you must use mincresample to resample the data according to the 
 transform output by minctracc if you wish to see the transformed image data.
 
-Using flags on the command line, the user can specify:
-
-- the type of transformation to be optimized and saved, - mask files to be used 
-with the source or target volumes, - a transformation file to specify the 
-initial starting condition, - the type of objective function to be minimized, - 
-the type of interpolation function to use, - and the definition of the sampling 
-matrix used to measure the objective function.
+Using flags on the command line, the user can specify: 
+- the type of transformation to be optimized and saved, 
+- mask files to be used with the source or target volumes, 
+- a transformation file to specify the  initial starting condition, 
+- the type of objective function to be minimized, 
+- the type of interpolation function to use, 
+- and the definition of the sampling  matrix used to measure the objective function.
 
 Internally, the program optimizes the transformation parameters of translations, 
 rotations, scaling(s) and possibly shear(s). These parameters are used to create 
@@ -43,7 +43,7 @@ first volume to the world space of the second volume. It is this matrix that is
 saved in the output transformation file. The program 'xfm2param' can be used to 
 extract the transformation parameters from the .xfm file.
 
-## Specifying the initial starting position:
+### Specifying the initial starting position:
 
 There are a number of methods available to get an initial transformation to 
 start the optimization process. The first is the default if there is no input 
@@ -57,14 +57,14 @@ method is not always robust when the two data sets do not represent the same
 volume (ie source is 10cm thick slice of brain, and the target is a whole head), 
 so other initialization methods are available.
 
-In the second method, with the '-transformation' option the user specifies a 
+In the second method, with the `-transformation` option the user specifies a 
 transform (.xfm) file that contains a linear transformation used to map points 
 of volume one (source) into volume two (target). This transformation file can be 
-the result of a rough manual registration accomplished with 'register', or the 
-previous result of an application of minctracc, for example.
+the result of a rough manual registration accomplished with [register](register), or the 
+previous result of an application of [minctracc](minctracc), for example.
 
 The third option is used when the two volumes are already fairly closely aligned 
-(eg., if they were acquired in the same scanning session). Here, '-identity' is 
+(eg., if they were acquired in the same scanning session). Here, `-identity` is 
 used to specify an identity matrix to the used to initialize the transformation 
 matrix.
 
@@ -73,10 +73,13 @@ Once the matrix is specified, the program extracts the transformation parameters
 trying to find the best transformation.
 
 When the user specifies a transformation matrix (other than PAT), the default 
-center is 0,0,0. The user can can change this in two ways: 1) the '-center <cx> 
-<cy> <cz>' option permits direct input of the center to be used, 2) the 
-'-est_center' option tells the program to estimate and use the center of gravity 
-of the source volume. Note that it is a good idea to have a reasonable guess for 
+center is 0,0,0. The user can can change this in two ways: 
+
+1. the `-center <cx> <cy> <cz>` option permits direct input of the center to be used, 
+2. the `-est_center` option tells the program to estimate and use the center of gravity 
+    of the source volume. 
+    
+Note that it is a good idea to have a reasonable guess for 
 the center of rotation and scaling since it makes the parameters more orthogonal 
 to each other (e.g. a small change in rotation will not grossly affect the 
 translations).
@@ -107,12 +110,12 @@ transformation mapping points from the source into the target space.
 `-est_translations:` Use only the translations estimated from Principal axis 
 trans.
 
-Note that the four previous options (-est_\*) are not mutually exclusive. You 
+Note that the four previous options (-est_*) are not mutually exclusive. You 
 can, for example, use '-est_center -est_translations' to estimate the center of 
 rotation and scaling, as well as the initial translation componant required to 
 register the centers of gravity of the two volumes.
 
-`-center` <xcent> <ycent> <zcent>: Force the center of rotation and scale.
+`-center <xcent> <ycent> <zcent>`: Force the center of rotation and scale.
 
 `-no_clobber:` Do not overwrite output file (default).
 
@@ -170,19 +173,19 @@ find the voxel closest to the point and use its value).
 
 ## Optimization objective functions.
 
-`-xcorr:` Use cross correlation (this is the default) \[2\].
+`-xcorr:` Use cross correlation (this is the default) [2\].
 
 `-zscore:` Use normalized difference. Before optimization, each volume is 
 normalized to have the same mean, with a range of +/- 5 standard deviations. The 
 objective function is simply the difference in normalized values between the two 
 volumes.
 
-`-ssc:` Use stochastic sign change \[3\]. This is the same as maximization of 
+`-ssc:` Use stochastic sign change [3\]. This is the same as maximization of 
 zero crossings.
 
-`-vr:` Minimize the variance of the ratio vol1/vol2 \[4\].
+`-vr:` Minimize the variance of the ratio vol1/vol2 [4\].
 
-`-mi:` Use mutual information similarity measure \[1\].
+`-mi:` Use mutual information similarity measure [1\].
 
 `-groups` <num>: Number of groups for -vr and -mi (default = 16).
 
@@ -258,11 +261,11 @@ the -nonlinear can take on one of the following optional arguments: xcorr, diff,
 sqdiff, label, chamfer, corrcoeff, or opticalflow to define the objective 
 function to be used to compare the source and target volumes.
 
-`-sub_lattice` <val>: Defines the number of nodes along the diameter of the 
+`-sub_lattice <val>`: Defines the number of nodes along the diameter of the 
 sublattice that defined the local neighbourhood used to estimate the deformation 
 vector.
 
-`-lattice_diameter` <valx> <valy> <valz>: determines the size (in mm) of the 
+`-lattice_diameter <valx> <valy> <valz>`: determines the size (in mm) of the 
 sublattice used to define the local neighbouhood.
 
 `-use_magnitude` use magnitude data local deformation (default). this flag tells 
@@ -288,22 +291,22 @@ to speed up the evaluation of local deformation vectors.
 
 `-no_super` turn off the super sample deformation field during optimization.
 
-`-iterations` <val> this is the number of iterations for non-linear optimization 
+`-iterations <val>` this is the number of iterations for non-linear optimization 
 (default value: 4).
 
-`-weight` <val>: Weighting factor for each iteration in nl optimization. This 
+`-weight <val>`: Weighting factor for each iteration in nl optimization. This 
 defines how much of the currently estimated vector should be added to the 
 deformation field (default value: 0.6).
 
-`-stiffness` <val>: Weighting factor to define smoothness for regularization at 
+`-stiffness <val>`: Weighting factor to define smoothness for regularization at 
 each iteration (default value: 0.5).
 
-`-similarity_cost_ratio` <val> Weighting factor to reduce the effect of large 
-deformations \[ r=similarity\*w + cost(1\*w) \] (default value: 0.5)
+`-similarity_cost_ratio <val>` Weighting factor to reduce the effect of large 
+deformations `r=similarity*w + cost(1*w)` (default value: 0.5)
 
 ## Options for logging progress.
 
-`-verbose` <val>: Write verbose messages indicating progress (default = 1).
+`-verbose <val>`: Write verbose messages indicating progress (default = 1).
 
 `-quiet:` Do not write log messages
 
@@ -318,7 +321,7 @@ deformations \[ r=similarity\*w + cost(1\*w) \] (default value: 0.5)
 Estimate the transformation required to map structures from an individual 
 subject to match those in a target volume:
 
-minctracc subject.mnc target.mnc subj_to_targ.xfm
+`minctracc subject.mnc target.mnc subj_to_targ.xfm`
 
 Match the same subject, scanned on two occasions with similar protocol:
 
