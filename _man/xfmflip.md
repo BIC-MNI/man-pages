@@ -1,18 +1,20 @@
 ---
+section: 1
+title: xfmflip
+author: Andrew Janke
 ---
-# XFMFLIP
+# xfmflip
 
 xfmflip  flip an MNI transform file
-xfmflip
-in.xfm
-out.xfm
-DESCRIPTION
-===========
+xfmflip in.xfm out.xfm 
 
-`xfmflip` flips an input transform *input.xfm* about an axis (x, y or z) and puts the result in the file `result.xfm`. The default flip is about the X axis (Left-Right) but can be changed to the Y axis (via the -y option) or Z axis (-z)
+## DESCRIPTION
 
-OPTIONS
-=======
+`xfmflip` flips an input transform *input.xfm* about an axis (x, y or z) and 
+puts the result in the file `result.xfm`. The default flip is about the X axis 
+(Left-Right) but can be changed to the Y axis (via the -y option) or Z axis (-z)
+
+## OPTIONS
 
 `-help`  
 Print summary of command-line options and exit.
@@ -29,12 +31,10 @@ Overwrite any existing output file
 `-fake`  
 Dont actually run the commands, just echo them to STDOUT
 
-AUTHOR
-======
+## AUTHOR
 
 Andrew Janke Vladimir Fonov
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 2007 Andrew Janke - a.janke@gmail.com
