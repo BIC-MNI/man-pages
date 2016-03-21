@@ -91,27 +91,32 @@ Print the program and library versions and abort
 
 To avoid naming collisions when converting a large set of input DICOM files to a smaller set of MINC output files, `dcm2mnc` automatically generates the names of output files according to various parameters of the DICOM file information. The normal behavior is to place all of the output files in a subdirectory of the given output directory which has its name derived from the patient's name and the study date and time as follows:
 
-patientname\_yyyymmdd\_hhmmss/
+`patientname_yyyymmdd_hhmmss/`
 
 The individual files are named according to the patient name, study date and time, series identifer, and modality information as follows:
 
-patientname\_yyyymmdd\_hhmmss\_series\_scan\_modality.mnc
+`patientname_yyyymmdd_hhmmss_series_scan_modality.mnc`
 
 The optional scan information includes the echo number ('e<n>'), slice number ('sl<n>'), time series position ('d<n>'), phase number ('p<n>'), or chemical shift ('cs<n>').
 
-The optional modality information consists of either the string "\_pet" or "\_mri". No suffix is added for unrecognized modalities.
+The optional modality information consists of either the string "_pet" or "_mri". No suffix is added for unrecognized modalities.
 
 The `-fname` and `-dname` commands allow the user to override the standard file naming behavior by specifying alternative output directory and file formats. The arguments to these options are template strings that will be expanded to include information from the DICOM sequences in specified locations. Replacements are specified by a '%' character followed by a single alphabetic character, as follows:
 
-%N - Name of patient %D - Date of scan %T - Time of scan %S - Study ID (typically 'yyyymmdd.hhmmss') %A - Acquisition or series ID %s - Optional slice label %e - Optional echo number %t - Optional dynamic scan number %p - Optional phase number %c - Optional chemical shift number %m - Optional modality
+- `%N` - Name of patient 
+- `%D` - Date of scan
+- `%T` - Time of scan 
+- `%S` - Study ID (typically 'yyyymmdd.hhmmss')
+- `%A` - Acquisition or series ID
+- `%s` - Optional slice label
+- `%e` - Optional echo number
+- `%t` - Optional dynamic scan number
+- `%p` - Optional phase number
+- `%c` - Optional chemical shift number
+- `%m` - Optional modality
 
-The default file name convention is therefore given by the format string:
-
-%N\_%D\_%T\_%A%s%e%t%p%c%m
-
-and the default directory name is given by the format string:
-
-%N\_%D\_%T
+The default file name convention is therefore given by the format string: `%N_%D_%T_%A%s%e%t%p%c%m`
+and the default directory name is given by the format string: `%N_%D_%T`
 
 If you wish to avoid creating a subdirectory, you may do so by giving a zero-length string as the argument to the `-dname` option:
 
@@ -129,7 +134,7 @@ Probably many. For best results, output files should be checked by a competent h
 
 ## SEE ALSO
 
-For more information on DICOM, visit the NEMA (National Electrical Manufacturer's Association) website at *<http://dicom.nema.org>* and also see David Clunie's excellent website on medical image formats at *<http://www.dclunie.com>*
+For more information on DICOM, visit the NEMA (National Electrical Manufacturer's Association) website at <http://dicom.nema.org> and also see David Clunie's excellent website on medical image formats at *<http://www.dclunie.com>*
 
 Many manufacturers create "DICOM Conformance Statements" for each software release associated with their medical imaging products. These can be useful sources of information.
 
