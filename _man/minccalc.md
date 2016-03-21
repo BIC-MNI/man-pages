@@ -11,11 +11,18 @@ minccalc perform complex math operations on minc files
 
 ## DESCRIPTION
 
-*Minccalc* will perform complex, voxel-by-voxel math operations, on one or more minc files of the same shape and having the same coordinate sampling, producing a single output file. The operations to be performed are input using the `-expression` argument (see *EXPRESSIONS*). By default, the output file is the last non-option argument. However, if the `-outfile` option is used, then all non-option arguments are considered input files and the output file names come from the `-outfile` options, of which there can be more than one.
+*Minccalc* will perform complex, voxel-by-voxel math operations, on one or more 
+minc files of the same shape and having the same coordinate sampling, producing 
+a single output file. The operations to be performed are input using the 
+`-expression` argument (see *EXPRESSIONS*). By default, the output file is the 
+last non-option argument. However, if the `-outfile` option is used, then all 
+non-option arguments are considered input files and the output file names come 
+from the `-outfile` options, of which there can be more than one.
 
 ## OPTIONS
 
-Note that options can be specified in abbreviated form (as long as they are unique) and can be given anywhere on the command line.
+Note that options can be specified in abbreviated form (as long as they are 
+unique) and can be given anywhere on the command line.
 
 `-2`  
 Create MINC 2.0 format output files.
@@ -45,10 +52,12 @@ Do not print out progress information.
 Print out debugging information.
 
 `-copy_header`  
-Copy all of the header information from the first input file (default for one input file).
+Copy all of the header information from the first input file (default for one 
+input file).
 
 `-nocopy_header`  
-Do not copy all of the header from the first input file; copy only coordinate information (default for more than one input file).
+Do not copy all of the header from the first input file; copy only coordinate 
+information (default for more than one input file).
 
 `-filetype`  
 Create an output file with the same type as the first input file (default).
@@ -72,16 +81,21 @@ Store output voxels in 32-bit floating point format.
 Store output voxels in 64-bit floating point format.
 
 `-signed`  
-Use signed, two's complement integer format. Applies only if the output voxel type is specified to be an integer type (one of `-byte`, `-short`, `-int` or `-long`).
+Use signed, two's complement integer format. Applies only if the output voxel 
+type is specified to be an integer type (one of `-byte`, `-short`, `-int` or 
+`-long`).
 
 `-unsigned`  
-Use unsigned integer format. Applies only if the output voxel type is specified to be an integer type (one of `-byte`, `-short`, `-int` or `-long`).
+Use unsigned integer format. Applies only if the output voxel type is specified 
+to be an integer type (one of `-byte`, `-short`, `-int` or `-long`).
 
 `-range` min max  
-Restrict the valid range of integer data. Applies only if one of the `-byte`, `-short`, `-int` or `-long` options is specified.
+Restrict the valid range of integer data. Applies only if one of the `-byte`, 
+`-short`, `-int` or `-long` options is specified.
 
 `-max_buffer_size_in_kb` size  
-Specify the maximum size of the internal buffers (in kbytes). Default is 4096 (4MB).
+Specify the maximum size of the internal buffers (in kbytes). Default is 4096 
+(4MB).
 
 `-dimension` dimname  
 Specify a dimension along which we wish to perform a cumulative operation.
@@ -93,129 +107,188 @@ Check that all input files have matching sampling in world dimensions (default).
 Ignore any differences in world dimensions sampling for input files.
 
 `-propagate_nan`  
-For cumulative vector operations (*sum*, *prod* and *avg*), invalid data (Not-A-Number or NaN) in any element of the vector will produce invalid data in the result (default).
+For cumulative vector operations (*sum*, *prod* and *avg*), invalid data 
+(Not-A-Number or NaN) in any element of the vector will produce invalid data in 
+the result (default).
 
 `-ignore_nan`  
-For cumulative vector operations, invalid data (NaN) in the vector is ignored, ie. treated as though it is not present.
+For cumulative vector operations, invalid data (NaN) in the vector is ignored, 
+ie. treated as though it is not present.
 
 `-nan`  
-When an illegal operation is attempted at a voxel (such as divide by zero), the result is invalid data (NaN) (default). Having no valid input data for a cumulative operation is also considered an illegal operation when `-ignore_nan` is used.
+When an illegal operation is attempted at a voxel (such as divide by zero), the 
+result is invalid data (NaN) (default). Having no valid input data for a 
+cumulative operation is also considered an illegal operation when `-ignore_nan` 
+is used.
 
 `-zero`  
-When an illegal operation is attempted at a voxel (such as divide by zero), the result is value zero.
+When an illegal operation is attempted at a voxel (such as divide by zero), the 
+result is value zero.
 
 `-illegal_value` value  
-When an illegal operation is attempted at a voxel (such as divide by zero), the result is the value specified by this option.
+When an illegal operation is attempted at a voxel (such as divide by zero), the 
+result is the value specified by this option.
 
 `-expression` string  
 Specify the expression to evaluate at each voxel (see EXPRESSIONS).
 
 `-expfile` filename  
-Specify a file containing an expression to evaluate at each voxel (see EXPRESSIONS). If filename LDQUO-RDQUO is given, then the expression is read from stdin. The only difference from command-line expressions is that comments can be given in the file. A comment line is specified by placing a LDQUO\#RDQUO as the first non-whitespace character of the line. Minccalc scripts can be created by setting the first line to
+Specify a file containing an expression to evaluate at each voxel (see 
+EXPRESSIONS). If filename - is given, then the expression is read from 
+stdin. The only difference from command-line expressions is that comments can be 
+given in the file. A comment line is specified by placing a # as the 
+first non-whitespace character of the line. Minccalc scripts can be created by 
+setting the first line to
 
-\#! /usr/local/mni/bin/minccalc -expfile
+`#! /usr/local/mni/bin/minccalc -expfile`
 
 `-outfile` symbol output-file  
-Specify that output should be written to the specified file, taking values from the symbol which should be created in the expression (see the *EXAMPLES* section). If this option is given, then all non-option arguments are taken as input files. This option can be used multiple times for multiple output files.
+Specify that output should be written to the specified file, taking values from 
+the symbol which should be created in the expression (see the *EXAMPLES* 
+section). If this option is given, then all non-option arguments are taken as 
+input files. This option can be used multiple times for multiple output files.
 
 `-eval_width` value  
 Specify the number of voxels to process in parallel. Default is 200.
 
 ## EXPRESSIONS
 
-The `-expression` argument is a single string that describes the function to evaluate. The function expression is typically written in terms of the vector A.
+The `-expression` argument is a single string that describes the function to 
+evaluate. The function expression is typically written in terms of the vector A.
 
-For example, the following expression will sum the first two input files together:
+For example, the following expression will sum the first two input files 
+together:`A[0] + A[1]` 
 
-A\[0\] + A\[1\] Multiple expressions can be given separated by semicolons, in which case only the value of the last expression is used. These expression lists can be used with assignment expressions to make the syntax very C-like:
+Multiple expressions can be given separated by semicolons, in 
+which case only the value of the last expression is used. These expression lists 
+can be used with assignment expressions to make the syntax very C-like: `ratio = A[0]/A[1]; A[2]*exp(-ratio)`
 
-ratio = A\[0\]/A\[1\]; A\[2\]\*exp(-ratio)
+An expression list in curly brackets is a valid expression and returns the value 
+of last expression in the list. This is particularly useful in *for* and *if* 
+expressions (see below).
 
-An expression list in curly brackets is a valid expression and returns the value of last expression in the list. This is particularly useful in *for* and *if* expressions (see below).
+There are two types of values in the language: vectors and scalars. Scalars 
+literals are floating point numbers or may appear as symbols whose name starts 
+with a lowercase letter.
 
-There are two types of values in the language: vectors and scalars. Scalars literals are floating point numbers or may appear as symbols whose name starts with a lowercase letter.
+Besides normal scalar operators such as `+`, `-`, `*` and `/`, the expression language 
+also supports the infix exponentiation operator `^` , the usual relational 
+operators `<`, `<=`, `>`, `>=`, `==`, `!=` as well as the boolean operators `&&` (and), `||` 
+(or) and `!` (not). Note that the `&&` and `||` boolean operators always evaluate both 
+operands, unlike C. Scalar mathematical functions include `abs`, `sqrt`, `exp`, 
+`log`, `sin`, `cos`, `tan`, `asin`, `acos` and `atan`. There are also some 
+specialized functions:
 
-Besides normal scalar operators such as +, -, \* and /, the expression language also supports the infix exponentiation operator ^ , the usual relational operators <, <=, >, >=, ==, != as well as the boolean operators && (and), || (or) and ! (not). Note that the && and || boolean operators always evaluate both operands, unlike C. Scalar mathematical functions include *abs*, *sqrt*, *exp*, *log*, *sin*, *cos*, *tan*, *asin*, *acos* and *atan*. There are also some specialized functions:
+- `isnan(v)` - 1 if v is invalid and 0 otherwise 
 
-isnan(v) - 1 if v is invalid and 0 otherwise clamp(v1,v2,v3) - v1 bounded by \[v2, v3\] segment(v1,v2,v3) - tests if v1 is in \[v2, v3\]
+- `clamp(v1,v2,v3)` - v1 bounded by [v2, v3] 
 
-The scalar constant NaN is defined such that isnan(NaN) return 1.
+- `segment(v1,v2,v3)` - tests if v1 is in [v2, v3]
 
-Vectors can be written in the following \`extensional' form
+The scalar constant NaN is defined such that `isnan(NaN)` return 1.
 
-\[ value1, value2, ... \]
+Vectors can be written in the following "extensional" form 
+
+- `[ value1, value2, ... ]` 
 
 or by using the following range-generating notations:
 
-\[ a : b \] generates {a, a+1, ..., b-1, b} \[ a : b ) generates {a, a+1, ..., b-1} ( a : b \] generates {a+1, ..., b-1, b} ( a : b ) generates {a+1, ..., b-1}
+- `[ a : b ]` generates {a, a+1, ..., b-1, b} 
+- `[ a : b )` generates {a, a+1, ..., b-1} 
+- `( a : b ]` generates {a+1, ..., b-1, b} 
+- `( a : b )` generates {a+1, ..., b-1}
 
-or be generated, by \`intension'. The following intension expression generates the vector {3,2,1}:
+or be generated, by "intension". The following intension expression generates 
+the vector {3,2,1}:
 
-{ i in \[1:3\] | 4 - i }
+`{ i in [1:3] | 4 - i }`
 
 Vectors may also appear as symbols whose name starts with an uppercase letter.
 
-In addition to the scalar operators, the following vector operators are supplied:
+In addition to the scalar operators, the following vector operators are 
+supplied:
 
-avg - the average value of the scalars in vector len - the length of sum - the sum of the elements of prod - the product of the elements of max - the maximum value of min - the minimum value of imax - the index of the maximum value of imin - the index of the minimum value of V\[s\] - the s'th element of vector V with origin 0.
+avg - the average value of the scalars in vector len - the length of sum - the 
+sum of the elements of prod - the product of the elements of max - the maximum 
+value of min - the minimum value of imax - the index of the maximum value of 
+imin - the index of the minimum value of V[s] - the s'th element of vector V 
+with origin 0.
 
-Symbol names are introduced into a global symbol table by assignment expressions of the form
+Symbol names are introduced into a global symbol table by assignment expressions 
+of the form
 
-a = A\[2\] \* log(2)
+`a = A[2] * log(2)`
 
-Symbols starting with a lowercase letter represent scalars while those starting with an uppercase letter represent vectors. Since = is an operator, its result can be used in an expression (as in C).
+Symbols starting with a lowercase letter represent scalars while those starting 
+with an uppercase letter represent vectors. Since = is an operator, its result 
+can be used in an expression (as in C).
 
-A few control constructs are provided:
+### A few control constructs are provided:
 
-For loops can be created to loop over a vector, assigning each value to a symbol and then evaluating an expression. This is done with expressions of the form
+For loops can be created to loop over a vector, assigning each value to a symbol 
+and then evaluating an expression. This is done with expressions of the form
 
-total=0; for{i in \[0:len(A))} total=total+A\[i\]; total
+`total=0; for{i in [0:len(A))} total=total+A[i]; total`
 
 which is equivalent to sum(A). Note that this is similar to using
 
-total=0; len{i in \[0:len(A)) | total=total+A\[i\]}; total
+- `total=0; len{i in [0:len(A)) | total=total+A[i]}; total`
 
-since the *for* construct is actually an operator (although it is usually only used for changing symbol values). Note also that without the final "total", the expression would not be very useful since it would only return the length of the vector.
+since the *for* construct is actually an operator (although it is usually only 
+used for changing symbol values). Note also that without the final "total", the 
+expression would not be very useful since it would only return the length of the 
+vector.
 
 As in C, a list of expressions can be specified in curlies:
 
-total=total2 = 0; for {i in \[0:len(A))} { total = total + A\[i\]; total2 = total2 + A\[i\]^2 }
+- `total=total2 = 0; for {i in [0:len(A))} { total = total + A[i]; total2 = total2 + A[i]^2 }`
 
 There are also a few forms of the *if-then-else* construct:
 
-A\[0\]<0 ? 0 : A\[0\]
+- `A[0]<0 ? 0 : A[0]`
 
-if (A\[0\]<0) result=0 else result=A\[0\]
+- `if (A[0]<0) result=0 else result=A[0]`
 
-The *else* is optional. Again, the if construct is an operator, and the *then* or *else* expressions can be expression lists in curlies, in which case the value of the last expression is returned. If the *else* expression is missing, then the value 0 is returned when the test expression is 0 (false).
+The *else* is optional. Again, the if construct is an operator, and the *then* 
+or *else* expressions can be expression lists in curlies, in which case the 
+value of the last expression is returned. If the *else* expression is missing, 
+then the value 0 is returned when the test expression is 0 (false).
 
-The principal oddity with the *for* and *if* constructs is that unlike C statements, they must be separated from the next expression by a semicolon even when an expression list in curlies is used:
+The principal oddity with the *for* and *if* constructs is that unlike C 
+statements, they must be separated from the next expression by a semicolon even 
+when an expression list in curlies is used:
 
-for i in \[0:len(A)) {total=total+A\[i\]} ; total/len(A) if (A\[i\]>0) {result=2;} else {result=1} ; result\*5
+- `for i in [0:len(A)) {total=total+A[i]} ; total/len(A) if (A[i]>0) {result=2;} else {result=1} ; result*5`
 
-An alternative way to introduce symbol names is through *let*-expressions. For example, the following expression will always evaluate to 3:
+An alternative way to introduce symbol names is through *let*-expressions. For 
+example, the following expression will always evaluate to 3:
 
-let a = 1, b = 2 in a + b
+- `let a = 1, b = 2 in a + b`
 
-These were originally designed to create variables only within the evaluated expression, but modifications have been made so that the global symbol table is changed.
+These were originally designed to create variables only within the evaluated 
+expression, but modifications have been made so that the global symbol table is 
+changed.
 
 ## EXAMPLES
 
-Here is an expression for calculating standard deviation, taking into account the possibility of invalid input data, which is ignored:
+Here is an expression for calculating standard deviation, taking into account 
+the possibility of invalid input data, which is ignored:
 
-s0 = s1 = s2 = 0; for { i in \[0:len(A)) } { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; if (s0 > 1) { sqrt((s2 - s1\*s1/s0) / (s0-1)); } else { NaN; };
+- `s0 = s1 = s2 = 0; for { i in [0:len(A)) } { v=A[i]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v*v; } }; if (s0 > 1) { sqrt((s2 - s1*s1/s0) / (s0-1)); } else { NaN; };`
 
-The last if could be changed to return 0 if s0 is > 0 but <= 1. We also drop the curly brackets, but then there must not be a ";" between the if and the else
+The last if could be changed to return 0 if s0 is > 0 but <= 1. We also drop the 
+curly brackets, but then there must not be a ";" between the if and the else
 
-if (s0 > 1) sqrt((s2 - s1\*s1/s0) / (s0-1)) else if (s0 > 0) 0 else NaN
+- `if (s0 > 1) sqrt((s2 - s1*s1/s0) / (s0-1)) else if (s0 > 0) 0 else NaN`
 
-If we want both the mean and the standard deviation, we can use the `-outfile` option, invoking the command with
+If we want both the mean and the standard deviation, we can use the `-outfile` 
+option, invoking the command with
 
-minccalc -expfile stdev BSOL -outfile mean mean.mnc BSOL -outfile stdev stdev.mnc BSOL infile1.mnc infile2.mnc ...
+- `minccalc -expfile stdev BSOL -outfile mean mean.mnc BSOL -outfile stdev stdev.mnc infile1.mnc infile2.mnc ...`
 
 And using the expression file (with yet another form of if expression):
 
-s0 = s1 = s2 = 0; for {i in \[0:len(A))} { v=A\[i\]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v\*v; } }; stdev = (s0 > 1) ? sqrt((s2 - s1\*s1/s0) / (s0-1)) : (s0 > 0) ? 0 : NaN ; mean = (s0 > 0) ? s1 / s0 : NaN ;
+- `s0 = s1 = s2 = 0; for {i in [0:len(A))} { v=A[i]; if (!isnan(v)) { s0 = s0 + 1; s1 = s1 + v; s2 = s2 + v*v; } }; stdev = (s0 > 1) ? sqrt((s2 - s1*s1/s0) / (s0-1)) : (s0 > 0) ? 0 : NaN ; mean = (s0 > 0) ? s1 / s0 : NaN ;`
 
 ## CAVEATS
 
@@ -225,13 +298,24 @@ Vector variables must start with an uppercase letter.
 
 Vector variable names must not be one of the function keywords, sum, len, prod, ... etc
 
-For loops and if expressions always need to be separated from the next expression by a semicolon.
+For loops and if expressions always need to be separated from the next 
+expression by a semicolon.
 
 The symbol table is global.
 
-Boolean operators && and || always evaluate both operands.
+Boolean operators `&&` and `||` always evaluate both operands.
 
-A note on parallelism: For efficiency reasons, evaluations are done on many voxels at once (the number of voxels is referred to as the width of the evaluation and is changed with the `-eval_width` option). An odd consequence of this is that both sides of an if-else statement are always evaluated (unless all voxels give the same test result), but statements within each consequent are only evaluated on the appropriate voxels. In particular, entries in the symbol table are only modified according to a voxel mask. A side-effect of this is that any vector symbol set in an if-else consequent must not change the length of the symbol (although it can create it) and both sides of the consequent must agree on the length of any vector symbols that they both modify. If this is not clear, just try it - the program will complain if it is not happy.
+A note on parallelism: For efficiency reasons, evaluations are done on many 
+voxels at once (the number of voxels is referred to as the width of the 
+evaluation and is changed with the `-eval_width` option). An odd consequence of 
+this is that both sides of an if-else statement are always evaluated (unless all 
+voxels give the same test result), but statements within each consequent are 
+only evaluated on the appropriate voxels. In particular, entries in the symbol 
+table are only modified according to a voxel mask. A side-effect of this is that 
+any vector symbol set in an if-else consequent must not change the length of the 
+symbol (although it can create it) and both sides of the consequent must agree 
+on the length of any vector symbols that they both modify. If this is not clear, 
+just try it - the program will complain if it is not happy.
 
 ## AUTHOR
 
