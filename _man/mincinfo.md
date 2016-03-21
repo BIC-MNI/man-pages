@@ -28,28 +28,28 @@ Print out a space-separated list of the dimensions in the file.
 `-varnames`  
 Print out a space-separated list of the variables in the file.
 
-`-dimlength` dimension  
+`-dimlength dimension`  
 Print the length of the specified dimension.
 
-`-vartype` variable  
+`-vartype variable`  
 Print the type of the variable.
 
-`-vardims` variable  
+`-vardims variable`  
 Print a space-separated list of the dimensions that subscript the variable (in C order).
 
-`-varatts` variable  
+`-varatts variable`  
 Print a space-separated list of the attribute names for the specified variable.
 
-`-varvalues` variable  
+`-varvalues variable`  
 Print a newline-separated list of the values of the specified variable.
 
-`-atttype` variable:attribute  
+`-atttype variable:attribute`  
 Print out the type of the specified attribute.
 
-`-attvalue` variable:attribute  
+`-attvalue variable:attribute`  
 Print out a space-separated list of the values of the specified attribute.
 
-`-error_string` string  
+`-error_string string`  
 Specifies a string to print out if an error occurs. This will cause the program to exit with normal status. The default is to print an appropriate error message and exit with an error status.
 
 `-help`  
@@ -62,23 +62,23 @@ Print the program's version number and exit.
 
 Print out standard information about a minc file.
 
-mincinfo file.mnc
+`mincinfo file.mnc`
 
 Print out contents of global history attribute.
 
-mincinfo file.mnc -attvalue :history
+`mincinfo file.mnc -attvalue :history`
 
 Print out step value for x dimension, setting the default value to 1.
 
-mincinfo file.mnc -attvalue xspace:step -error 1
+`mincinfo file.mnc -attvalue xspace:step -error 1`
 
 Print out the step values for x, y and z, setting the default value to 1.
 
-mincinfo file.mnc -error 1   -attvalue xspace:step   -attvalue yspace:step   -attvalue zspace:step
+`mincinfo file.mnc -error 1   -attvalue xspace:step   -attvalue yspace:step   -attvalue zspace:step`
 
 Print out the names of the dimensions subscripting the image variable.
 
-mincinfo file.mnc -vardims image
+`mincinfo file.mnc -vardims image`
 
 ## AUTHOR
 
