@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincinfo
+author: Peter Neelin
 ---
-# MINCINFO
+# mincinfo
 
 mincinfo print out specified information about a minc file
 

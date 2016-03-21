@@ -1,6 +1,9 @@
 ---
+section: 1
+author: Bert Vincent
+title: mincconvert
 ---
-# MINCCONVERT
+# mincconvert
 
 mincconvert convert between MINC 1 to MINC 2 format.
 

@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincblur
+author: Louis Collins
 ---
-# MINCBLUR
+# mincblur
 
 mincblur - convolve an input volume with a Gaussian blurring kernel.
 `mincblur <options> <source> <output\_basename>`

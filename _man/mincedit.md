@@ -1,4 +1,9 @@
 ---
+section: 1
+author: 
+- Peter Neelin
+- Andrew Janke
+title: mincedit
 ---
 # MINCEDIT
 

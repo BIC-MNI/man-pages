@@ -1,6 +1,9 @@
 ---
+section: 1
+title: minccopy
+author: Peter Neelin
 ---
-# MINCCOPY
+# minccopy
 
 minccopy - copy minc image values from one minc file to another
 ` minccopy -pixel\_values  -real\_values infile outfile`

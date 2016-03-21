@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincresample
+author: Peter Neelin
 ---
-# MINCRESAMPLE
+# mincresample
 
 mincresample resamples a minc file along new spatial dimensions
 

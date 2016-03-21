@@ -1,13 +1,16 @@
 ---
+section: 1
+title: minc_modify_header
+author: Peter Neelin
 ---
-# MINC_MODIFY_HEADER
+# minc_modify_header
 
 minc_modify_header modify the attributes in the header of a minc file
 `minc_modify_header <options> <file>.mnc`
 
 ## DESCRIPTION
 
-*Minc\_modify\_header* allows the modification, insertion or deletion of attributes in a minc file. If possible, the file is modified in place, without copying the data. This will happen when inserting (modifying) an attribute that already exists and that ends up being the same length or shorter in the new file. If an attribute is deleted or lengthened, then a complete copy of the data is made, resulting in a completely new file that replaces the original.
+*Minc_modify_header* allows the modification, insertion or deletion of attributes in a minc file. If possible, the file is modified in place, without copying the data. This will happen when inserting (modifying) an attribute that already exists and that ends up being the same length or shorter in the new file. If an attribute is deleted or lengthened, then a complete copy of the data is made, resulting in a completely new file that replaces the original.
 
 If the file is compressed, then it is first decompressed into a file whose name is either the same as that of the original file up to the ".mnc" extension or the same minus the compression extension (".bz", ".bz2", ".gz", ".Z", ".z" or ".zip"). The new file will not be re-compressed.
 
@@ -42,15 +45,15 @@ Print the program's version number and exit.
 
 To replace the patient name with an identifier string:
 
-minc\_modify\_header file.mnc -sinsert 'patient:full\_name=C02-F0023'
+minc_modify_header file.mnc -sinsert 'patient:full_name=C02-F0023'
 
 To delete the patient name completely (forcing a copy of all data):
 
-minc\_modify\_header file.mnc -delete 'patient:full\_name'
+minc_modify_header file.mnc -delete 'patient:full_name'
 
 To hide the patient name without copying data, assuming that we know that the attribute exists (the attribute will remain in the file, but it will be empty):
 
-minc\_modify\_header file.mnc -sinsert 'patient:full\_name='
+minc_modify_header file.mnc -sinsert 'patient:full_name='
 
 ## AUTHOR
 

@@ -43,12 +43,10 @@ foreach(i IN LISTS MAN_FILES)
   
   get_filename_component(n ${i} NAME_WE)
 
-  # strip front-matter, for now assume it's first two lines without any checks
-  # and then convert to troff using pandoc
   add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/man/man${SECT}/${n}.${SECT} 
-    COMMAND tail -n  +3 ${i} > ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${n}.md
-    COMMAND pandoc -S -s -f markdown_github -t man ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${n}.md -o ${CMAKE_CURRENT_BINARY_DIR}/man/man${SECT}/${n}.${SECT}
+    COMMAND pandoc -S -s -f markdown -t man ${i} -o ${CMAKE_CURRENT_BINARY_DIR}/man/man${SECT}/${n}.${SECT}
+    DEPENDS ${i} 
   )
 
   add_custom_target(${n} ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/man/man${SECT}/${n}.${SECT} )

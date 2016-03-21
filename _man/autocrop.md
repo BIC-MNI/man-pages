@@ -1,4 +1,7 @@
 ---
+section: 1
+title: autocrop
+author: Greg Ward
 ---
 # AUTOCROP
 

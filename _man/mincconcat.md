@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincconcat 
+author: Peter Neelin
 ---
-# MINCCONCAT
+# mincconcat
 
 mincconcat concatenate minc files along a specific dimension
 `mincconcat <options> <infile1>.mnc <infile2>.mnc <outfile>.mnc`

@@ -1,6 +1,8 @@
 ---
+section: 1
+title: minctoraw
 ---
-# MINCTORAW
+# minctoraw
 
 minctoraw copy data from a MINC file
 

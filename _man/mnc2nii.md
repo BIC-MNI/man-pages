@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mnc2nii
+author: Robert Vincent
 ---
-# mnc2mnc
+# mnc2nii
 
 convert a MINC format file to a NIfTI-1 or Analyze format file.
 

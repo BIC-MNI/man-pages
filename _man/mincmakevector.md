@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincmakevector
+author: Peter Neelin
 ---
-# MINCMAKEVECTOR
+# mincmakevector
 
 mincmakevector - convert a list of scalar minc files into one vector file
 ` mincmakevector <options> <in>.mnc .\[..\] <out>.mnc`

@@ -1,9 +1,14 @@
 ---
+section: 1
+title: mincdump
+author: 
+- Originally written by members of the Unidata Program
+- Modified by Bert Vincent
 ---
 # MINCDUMP
 
 mincdump - Convert minc files to ASCII form (CDL)
-`mincdump -c -h -v var1, -b lang -f lang -l len -n name -p f\_digits ,d\_digits  file`
+`mincdump -c -h -v var1, -b lang -f lang -l len -n name -p f_digits ,d_digits  file`
 
 ## DESCRIPTION
 
@@ -22,22 +27,22 @@ transform the data representation between binary and ASCII representations. See
 *ncgen* for a description of CDL and netCDF representations.
 
 `mincdump` defines a default format used for each type of netCDF data, but this 
-can be changed if a \`C\_format' attribute is defined for a netCDF variable. In 
-this case, `mincdump` will use the \`C\_format' attribute to format each value. 
+can be changed if a \`C_format' attribute is defined for a netCDF variable. In 
+this case, `mincdump` will use the \`C_format' attribute to format each value. 
 For example, if floating-point data for the netCDF variable \`Z' is known to be 
 accurate to only three significant digits, it would be appropriate to use the 
 variable attribute
 
-Z:C\_format = "%.3g"
+Z:C_format = "%.3g"
 
 `mincdump` may also be used as a simple browser for netCDF data files, to 
 display the dimension names and sizes; variable names, types, and shapes; 
 attribute names and values; and optionally, the values of data for all variables 
 or selected variables in a netCDF file.
 
-`mincdump` uses \`\_' to represent data values that are equal to the 
-\`\_FillValue' attribute for a variable, intended to represent data that has not 
-yet been written. If a variable has no \`\_FillValue' attribute, the default 
+`mincdump` uses \`_' to represent data values that are equal to the 
+\`_FillValue' attribute for a variable, intended to represent data that has not 
+yet been written. If a variable has no \`_FillValue' attribute, the default 
 fill value for the variable type is used if the variable is not of byte type.
 
 ## OPTIONS
@@ -102,13 +107,13 @@ output file name used by `ncgen -b` can be specified, it may be wise to have
 netCDF file when using `mincdump`, editing the resulting CDL file, and using 
 `ncgen -b` to generate a new netCDF file from the edited CDL file.
 
-`-p` float\_digits\[,double\_digits\]  
+`-p` float_digits\[,double_digits\]  
 Specifies default precision (number of significant digits) to use in displaying 
 floating-point or double precision data values for attributes and variables. 
-If specified, this value overrides the value of the \`C\_format' attribute for 
+If specified, this value overrides the value of the \`C_format' attribute for 
 any variable that has such an attribute. 
-Floating-point data will be displayed with *float\_digits* significant digits. 
-If *double\_digits* is also specified, double-precision values will be displayed 
+Floating-point data will be displayed with *float_digits* significant digits. 
+If *double_digits* is also specified, double-precision values will be displayed 
 with that many significant digits. In the absence of any `-p` specifications, 
 floating-point and double-precision data are displayed with 7 and 15 significant 
 digits respectively. CDL files can be made smaller if less precision is 

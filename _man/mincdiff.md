@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincdiff
+author: Peter Neelin
 ---
-# MINCDIFF
+# mincdiff
 
 mincdiff report differences between minc files
 

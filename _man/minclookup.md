@@ -1,6 +1,9 @@
 ---
+section: 1
+title: minclookup
+author: Peter Neelin
 ---
-# MINCLOOKUP
+# minclookup
 
 minclookup - perform lookup table conversions on minc files
 `minclookup <options> <in1>.mnc <out>.mnc`
@@ -13,7 +16,7 @@ Lookup tables can take one of two forms: *continuous* or *discrete*.
 
 A continuous lookup table is for treating voxel values as continuous (real) values and converting values by doing interpolation between the values given in the lookup table. A discrete lookup table treats input values as integers and deals with them as completely independent entries, doing no interpolation.
 
-The most common use of continuous lookup tables is for converting intensity values into RGB colours. To make the lookup tables simpler, the input values are all rescaled into the range zero to one. By default, the smallest value in the file maps to zero and the largest maps to one. This value is then found in the lookup table, usually between two entries in the table (the table is always sorted in ascending order of input values). Linear interpolation is then done on each output column and the resultant value (or values) is written to the output file. If there is more than one output value per input value, then the dimension vector\_dimension is added to the output file with length equal to the number of output columns in the lookup table. For input values outside the range zero to one, the nearest table value is used.
+The most common use of continuous lookup tables is for converting intensity values into RGB colours. To make the lookup tables simpler, the input values are all rescaled into the range zero to one. By default, the smallest value in the file maps to zero and the largest maps to one. This value is then found in the lookup table, usually between two entries in the table (the table is always sorted in ascending order of input values). Linear interpolation is then done on each output column and the resultant value (or values) is written to the output file. If there is more than one output value per input value, then the dimension vector_dimension is added to the output file with length equal to the number of output columns in the lookup table. For input values outside the range zero to one, the nearest table value is used.
 
 Discrete lookup tables are usually used for remapping label values. Each input value is treated as an integer (it is not rescaled) and if it is found in the lookup table, then the corresponding value (or values) is written to the output file. If it is not found, then a null value is written out (zero by default). No interpolation is done with discrete lookup tables - to get a non-null output value, there must be an entry in the table.
 
@@ -104,7 +107,7 @@ Specify the input value that maps to the minimum value in the lookup table.
 Specify the input value that maps to the maximum value in the lookup table.
 
 `-lookup_table` \[*file* | *-*\]  
-Specify the name of a file containing the lookup table. If *-* is given, the lookup table is read from the standard input. The file must have at least two columns: The first column gives the input values; the other columns give the corresponding output values. For a continuous lookup table, the first column should contain a value between zero and one inclusive Explicit entries for both zero and one should usually be given. For a discrete lookup table, the first column should contain integer values. If more than one output column is given, then the output file will have the dimension *vector\_dimension* with a length equal to the number of output columns. The lines of the table will be sorted if necessary so that the first column is in ascending order.
+Specify the name of a file containing the lookup table. If *-* is given, the lookup table is read from the standard input. The file must have at least two columns: The first column gives the input values; the other columns give the corresponding output values. For a continuous lookup table, the first column should contain a value between zero and one inclusive Explicit entries for both zero and one should usually be given. For a discrete lookup table, the first column should contain integer values. If more than one output column is given, then the output file will have the dimension *vector_dimension* with a length equal to the number of output columns. The lines of the table will be sorted if necessary so that the first column is in ascending order.
 
 `-lut_string` lookup-table-string  
 Specify the complete lookup table as a single string. The semicolon character ";" is used to separate lines.
@@ -134,7 +137,7 @@ minclookup -hotmetal input.mnc output.mnc
 
 To convert the labels in a minc label file, use -discrete:
 
-minclookup -discrete -lookup\_table lookupfile BSOL in\_labels.mnc out\_labels.mnc
+minclookup -discrete -lookup_table lookupfile BSOL in_labels.mnc out_labels.mnc
 
 where lookupfile is a file containing entries to map label 2 to 4 and label 3 to 5:
 
@@ -142,15 +145,15 @@ where lookupfile is a file containing entries to map label 2 to 4 and label 3 to
 
 You could also specify this lookup table on the command line:
 
-minclookup -discrete -lut\_string '2 4;3 5' BSOL in\_labels.mnc out\_labels.mnc
+minclookup -discrete -lut_string '2 4;3 5' BSOL in_labels.mnc out_labels.mnc
 
 To get a grey RGB file, with red for values less than the minimum and green for values greater than the minimum, you can give two zero entries and two one entries. The first zero is used for negative values, the second zero is used for interpolation to the next entry. There is no ambiguity about how to handle a value of exactly zero because the first and last values of the table are handled in a special way to make sure that they are treated as within range if this sort of two-entry situation occurs.
 
-minclookup -lookup\_table - input.mnc output.mnc <<EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF
+minclookup -lookup_table - input.mnc output.mnc <<EOF 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 EOF
 
 To invert a scalar image, you could use minclookup:
 
-minclookup -lut\_string '0 1;1 0' in.mnc out.mnc
+minclookup -lut_string '0 1;1 0' in.mnc out.mnc
 
 ## AUTHOR
 

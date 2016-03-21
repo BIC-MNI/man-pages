@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincheader
+author: Peter Neelin
 ---
-# MINCHEADER
+# mincheader
 
 mincheader prints out complete header information for a minc file
 

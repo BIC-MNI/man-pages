@@ -1,4 +1,7 @@
 ---
+section: 1
+title: upet2mnc
+author: Robert Vincent
 ---
 # upet2mnc
 

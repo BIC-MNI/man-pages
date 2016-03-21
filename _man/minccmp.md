@@ -1,4 +1,7 @@
 ---
+section: 1
+title: minccmp
+author: Andrew Janke
 ---
 # MINCCMP
 

@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincmath
+author: Peter Neelin
 ---
-# MINCMATH
+# mincmath
 
 mincmath perform simple math operations on minc files
 

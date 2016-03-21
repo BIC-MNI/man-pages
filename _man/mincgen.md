@@ -1,32 +1,28 @@
 ---
+section: 1
+title: mincgen
+author: Modified by Bert Vincent
 ---
-# MINCGEN
+# mincgen
 
 mincgen - generate a MINC file from a CDL file.
-mincgen
--b
--n
--o
-minc\_filename
-input\_file
-DESCRIPTION
-===========
+`mincgen -b -n -o minc_filename input_file`
+
+## DESCRIPTION
 
 `mincgen` generates a MINC file. The input to `mincgen` is a description of a MINC file in a small language known as CDL (network Common Data form Language), described below. If no options are specified in invoking `mincgen`, it merely checks the syntax of the input CDL file, producing error messages for any violations of CDL syntax. Other options can be used to create the corresponding MINC file.
 
 `mincgen` may be used with the companion program *mincdump* to perform some simple operations on MINC files. For example, to rename a dimension in a MINC file, use *mincdump* to get a CDL version of the MINC file, edit the CDL file to change the name of the dimensions, and use `mincgen` to generate the corresponding MINC file from the edited CDL file.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-b`  
 Create a (binary) MINC file. If the `-o` option is absent, a default file name will be constructed from the MINC name (specified after the *netcdf* or *hdf5* keyword in the input) by appending the \`.mnc' extension. If a file already exists with the specified name, it will be overwritten.
 
-`-o` minc\_filename  
+`-o` minc_filename  
 Name for the binary MINC file created. If this option is specified, it implies the "`-b`" option. (This option is necessary because MINC files cannot be written directly to standard output, since standard output is not seekable.)
 
-EXAMPLES
-========
+## EXAMPLES
 
 Check the syntax of the CDL file \`*foo.cdl*':
 
@@ -38,13 +34,12 @@ From the CDL file \`*foo.cdl*', generate an equivalent binary MINC file named \`
 mincgen -o x.mnc foo.cdl
 
 </blockquote>RE
-USAGE
-=====
 
-CDL Syntax Summary
-------------------
+## USAGE
 
-Below is an example of CDL syntax, describing a MINC file with several named dimensions (xspace, yspace, and zspace), variables (zspace, image), variable attributes (valid\_range, signtype), and some data. CDL keywords are in boldface. (This example is intended to illustrate the syntax; a real CDL file would have a more complete set of attributes so that the data would be more completely self-describing.)
+### CDL Syntax Summary
+
+Below is an example of CDL syntax, describing a MINC file with several named dimensions (xspace, yspace, and zspace), variables (zspace, image), variable attributes (valid_range, signtype), and some data. CDL keywords are in boldface. (This example is intended to illustrate the syntax; a real CDL file would have a more complete set of attributes so that the data would be more completely self-describing.)
 
     netcdf foo {  // an example MINC specification in CDL
 
@@ -92,12 +87,11 @@ A netCDF *attribute* contains information about a netCDF variable or about the w
 
 In CDL, an attribute is designated by a variable and attribute name, separated by \`:'. It is possible to assign *global* attributes not associated with any variable to the file as a whole by using \`:' before the attribute name. The data type of an attribute in CDL is derived from the type of the value assigned to it. The length of an attribute is the number of data values assigned to it, or the number of characters in the character string assigned to it. Multiple values are assigned to non-character attributes by separating the values with commas. All values assigned to an attribute must be of the same type.
 
-The names for CDL dimensions, variables, and attributes must begin with an alphabetic character or \`\_', and subsequent characters may be alphanumeric or \`\_' or \`-'.
+The names for CDL dimensions, variables, and attributes must begin with an alphabetic character or \`_', and subsequent characters may be alphanumeric or \`_' or \`-'.
 
-The optional *data* section of a CDL specification is where variables may be initialized. The syntax of an initialization is simple: a variable name, an equals sign, and a comma-delimited list of constants (possibly separated by spaces, tabs and newlines) terminated with a semicolon. For multi-dimensional arrays, the last dimension varies fastest. Thus row-order rather than column order is used for matrices. If fewer values are supplied than are needed to fill a variable, it is extended with a type-dependent \`fill value', which can be overridden by supplying a value for a distinguished variable attribute named \`\_FillValue'. The types of constants need not match the type declared for a variable; coercions are done to convert integers to floating point, for example. The constant \`\_' can be used to designate the fill value for a variable.
+The optional *data* section of a CDL specification is where variables may be initialized. The syntax of an initialization is simple: a variable name, an equals sign, and a comma-delimited list of constants (possibly separated by spaces, tabs and newlines) terminated with a semicolon. For multi-dimensional arrays, the last dimension varies fastest. Thus row-order rather than column order is used for matrices. If fewer values are supplied than are needed to fill a variable, it is extended with a type-dependent \`fill value', which can be overridden by supplying a value for a distinguished variable attribute named \`_FillValue'. The types of constants need not match the type declared for a variable; coercions are done to convert integers to floating point, for example. The constant \`_' can be used to designate the fill value for a variable.
 
-Primitive Data Types
---------------------
+### Primitive Data Types
 
     char characters
     byte 8-bit data
@@ -120,8 +114,7 @@ Floats can hold values between about -3.4+38 and 3.4+38. Their external represen
 
 Doubles can hold values between about -1.7+308 and 1.7+308. Their external representation is as 64-bit IEEE standard normalized double-precision floating point numbers.
 
-CDL Constants
--------------
+### CDL Constants
 
 Constants assigned to attributes or variables may be of any of the basic MINC types. The syntax for constants is similar to C syntax, except that type suffixes must be appended to shorts and floats to distinguish them from longs and doubles.
 
@@ -168,25 +161,21 @@ Floating point constants of type *double* are appropriate for representing float
     1.0e-20
     1.d
 
-AUTHOR
-======
+## AUTHOR
 
 Originally written by members of the Unidata Program at the University Corporation for Atmospheric Research.
 
 Modified by Bert Vincent (bert@bic.mni.mcgill.ca) for use with both netCDF and HDF5 files.
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © University Corporation for Atmospheric Research
 
-SEE ALSO
-========
+## SEE ALSO
 
 ncdump1, ncgen1, netcdf3
 
-BUGS
-====
+## BUGS
 
 The CDL syntax makes it easy to assign what looks like an array of variable-length strings to a variable, but the strings will simply be concatenated into a single array of characters, since MINC cannot represent an array of variable-length strings in one MINC variable.
 

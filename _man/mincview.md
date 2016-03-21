@@ -1,6 +1,8 @@
 ---
+section: 1
+title: mincview
 ---
-# MINCVIEW
+# mincview
 
 mincview - view a MINC file
 `mincview mincfile slicenumber`

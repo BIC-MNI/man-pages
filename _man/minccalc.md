@@ -1,6 +1,9 @@
 ---
+section: 1
+title: minccalc
+author: Andrew Janke
 ---
-# MINCCALC
+# minccalc
 
 minccalc perform complex math operations on minc files
 

@@ -1,4 +1,7 @@
 ---
+section: 1
+title: nii2mnc
+author: Robert Vincent
 ---
 # nii2mnc
 

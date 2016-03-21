@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincaverage 
+author: Peter Neelin
 ---
-# MINCAVERAGE
+# mincaverage
 
 mincaverage average minc files
 

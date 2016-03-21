@@ -1,6 +1,11 @@
 ---
+section: 1
+title: mincsample
+author: 
+- Andrew Janke 
+- Mark Griffin
 ---
-# MINCSAMPLE
+# mincsample
 
 mincsample - generate samplings from minc files.
 `mincsample <options> <in1.mnc> <in2.mnc> <..>`

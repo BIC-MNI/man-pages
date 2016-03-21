@@ -1,6 +1,10 @@
 ---
+section: 1
+author: 
+- Peter Neelin
+title: mincextract
 ---
-# MINCEXTRACT
+# mincextract
 
 mincextract - dump a hyperslab of MINC file data
 

@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincreshape 
+author: Peter Neelin
 ---
-# MINCRESHAPE
+# mincreshape
 
 mincreshape cuts a hyperslab out of a minc file (with dimension re-ordering)
 

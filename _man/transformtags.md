@@ -1,24 +1,20 @@
 ---
+section: 1
+title: transformtags
+author: Peter Neelin
 ---
-# TRANSFORMTAGS
+# transformtags
 
 transformtags apply MNI transform to a tag file
-transformtags
--vol1
--vol2
--transformation
-transform.xfm
-infile.tag
-outfile.tag
-DESCRIPTION
-===========
+`transformtags -vol1 -vol2 -transformation transform.xfm infile.tag outfile.tag`
+
+## DESCRIPTION
 
 `transformtags` applies the specified transformation to one of the two sets of tags in the tag file. The default is to apply the transformation to the tags of the second volume. Use `-vol1` to transform the first volume's tag. Only one volume at a time may be transformed.
 
 The transformation must be specified using the `-transformation` option.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-vol1`  
 Transform tags for volume 1.
@@ -35,12 +31,10 @@ Print summary of command-line options and exit.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1993 Peter Neelin

@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincmakescalar
+author: Peter Neelin
 ---
-# MINCMAKESCALAR
+# mincmakescalar
 
 mincmakescalar - convert vector minc files to scalar
 `mincmakescalar <options> <in>.mnc <out>.mnc`

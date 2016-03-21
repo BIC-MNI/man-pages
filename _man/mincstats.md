@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincstats
+author: Andrew Janke
 ---
-# MINCSTATS
+# mincstats
 
 mincstats calculate simple statistics across voxels of a minc file
 

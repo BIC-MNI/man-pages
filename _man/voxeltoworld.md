@@ -1,6 +1,9 @@
 ---
+section: 1
+title: voxeltoworld
+author: Peter Neelin
 ---
-# VOXELTOWORLD
+# voxeltoworld
 
 voxeltoworld convert voxel coordinates to world coordinates
 

@@ -1,9 +1,11 @@
 ---
+section: 1
+title: invert_raw_image
 ---
-# INVERT\_RAW\_IMAGE
+# invert_raw_image
 
-invert\_raw\_image - invert 2D image along either or both axes
-`invert\_raw\_image xsize xsize bytesperpixel ` 
+invert_raw_image - invert 2D image along either or both axes
+`invert_raw_image xsize xsize bytesperpixel ` 
 
 ## DESCRIPTION
 

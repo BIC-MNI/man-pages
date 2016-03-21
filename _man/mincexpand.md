@@ -1,6 +1,10 @@
 ---
+section: 1
+author: 
+- Peter Neelin
+title: mincexpand
 ---
-# MINCEXPAND
+# mincexpand
 
 mincexpand expands a compressed minc file, if necessary.
 `mincexpand <options> <infile> <outfile>`

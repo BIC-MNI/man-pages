@@ -1,15 +1,18 @@
 ---
+section: 1
+title: register
+author: Robert D. Vincent
 ---
-# REGISTER
+# register
 
 interactive volume display and point tagging program
-`register OPTION volume1\_file volume2\_file tag\_file`
+`register OPTION volume1_file volume2_file tag_file`
 
 ## DESCRIPTION
 
 *Register* is an interactive graphics application that can display two volumes (typically MR or PET), and the merged image of the two. There are three viewports for each volume, showing transverse, sagittal, and coronal slices. The user can move throughout the volumes, and create tag points within the volumes. If two volumes are loaded and enough tag points are created, then a transformation is computed for registering the two volumes. This transform is used to display the merged image and to allow the user to start a process which resamples one of the volumes into the same space as the other.
 
-A byte vector volume will normally be treated as an RGB volume, in that the first three byte values will be interpreted as red, blue, and green intensities. Alternatively, the vector can be converted to a scalar whose value is the mean of the vector components, by setting the global variable *Convert\_vectors\_to\_rgb* to FALSE.
+A byte vector volume will normally be treated as an RGB volume, in that the first three byte values will be interpreted as red, blue, and green intensities. Alternatively, the vector can be converted to a scalar whose value is the mean of the vector components, by setting the global variable *Convert_vectors_to_rgb* to FALSE.
 
 ## OPTIONS
 
@@ -37,7 +40,7 @@ The left and right arrow keys increase or decrease the displayed slice coordinat
 
 The '>' and '<' keys will step forward and backward in the time dimension of the volume under the mouse pointer, if possible.
 
-The 'S' key will save the slice image under the mouse in a file named "register\_image\_NNN.tiff".
+The 'S' key will save the slice image under the mouse in a file named "register_image_NNN.tiff".
 
 The 'T' key will display a window containing the graph of the timecourse of the currently selected voxel, if the current volume has a time dimension.
 
@@ -155,7 +158,7 @@ In the slice viewports, the following actions are valid:
 
 /usr/local/lib/register.globals
 
-/usr/local/lib/register\_UI.globals
+/usr/local/lib/register_UI.globals
 
 ## AUTHOR
 

@@ -1,18 +1,21 @@
 ---
+section: 1
+title: xfminvert invert an MNI transform file
+author: Peter Neelin
 ---
+
 # XFMINVERT
 
 xfminvert invert an MNI transform file
 xfminvert
 input.xfm
 result.xfm
-DESCRIPTION
-===========
+
+## DESCRIPTION
 
 `xfminvert` creates the file `result.xfm` containing the inverse transformation of *input.xfm*.
 
-OPTIONS
-=======
+## OPTIONS
 
 `-help`  
 Print summary of command-line options and exit.
@@ -26,12 +29,10 @@ Print out progress information.
 `-version`  
 Print the program's version number and exit.
 
-AUTHOR
-======
+## AUTHOR
 
 Peter Neelin
 
-COPYRIGHTS
-==========
+## COPYRIGHTS
 
 Copyright © 1993 Peter Neelin

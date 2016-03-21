@@ -1,4 +1,7 @@
 ---
+section: 1
+title: minctoecat
+author: Anthonin Reilhac
 ---
 # minctoecat
 
@@ -48,7 +51,7 @@ No bug listed so far :=)
 
 ## SEE ALSO
 
-ecattominc1, rawtominc1, minctoraw1, dicomtominc1
+[ecattominc](ecattominc), [rawtominc](rawtominc), [minctoraw](minctoraw), [dicomtominc](dicomtominc)
 
 ## AUTHOR
 

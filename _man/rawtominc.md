@@ -1,6 +1,9 @@
 ---
+section: 1
+title: rawtominc
+author: Peter Neelin
 ---
-# RAWTOMINC
+# rawtominc
 
 rawtominc converts a stream of binary image data to a minc format file
 `rawtominc options output.mnc sz4 sz3 sz2 sz1`

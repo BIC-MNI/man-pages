@@ -1,6 +1,9 @@
 ---
+section: 1
+title: mincblob
+author: Andrew Janke
 ---
-# MINCBLOB
+# mincblob
 
 mincblob - calculate blobs from minc deformation grids
 `mincblob <options> <in1>.mnc`
