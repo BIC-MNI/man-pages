@@ -53,3 +53,8 @@ collections:
   man:
     output: true
     layout:       "default"
+
+collections:
+  exp:
+    output: true
+    layout:       "default"
