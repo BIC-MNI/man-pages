@@ -1,69 +1,25 @@
-# minc-toolkit documentation project
+---
+---
+This is collection of documentation files for various minc tools. It was
+auto-converted from the legacy .man files to github-style markup format and
+then manually corrected.
 
-This is collection of documentation files for various minc tools. It was auto-converted from the 
-legacy .man files to github-style markup format and then manually corrected. 
+The pages are now stored in markup format and auto-magically appear online at 
+http://bic-mni.github.io/man-pages/
 
-## Currently documented minc tools:
+Also, static man pages are generated using pandoc and uploaded to 
+https://github.com/BIC-MNI/man-pages/releases
+for use in minc-toolkit installation.
 
-* minc file information
-  * [mincinfo](mincinfo.md) - print out general information about a minc file
-  * [mincheader](mincheader.md) -  print out complete header information for a minc file
-  * [mincstats](mincstats.md) - calculate simple statistics across voxels of a minc file
-  * [mincdiff](mincdiff.md) - report differences between minc files
-  * [voxeltoworld](voxeltoworld.md)
-* file format conversion
-  * [rawtominc](rawtominc.md)
-  * [mincconvert](mincconvert.md)
-  * [dcm2mnc](dcm2mnc.md)
-  * [ecattominc](ecattominc.md)
-  * [minctoecat](minctoecat.md)
-  * [minctoraw](minctoraw.md)
-  * [mnc2nii](mnc2nii.md)
-  * [nii2mnc](nii2mnc.md)
-  * [upet2mnc](upet2mnc.md)
-  * [vff2mnc](vff2mnc.md)
-* low-level file manipulation tools
-  * [minc_modify_header](minc_modify_header.md)
-  * [minccopy](minccopy.md) 
-  * [mincdump](mincdump.md)
-  * [mincedit](mincedit.md)
-  * [mincexpand](mincexpand.md)
-  * [mincextract](mincextract.md)
-  * [invert_raw_image](invert_raw_image.md)
-  * [mincgen](mincgen.md)
-* mathematical operations on voxel level
-  * [minccalc](minccalc.md)
-  * [minccmp](minccmp.md)
-  * [minclookup](minclookup.md)
-  * [mincmakescalar](mincmakescalar.md)
-  * [mincmakevector](mincmakevector.md)
-  * [mincmath](mincmath.md)
-* higher level operations
-  * [mincconcat](mincconcat.md)
-  * [mincaverage](mincaverage.md)
-  * [mincblob](mincblob.md)
-  * [mincblur](mincblur.md)
-  * [autocrop](autocrop.md)
-* registration and resampling
-  * [mincresample](mincresample.md)
-  * [mincreshape](mincreshape.md)
-  * [minctracc](minctracc.md)
-  * [mritoself](mritoself.md)
-  * [mritotal](mritotal.md)
-  * [xfm2def](xfm2def.md)
-  * [xfmconcat](xfmconcat.md)
-  * [xfmflip](xfmflip.md)
-  * [xfminvert](xfminvert.md)
-  * [transformtags](transformtags.md)
-* minc file viewing  
-  * [mincview](mincview.md)
-  * [register](register.md)
-* miscellanious
-  * [mincsample](mincsample.md)
-  * [mincwindow](mincwindow.md)
+Installation:
 
-## Installation
+To create static troff formated man pages, make sure that you have pandoc and 
+cmake installed. Then 
+Use cmake to configure and build man pages. 
 
-To convert back into .man pages pandoc with troff support is needed
-Command line: `pandoc -S -s -f markdown_github -t man <input>.md -o <output>.man`
+Contributing:
 
+Right now all man pages are supposed to be placed in _man directory. The first 
+two lines should be '---' to convince github pages that this is a properly 
+formatted markup document. These lines are stripped when troff formated man pages
+are generated.
