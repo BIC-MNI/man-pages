@@ -300,7 +300,7 @@ window has a specialized purpose.
 Menu Window
 -----------
 
-![The menu window](display-top-menu.png ) [winMenu]
+![The menu window](images/display-top-menu.png) [winMenu]
 
 The menu window (Figure [winMenu]) contains the representation of the
 partial keyboard, the name of the currently selected menu in the lower
@@ -328,7 +328,7 @@ Object list window
 
 ![The object list window. The first entry in the list is the built-in
 polygonal object used to surface generation. The other two entries refer
-to files loaded from the command line.](display-obj-list.png )
+to files loaded from the command line.](images/display-obj-list.png)
 [winObjList]
 
 All 3D objects loaded and created in , with the exception of volumes,
@@ -364,7 +364,7 @@ This window always has the title “Display: Objects”.
 3D View Window
 --------------
 
-![The 3D View window](display-3d-view.png ) [win3Dview]
+![The 3D View window](images/display-3d-view.png) [win3Dview]
 
 The 3D View window shows three-dimensional objects such as surfaces and
 lines, with lighting and camera control. A representation of the cursor
@@ -457,7 +457,7 @@ left quadrant will display the sagittal plane, the upper right will
 display the coronal plane, and the lower left will display the
 transverse plane. The lower right quadrant will either display the
 intensity plot (Section [secIntensity]) or the optional oblique plane if
-enabled (Section [secOblique]).](display-slice.png ) [winSlice]
+enabled (images/Section [secOblique]).](display-slice.png) [winSlice]
 
 The slice window displays slices of the loaded volumes, with various
 options for mapping the voxel intensities into colours. Normally the
@@ -2156,7 +2156,7 @@ spectral colour map, overlaid on the T1 image (See Figure
 
 ![A structural and functional image overlaid in , using grayscale for
 the structural image and spectral for the functional
-image.](display-ccode.png ) [figOverlaid]
+image.](images/display-ccode.png) [figOverlaid]
 
 Once a volume has been loaded, you can change the colour coding of the
 current volume at any time by using menu. You can select one of the
@@ -2365,7 +2365,7 @@ shown in Figure [figOblique].
 
 ![The Slice View window, demonstrating the oblique slice in the lower
 right quadrant. The green lines show the intersection of the oblique
-slice plane with the orthogonal planes.](display-oblique.png )
+slice plane with the orthogonal planes.](images/display-oblique.png)
 [figOblique]
 
 1.  Start MNI-Display as usual with a volume:
@@ -2415,7 +2415,7 @@ How to Load Several Objects and Switch Between Them
         Display ti_final.mnc avg_model.obj brain_stem_model.obj cerebellum_model.obj
 
     ![The 3D View window displaying the average surface, brain stem, and
-    cerebellum simultaneously.](display-objects.png ) [figObjects]
+    cerebellum simultaneously.](images/display-objects.png) [figObjects]
 
 2.  Initially the 3D window displays the average model as well as the
     brainstem and cerebellum, as in Figure [figObjects] (use
@@ -2430,7 +2430,7 @@ How to Load Several Objects and Switch Between Them
 
     ![The 3D View window displaying the average surface, brain stem, but
     not the cerebellum, which is now
-    hidden.](display-no-cereb.png ) [figNoCereb]
+    hidden.](images/display-no-cereb.png) [figNoCereb]
 
 5.  Select the command <span>/</span> again, and the brain stem object
     will be hidden as well.
@@ -2473,7 +2473,7 @@ The Slice View window can show a graph giving a visual indication of the
 relative frequencies of different voxel values.
 
 ![The histogram appears just to the right of the colour bar in the Slice
-View window.](display-histo.png ) [figHisto]
+View window.](images/display-histo.png) [figHisto]
 
 1.  Start as usual, opening a volume:
 
