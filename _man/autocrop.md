@@ -27,7 +27,7 @@ these bounds include spatial transformations and various ways of
 increasing/decreasing the extent of the sampling volume in the three spatial 
 dimensions.
 
-`autocrop` uses either of *mincresample* or *mincreshape* for the actual 
+`autocrop` uses either of [mincresample](mincresample) or [mincreshape](mincreshape) for the actual 
 processing of data. You can force it to use one or the other, or let it pick the 
 appropriate one. (It will always pick mincreshape, unless you have asked for a 
 different step size in your output volume. Also, if you attempt to force use of 
@@ -45,38 +45,45 @@ always get an up-to-date version of this option summary with the command
 ## Basic behaviour options
 
 
-`-verbose` print status information and command lines of subprograms \[default; 
-opposite is -quiet\] -execute actually execute planned commands \[default\] 
--clobber blithely overwrite files (and make subprograms do as well) \[default: 
--noclobber\] -debug spew lots of debugging info (and make subprograms do so as 
-well) \[default: -nodebug\] -tmpdir set the temporary working directory -keeptmp 
-don't delete temporary files when finished \[default: -nokeeptmp\] 
-SubsectionAction-to-take options
+`-verbose` print status information and command lines of subprograms [default; 
+opposite is `-quiet`] 
+
+`-execute` actually execute planned commands [default] 
+
+`-clobber` blithely overwrite files (and make subprograms do as well) [default: `-noclobber`] 
+
+`-debug` spew lots of debugging info (and make subprograms do so as well) [default: `-nodebug`] 
+
+`-tmpdir` set the temporary working directory 
+
+`-keeptmp` don't delete temporary files when finished [default: `-nokeeptmp`] 
+
+## Options
 
 `-resample` force autocrop to use mincresample, and also ensure that resampling 
-is actually performed -noresample don't actually do anything, but compute 
+is actually performed `-noresample` don't actually do anything, but compute 
 parameters for mincresample -reshape force autocrop to use mincreshape if 
 possible, and also ensure that reshaping is actually performed -noreshape don't 
 actually do anything, but compute parameters for mincreshape -params print out 
-parameters to run mincresample/mincreshape \[default: on if not running them, 
--noparams otherwise\] 
+parameters to run [mincresample](mincresample)/[mincreshape](mincreshape) [default: on if not running them, 
+`-noparams` otherwise] 
 
-## Bounds specification options
+### Bounds specification options
 
 `-from <file>` take the bounds from `<file>` (either a tag or MINC file) 
-\[default: input volume\] 
+[default: input volume] 
 
-`-bbox <file>` compute the bounding box of the data in 
-<file>, and use that for the bounds `-bbox_threshold threshold` value to use when 
-running mincbbox \[default: 0\] -talairach take the bounds from the 
-(approximate) extent of the brain in Talairach space 
+`-bbox <file>` compute the bounding box of the data in `<file>`, and use that for the bounds `-bbox_threshold threshold` value to use when 
+running mincbbox [default: 0] 
+
+`-talairach` take the bounds from the (approximate) extent of the brain in Talairach space 
 SubsectionBounds transformation options
 
--transform <xfm> apply <xfm> to the bounds to get them into the space of the 
-input volume -invert invert the <xfm> supplied with -transform before applying 
+`-transform <xfm>` apply `<xfm>` to the bounds to get them into the space of the 
+input volume -invert invert the `<xfm>` supplied with `-transform` before applying 
 it 
 
-## Bounds modification options
+### Bounds modification options
 
 `-expand` set the (x,y,z) expansion (increase volume extent symmetrically at 
 each end of an axis) parameters -isoexpand set the same expansion parameter for 
@@ -89,10 +96,10 @@ SubsectionResampling options
 set the x, y, and z step (voxel size) for the output sampling -isostep set the 
 step (same in all three dimensions) for the output sampling 
 NO Action TAKEN With no options, `autocrop` is simply a front-end to 
-*mincreshape*; the two commands
+[mincreshape](mincreshape); the two commands
 
 `autocrop foo.mnc bar.mnc` and `mincreshape foo.mnc bar.mnc `
-are equivalent. However, you can force `autocrop` to use *mincresample* with the 
+are equivalent. However, you can force `autocrop` to use [mincresample](mincresample) with the 
 `-resample` option:
 
 `autocrop -resample foo.mnc bar.mnc `
@@ -103,7 +110,7 @@ merely to print out the arguments for whichever program is implied by the
 option. For instance,
 
 `autocrop -noresample foo.mnc `
-would print out the part of a *mincresample* command-line that specifies the 
+would print out the part of a [mincresample](mincresample) command-line that specifies the 
 same sampling grid as found in *foo.mnc*. (Of course, the whole point of 
 `autocrop` is to change that sampling grid in some way. That bit comes later.) 
 For example, a typical PET volume at the MNI has 128x128x15 (x,y,z) voxels, with 
@@ -115,12 +122,12 @@ a given volume are (0,0,-7.9). Then the extent of this volume is
 would print out
 
 `-start 0 0 -7.9 -step 2 2 6.5 -nelements 128 128 15 `
-while autocrop -noreshape foo.mnc 
+while `autocrop -noreshape foo.mnc`
 would give you
 
 `-start 0,0,0 -count 15,128,128 `
-Note that the parameters are specified to *mincresample* in canonical x,y,z 
-order; for *mincreshape*, though, the parameters are reordered according to the 
+Note that the parameters are specified to [mincresample](mincresample) in canonical x,y,z 
+order; for [mincreshape](mincreshape), though, the parameters are reordered according to the 
 volume at hand. In this case, the volume is transverse, so the dimensions are 
 z,y,x.
 
@@ -147,16 +154,16 @@ case.) In this case, `autocrop` is smart enough to use mincreshape for the
 reordering.
 
 Another possibility is that you might want to resample a volume to have 
-isotropic voxel sizes---say, 2x2x2mm. This can be done as follows:
+isotropic voxel sizes say, 2x2x2mm. This can be done as follows:
 
-autocrop foo.mnc foo_cubic.mnc -step 2 2 2 
-In this case, of course, `autocrop` must use mincresample. A handy shortcut 
+`autocrop foo.mnc foo_cubic.mnc -step 2 2 2`
+In this case, of course, `autocrop` must use [mincresample](mincresample). A handy shortcut 
 option exists for the case of isotropic sampling: `-isostep`. You can save a few 
 keystrokes on the above command with this:
 
-autocrop foo.mnc foo_cubic.mnc -isostep 2 
+`autocrop foo.mnc foo_cubic.mnc -isostep 2 `
 
-## BOUNDS SPECIFICATION
+### BOUNDS SPECIFICATION
 Six numbers are necessary to specify the bounds of a three-dimensional volume 
 (unfortunately, `autocrop` is rather prejudiced towards working with 3-D data): 
 the start and extent in each of the *x*, *y*, and *z* dimensions. The 
@@ -192,7 +199,7 @@ encompass only the structure of interest. Recent versions of *Display* do this
 automatically.) Then you could crop the image data down to the size of the 
 structure like this:
 
-autocrop smith_john_mri.mnc smith_john_crop.mnc  -from smith_john_foobar.mnc 
+`autocrop smith_john_mri.mnc smith_john_crop.mnc  -from smith_john_foobar.mnc `
 Too easy, eh? If that's not good enough, you can even tell `autocrop` to do 
 things like add five voxels at one end of the *x* dimension, or increase the 
 volume by 5% all the way around. (But that's covered later, when we get to 
@@ -203,7 +210,7 @@ interest? In that case, you don't want `autocrop` to take the sampling limits of
 the whole volume; rather, you're interested in the limits of the data. This can 
 be done with the `-bbox` option; for instance:
 
-autocrop smith_john_mri.mnc smith_john_crop.mnc  -bbox smith_john_foobar.mnc 
+`autocrop smith_john_mri.mnc smith_john_crop.mnc  -bbox smith_john_foobar.mnc`
 would compute the bounding box of the data in *smith_john_foobar.mnc*, and use 
 that to crop the input MRI file. If you want to compute the bounding box of a 
 non-label volume (i.e. something with a noise floor), you can use 
@@ -214,7 +221,7 @@ Another possibility is that you don't have the bounds you want encoded in a
 handy MINC file; you want to set the start and extent explicitly for each 
 dimension. This can be done by supplying a tag file to the -from option, e.g.
 
-autocrop smith_john_mri.mnc smith_john_crop.mnc  -from mybounds.tag 
+`autocrop smith_john_mri.mnc smith_john_crop.mnc  -from mybounds.tag`
 (Note that `autocrop` distinguishes between MINC and tag files solely by their 
 filename, so you are advised to stick to the standard file naming conventions!) 
 The tag file must have eight points, each of which is one corner of the volume's 
@@ -225,15 +232,27 @@ rotations -- corners of the volume tend to get chopped off.
 
 As an example, a typical PET file from the MNI has spatial parameters like this 
 (courtesy of mincinfo):
-
-dimension name length step start -------------- ------ ---- ----- zspace 15 6.5 
--7.9 yspace 128 2 0 xspace 128 2 0 
+```
+dimension name length step start 
+zspace 15 6.5 -7.9 
+yspace 128 2 0 
+xspace 128 2 0 
+```
 The bounds of this volume could be described as three ordered pairs (start and 
 extent in x,y,z order): (0,256) (0,256) (-7.9,97.5). A tag file describing these 
 bounds would look like this:
 
-MNI Tag Point File Volumes = 1; Points = 0 0 -7.9 "" 0 256 -7.9 "" 0 0 89.6 "" 0 
-256 89.6 "" 256 0 -7.9 "" 256 256 -7.9 "" 256 0 89.6 "" 256 256 89.6 ""; 
+```
+MNI Tag Point File Volumes = 1; 
+Points = 0 0 -7.9 "" 
+0 256 -7.9 "" 
+0 0 89.6 "" 
+0 256 89.6 "" 
+256 0 -7.9 "" 
+256 256 -7.9 "" 
+256 0 89.6 "" 
+256 256 89.6 ""; 
+```
 It should be pretty clear that these eight points describe the rectangular 
 volume taken from the MINC file. (If not, draw it!)
 
@@ -245,7 +264,7 @@ humble narrator) who has zero formal knowledge of neuroanatomy. (Just so you
 know.) This option is often useful in conjunction with bounds transformations, 
 which are illuminated below.
 
-## BOUNDS TRANSFORMATION
+### BOUNDS TRANSFORMATION
 Now that you have a bounding box for your data, presumably you want to change it 
 in some way. The first is with a spatial transformation---for instance, your 
 bounds might be in Talairach space, but you wish to apply them to data in native 
@@ -262,8 +281,10 @@ that extent back to native space. This can be done using `autocrop`'s
 `-transform` option, along with the `-invert` flag (because we're supplying the 
 native-to-Talairach transform, not Talairach-to-native):
 
+```
 autocrop smith_john_mri.mnc smith_john_crop.mnc  -from 
 average305_t1_tal_lin_mask.mnc  -transform smith_john_mrital.xfm -invert 
+```
 (If you happen to have the Talairach-to-native transform handy, you can drop the 
 `-invert` flag.)
 
@@ -275,7 +296,7 @@ tightly-cropped label volume, and you don't have to type as much. The
 disadvantage is that you're implicitly trusting one particular guess (mine) at 
 the spatial extent of the brain+scalp in Talairach space.
 
-## BOUNDS MODIFICATION
+### BOUNDS MODIFICATION
 Once you have your bounds in the desired space (either through a spatial 
 transformation, or through not doing anything at all), you'll probably want to 
 tweak them a little bit. Let's return to the example of cropping an MRI volume 
@@ -288,8 +309,9 @@ and lost any useful anatomical context. In this case, you probably want to
 expand the bounds by a little bit all the way around, say 10%. This is easily 
 done with the `-expand` option (or rather, its shortcut `-isoexpand`):
 
-`autocrop smith_john_mri.mnc smith_john_crop.mnc  -from smith_john_foobar.mnc 
--isoexpand 10%`
+```
+autocrop smith_john_mri.mnc smith_john_crop.mnc  -from smith_john_foobar.mnc -isoexpand 10%
+```
 (Not surprisingly, `-isoexpand 10%` is a shortcut for `-expand 10% 10% 10%`.) 
 *Expanding* a dimension increases the amount of space covered by an equal amount 
 at either end of the dimension. For instance, if the *x* dimension covers 200mm 
@@ -325,7 +347,7 @@ brain can be very dodgy indeed. Also, removing a chunk of unneeded data is a big
 win for processing time and space. For example, to remove 25% of the data at the 
 low end of the *z* axis:
 
-autocrop smith_john_mri.mnc smith_john_crop.mnc  `-extend 0,0 0,0 -25%,0` 
+`autocrop smith_john_mri.mnc smith_john_crop.mnc  -extend 0,0 0,0 -25%,0` 
 Note that we have supplied separate extension pairs for each dimension, but that 
 the extensions to *x* and *y* don't do anything. For *z*, the negative extension 
 factor means to remove data 25% of it, to be specific. At the high end of the 
