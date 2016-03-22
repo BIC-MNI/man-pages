@@ -5,7 +5,7 @@ author: Greg Ward
 ---
 # AUTOCROP
 
-autocrop tool for extracting and manipulating bounds of a MINC file
+autocrop - tool for extracting and manipulating bounds of a MINC file
 
 `autocrop options in_volume out_volume`
 or 
@@ -228,7 +228,7 @@ The tag file must have eight points, each of which is one corner of the volume's
 bounding box. You might think it would be easier and more sensible to specify 
 just six points, such as the extrema of each axis within the volume. However, 
 doing that leads to problems when the bounds are transformed with large 
-rotations -- corners of the volume tend to get chopped off.
+rotations -  corners of the volume tend to get chopped off.
 
 As an example, a typical PET file from the MNI has spatial parameters like this 
 (courtesy of mincinfo):
@@ -243,7 +243,8 @@ extent in x,y,z order): (0,256) (0,256) (-7.9,97.5). A tag file describing these
 bounds would look like this:
 
 ```
-MNI Tag Point File Volumes = 1; 
+MNI Tag Point File 
+Volumes = 1; 
 Points = 0 0 -7.9 "" 
 0 256 -7.9 "" 
 0 0 89.6 "" 
