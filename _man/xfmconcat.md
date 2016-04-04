@@ -1,4 +1,7 @@
 ---
+section: 1
+title: xfmconcat 
+author: Peter Neelin
 ---
 # XFMCONCAT
 
