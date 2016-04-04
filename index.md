@@ -47,6 +47,7 @@ legacy .man files to github-style markup format and then manually corrected.
   * [mincblob](man/mincblob) - average minc files
   * [mincblur](man/mincblur) - convolve an input volume with a Gaussian blurring kernel
   * [autocrop](man/autocrop) - tool for extracting and manipulating bounds of a MINC file
+  * [mincbeast](man/mincbeast) - BEaST brain extraction tool
 * registration and resampling
   * [mincresample](man/mincresample) - resamples a minc file along new spatial dimensions
   * [mincreshape](man/mincreshape) - cuts a hyperslab out of a minc file (with dimension re-ordering)
@@ -64,4 +65,3 @@ legacy .man files to github-style markup format and then manually corrected.
 * miscellanious
   * [mincsample](man/mincsample) - generate samplings from minc files
   * [mincwindow](man/mincwindow) - limit voxel values to a given range
-
