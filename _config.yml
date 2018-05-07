@@ -56,3 +56,6 @@ collections:
   exp:
     output: true
     layout:       "default"
+  wip:
+    output: true
+    layout:       "default"
