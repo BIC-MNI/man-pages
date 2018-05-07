@@ -19,6 +19,9 @@ author_gravatar:    e42cb21337ad4c2484538fe8a301d9a0 # Gravatar md5 hash
 gems:
   - jekyll-sitemap
 
+plugins:
+  - jekyll-sitemap
+
 # Build settings
 markdown: kramdown
 
@@ -29,7 +32,6 @@ compress_html:
     clippings:      all
     ingore:
         envs:       [ "test" ]
-
         
 defaults:
   -
@@ -47,6 +49,11 @@ defaults:
       type:         "posts"
     values:
       layout:       "default"
+  -
+    scope:
+         path:       "assets/*"
+       values:
+         sitemap:         false
 
 
 collections:
@@ -59,3 +66,4 @@ collections:
   wip:
     output: true
     layout:       "default"
+    
