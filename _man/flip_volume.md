@@ -8,16 +8,33 @@ group: Volume Operations
 
 interchange voxel values with their left-right opposites in a MINC volume
 
-`flip_volume`
+`flip_volume input.mnc output.mnc`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`flip_volume` interchanges voxel values with their left-right opposites,
+effectively mirroring the volume about its left-right axis. The resulting
+flipped volume is written to the output file.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`input.mnc`
+:   The input MINC volume.
+
+`output.mnc`
+:   The output flipped MINC volume.
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[flip_tags](flip_tags) [mincresample](mincresample)

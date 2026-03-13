@@ -6,18 +6,27 @@ group: Registration Scripts
 ---
 # suppress_fat
 
-suppress fat signal in an MRI volume for registration preprocessing
+suppress fat signal in MRI volumes
 
-`suppress_fat`
+`suppress_fat [options] input.mnc output.mnc`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**suppress_fat** is a Perl script that suppresses fat signal in MRI volumes.
+Fat signal can interfere with registration and segmentation pipelines, and this
+tool reduces its contribution to improve downstream processing results.
 
-## OPTIONS
-
-TODO: Document options.
+This script requires the Perl module **Getopt::Tabular**.
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[inormalize](inormalize), [nu_correct](nu_correct)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1993 by David MacDonald

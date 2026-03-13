@@ -6,18 +6,43 @@ group: EZminc Analysis Tools
 ---
 # sharpness_estimate
 
-estimate image sharpness based on median gradient magnitude
+Estimate image sharpness based on median gradient magnitude.
 
-`sharpness_estimate`
+`sharpness_estimate [options] <input>`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**sharpness_estimate** estimates the sharpness of a MINC volume by computing
+the median gradient magnitude across the image. Higher values indicate
+sharper images with well-defined edges, while lower values indicate blurry
+images. This metric is useful for quality control of MRI acquisitions and
+for evaluating the effects of denoising or blurring operations.
 
 ## OPTIONS
 
-TODO: Document options.
+`--mask` *mask*
+:   Restrict the sharpness computation to voxels within the specified binary
+    mask.
+
+## EXAMPLES
+
+Estimate sharpness of a T1 volume:
+
+    sharpness_estimate t1.mnc
+
+Estimate sharpness within a brain mask:
+
+    sharpness_estimate --mask brainmask.mnc t1.mnc
+
+## AUTHOR
+
+Vladimir S. Fonov - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 2011 by Vladimir S. Fonov
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[noise_estimate](noise_estimate), [fast_blur](fast_blur)

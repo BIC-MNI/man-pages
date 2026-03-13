@@ -6,18 +6,45 @@ group: Tag Point Tools
 ---
 # interpolate_tags
 
-interpolate new tag points between existing tag points
+interpolate tag points between two sets by a given ratio
 
-`interpolate_tags`
+`interpolate_tags input.tag output.tag ratio ...`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`interpolate_tags` reads a tag file containing two sets of tag points and
+interpolates the second set of tags towards the first set by the given
+ratio. A ratio of 0 leaves the second set unchanged, while a ratio of 1
+moves the second set to match the first. Multiple ratios may be specified.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`input.tag`
+:   The input tag file containing two sets of tag points.
+
+`output.tag`
+:   The output tag file containing the interpolated tag points.
+
+`ratio`
+:   The interpolation ratio (0 to 1). Multiple ratios may be given.
+
+## EXAMPLES
+
+Interpolate halfway between two tag sets:
+
+    interpolate_tags input.tag output.tag 0.5
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[flip_tags](flip_tags) [transform_tags](transform_tags) [dump_points_to_tag_file](dump_points_to_tag_file)

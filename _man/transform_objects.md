@@ -8,16 +8,34 @@ group: Surface and Geometry Tools
 
 apply a spatial transformation to surface or line objects
 
-`transform_objects`
+`transform_objects input.obj input.xfm [output.obj]`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**transform_objects** applies a spatial transformation (specified as an MNI
+transform file) to a BIC object file containing surfaces, lines, or other
+geometric objects. All vertex coordinates in the object are transformed
+according to the given transform.
 
-## OPTIONS
+If **output.obj** is specified, the transformed object is written to that file.
+Otherwise, the input file is overwritten with the transformed result.
 
-TODO: Document options.
+## EXAMPLES
+
+    transform_objects brain_surface.obj linear.xfm transformed.obj
+
+    transform_objects brain_surface.obj nonlinear.xfm
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[transform_tags](transform_tags), [transform_volume](transform_volume),
+[xfmconcat](xfmconcat)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1993 by David MacDonald

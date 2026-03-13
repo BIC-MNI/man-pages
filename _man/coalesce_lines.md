@@ -6,18 +6,36 @@ group: Surface and Geometry Tools
 ---
 # coalesce_lines
 
-join line segments into continuous lines in a line object
+coalesce shared points in a lines object
 
-`coalesce_lines`
+`coalesce_lines input.obj output.obj`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`coalesce_lines` reads a lines object file and coalesces any shared
+points, producing a cleaner line representation. Points that are
+duplicated across multiple line segments are merged into single shared
+vertices in the output.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`input.obj`
+:   The input lines object file.
+
+`output.obj`
+:   The output lines object file with shared points coalesced.
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[extract_largest_line](extract_largest_line) [scan_lines_to_polygons](scan_lines_to_polygons)

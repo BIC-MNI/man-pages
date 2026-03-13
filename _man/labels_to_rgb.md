@@ -8,16 +8,28 @@ group: Label and Classification Tools
 
 convert label values to RGB colour values using a lookup table
 
-`labels_to_rgb`
+`labels_to_rgb input.mnc colour_map.txt output.mnc`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**labels_to_rgb** converts a labelled MINC volume into an RGB colour volume
+using a colour map lookup table. Each integer label value in the input volume
+is mapped to an RGB colour triplet as defined in the colour map text file.
+The output is a MINC volume with vector RGB values suitable for visualization.
 
-## OPTIONS
-
-TODO: Document options.
+The colour map text file should contain one entry per label, mapping label
+values to their corresponding red, green, and blue colour components.
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[lookup_labels](lookup_labels), [minclookup](minclookup),
+[print_all_labels](print_all_labels)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1996 by David MacDonald

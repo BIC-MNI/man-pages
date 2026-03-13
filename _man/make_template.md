@@ -8,16 +8,28 @@ group: Non-Uniformity Correction
 
 create a sampling template volume for N3 non-uniformity correction
 
-`make_template`
+`make_template [options] <input.mnc> <output.mnc>`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**make_template** is a Perl script that creates a template volume used by the
+N3 non-uniformity correction pipeline. The template defines the sampling grid
+on which the non-uniformity field is estimated. It is typically generated from
+the input MRI volume and used by **nu_estimate** during field estimation.
 
-## OPTIONS
+## EXAMPLES
 
-TODO: Document options.
+    make_template input.mnc template.mnc
+
+## AUTHOR
+
+John G. Sled - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1998 by John G. Sled
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[nu_correct](nu_correct), [nu_estimate](nu_estimate), [spline_smooth](spline_smooth)

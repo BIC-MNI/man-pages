@@ -6,18 +6,29 @@ group: Registration Scripts
 ---
 # sphere_resample_obj
 
-resample a surface object using spherical parameterization (script)
+resample a surface object onto a standard sphere tessellation
 
-`sphere_resample_obj`
+`sphere_resample_obj [options] input.obj output.obj`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**sphere_resample_obj** is a Perl script that resamples a surface object onto
+a standard sphere tessellation. It uses spherical parameterization to map the
+input surface to a sphere and then resamples it at regularly distributed
+vertices. This is useful for normalizing surface meshes to a common topology
+for group comparisons or statistical analysis.
 
-## OPTIONS
-
-TODO: Document options.
+This script requires the Perl module **Getopt::Tabular**.
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[spherical_resample](spherical_resample), [two_surface_resample](two_surface_resample)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1993 by David MacDonald

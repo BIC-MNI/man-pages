@@ -6,18 +6,45 @@ group: Surface and Geometry Tools
 ---
 # close_surface
 
-close holes in a polygonal surface object
+fill the interior of a surface in a volume
 
-`close_surface`
+`close_surface in_volume.mnc in_surface.obj out_volume.mnc [label_to_set] [close_threshold]`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`close_surface` creates a new MINC volume with the interior of the given
+surface filled with a label value. The input volume provides the sampling
+grid for the output. An optional label value and closing threshold can be
+specified.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`in_volume.mnc`
+:   The input MINC volume that provides the sampling grid.
+
+`in_surface.obj`
+:   The input surface object file whose interior will be filled.
+
+`out_volume.mnc`
+:   The output MINC volume with the surface interior filled.
+
+`label_to_set`
+:   The label value to assign to voxels inside the surface. Optional.
+
+`close_threshold`
+:   A threshold value controlling the closing operation. Optional.
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[surface_mask](surface_mask) [scan_object_to_volume](scan_object_to_volume)

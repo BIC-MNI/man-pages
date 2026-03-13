@@ -8,16 +8,30 @@ group: Image Composition and Visualization
 
 composite multiple MINC volumes into a single volume
 
-`composite_volumes`
+`composite_volumes output.mnc`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`composite_volumes` composites multiple MINC volumes into a single output
+MINC volume. Input volumes and compositing parameters are read from
+standard input or additional arguments.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`output.mnc`
+:   The output MINC volume.
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[composite_minc_images](composite_minc_images) [composite_images](composite_images)

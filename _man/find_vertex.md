@@ -6,18 +6,32 @@ group: Surface and Geometry Tools
 ---
 # find_vertex
 
-find the vertex of a surface object nearest to a specified point
+find a specific vertex in a surface object
 
-`find_vertex`
+`find_vertex filename`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+`find_vertex` reads a surface object file and locates a specific vertex,
+printing its information to standard output. This can be used to query
+vertex positions or properties from a surface mesh.
 
 ## OPTIONS
 
-TODO: Document options.
+This tool uses positional arguments only. There are no named options.
+
+`filename`
+:   The input surface object file.
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; by David MacDonald
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[dump_points_to_tag_file](dump_points_to_tag_file) [evaluate](evaluate)

@@ -6,18 +6,32 @@ group: Surface and Geometry Tools
 ---
 # two_surface_resample
 
-resample data between two surfaces using vertex correspondence
+resample a surface using two model surfaces
 
-`two_surface_resample`
+`two_surface_resample surface.obj surface_model.obj different_model.obj output.obj n`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**two_surface_resample** resamples a surface using a pair of model surfaces to
+establish vertex correspondence. The input **surface.obj** is mapped through
+**surface_model.obj** and **different_model.obj** to produce a resampled output
+surface with **n** vertices.
 
-## OPTIONS
-
-TODO: Document options.
+This tool is useful when two surfaces share a common parameterization through
+different model surfaces, allowing data to be transferred between surface
+representations with different tessellations.
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[spherical_resample](spherical_resample),
+[sphere_resample_obj](sphere_resample_obj),
+[apply_sphere_transform](apply_sphere_transform)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1993 by David MacDonald

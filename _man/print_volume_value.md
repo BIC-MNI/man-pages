@@ -6,18 +6,32 @@ group: Statistical and Analysis Tools
 ---
 # print_volume_value
 
-print the voxel value at a given voxel coordinate in a volume
+print the voxel value at a given world coordinate in a volume
 
-`print_volume_value`
+`print_volume_value volume.mnc x y z`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**print_volume_value** prints the interpolated voxel value at the specified
+world coordinates (*x*, *y*, *z*) in a MINC volume. The program converts
+the world coordinates to voxel coordinates and evaluates the volume at that
+position.
 
-## OPTIONS
+## EXAMPLES
 
-TODO: Document options.
+    print_volume_value brain.mnc 0 -25 10
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[print_world_value](print_world_value),
+[print_world_values](print_world_values),
+[volume_object_evaluate](volume_object_evaluate)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1996 by David MacDonald

@@ -8,16 +8,35 @@ group: Tag Point Tools
 
 apply a spatial transformation to a tag point file
 
-`transform_tags`
+`transform_tags input.tag input.xfm [output.tag] [invert]`
 
 ## DESCRIPTION
 
-TODO: Add detailed description.
+**transform_tags** applies a spatial transformation to all tag points in the
+input tag file. The transformation is read from an MNI transform (.xfm) file.
 
-## OPTIONS
+If **output.tag** is specified, the transformed tags are written to that file.
+Otherwise, the input tag file is overwritten.
 
-TODO: Document options.
+If a fourth argument is present (any string, e.g. "invert"), the inverse of
+the transform is applied instead.
+
+## EXAMPLES
+
+    transform_tags landmarks.tag linear.xfm transformed.tag
+
+    transform_tags landmarks.tag nonlinear.xfm output.tag invert
 
 ## SEE ALSO
 
-TODO: Add related commands.
+[transform_objects](transform_objects), [transform_volume](transform_volume),
+[transformtags](transformtags), [xfminvert](xfminvert)
+
+## AUTHOR
+
+David MacDonald - McConnell Brain Imaging Centre,
+Montreal Neurological Institute, McGill University.
+
+## COPYRIGHTS
+
+Copyright &amp;copy; 1993 by David MacDonald
